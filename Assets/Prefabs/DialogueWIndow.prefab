@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8574023304317373132}
   - component: {fileID: 5203679893557358463}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Portrait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 1211102600979372807}
   - component: {fileID: 531379098945086215}
   m_Layer: 5
-  m_Name: DialoguePanel
+  m_Name: DialogueWIndow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,3 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70705fe96ca355f4cbe2299a139d75d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: {fileID: 11400000, guid: 95031c6e97b64e94e9682cd43e7ba646, type: 2}
+  portrait: {fileID: 5203679893557358463}
+  name: {fileID: 419723671295845740}
+  message: {fileID: 506115587414117526}
