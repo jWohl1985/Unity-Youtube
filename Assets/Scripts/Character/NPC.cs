@@ -12,7 +12,7 @@ public class NPC : Character, IInteractable
         Right = 3,
     }
 
-    [SerializeField] private Interaction interaction;
+    [SerializeField] private ScriptableObject interaction;
     [SerializeField] private List<Dir> moveRoute = new List<Dir>();
     [SerializeField] private float delay = 0f;
     [SerializeField] private bool neverMoves = false;
@@ -22,16 +22,24 @@ public class NPC : Character, IInteractable
     private int currentMoveRouteIndex = 0;
     private float timeElapsed = 0;
 
-    public Interaction Interaction => interaction;
+    public ScriptableObject Interaction => interaction;
 
     public void Interact()
     {
-        Interaction.StartInteraction();
+        if(interaction is DialogueScene scene)
+        {
+            Vector2Int currentFacing = Facing;
+            Turn.TurnToPlayer();
+            Game.StartDialogue(scene);
+        }
     }
 
     protected override void Update()
     {
         base.Update();
+
+        if (Game.State != GameState.World)
+            return;
 
         if (neverMoves || IsMoving)
             return;

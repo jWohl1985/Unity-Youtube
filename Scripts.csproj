@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Character\CharacterTurner.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Interaction.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleStats.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\DialogueScene.cs" />
     <Compile Include="Assets\Scripts\Utility\GridExtensions.cs" />
     <Compile Include="Assets\Scripts\Menus\MainWindow.cs" />
     <Compile Include="Assets\Scripts\Utility\Direction.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\Scripts\Character\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Managers\Game.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterMover.cs" />
+    <Compile Include="Assets\Scripts\Menus\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterAnimator.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\EnemyData.cs" />
@@ -84,8 +86,6 @@
     <Compile Include="Assets\Scripts\Character\Player.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Menus\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Menus\Dialogue\Dialogue.cs" />
-    <Compile Include="Assets\Scripts\ScriptableObjects\DialogueScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

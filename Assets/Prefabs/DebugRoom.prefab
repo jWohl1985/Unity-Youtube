@@ -3426,6 +3426,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
+      propertyPath: interaction
+      value: 
+      objectReference: {fileID: 11400000, guid: 95031c6e97b64e94e9682cd43e7ba646, type: 2}
+    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
       propertyPath: movesRandomly
       value: 0
       objectReference: {fileID: 0}

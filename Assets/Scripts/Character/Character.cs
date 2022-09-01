@@ -16,7 +16,7 @@ public abstract class Character : MonoBehaviour
     protected virtual void Awake()
     {
         Move = new CharacterMover(this);
-        Turn = new CharacterTurner();
+        Turn = new CharacterTurner(this);
         Animator = new CharacterAnimator(this);
     }
 

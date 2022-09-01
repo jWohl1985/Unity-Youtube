@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    Interaction Interaction { get; }
+    ScriptableObject Interaction { get; }
     void Interact();
 }

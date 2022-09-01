@@ -13,18 +13,31 @@ public enum GameState
 
 public class Game : MonoBehaviour
 {
+    private static DialogueWindow dialogueWindow;
+
     public static GameState State { get; private set; }
     public static Map Map { get; private set; }
     public static Player Player { get; private set; }
     public static void OpenMenu() => State = GameState.Menu;
     public static void CloseMenu() => State = GameState.World;
+    public static void StartDialogue(DialogueScene sceneToPlay)
+    {
+        State = GameState.Cutscene;
+        dialogueWindow.Open(sceneToPlay);
+    }
+    public static void EndDialogue()
+    {
+        State = GameState.World;
+    }
 
     [SerializeField] private Map startingMap;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Vector2Int startingCell;
+    
 
     private void Awake()
     {
+        dialogueWindow = FindObjectOfType<DialogueWindow>();
         if (Map == null)
         {
             Map = Instantiate(startingMap);

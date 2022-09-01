@@ -459,5 +459,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: {fileID: 11400000, guid: 95031c6e97b64e94e9682cd43e7ba646, type: 2}
   portrait: {fileID: 5203679893557358463}
-  name: {fileID: 419723671295845740}
+  characterName: {fileID: 419723671295845740}
   message: {fileID: 506115587414117526}
