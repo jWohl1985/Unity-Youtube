@@ -5,30 +5,33 @@ using UnityEngine.SceneManagement;
 
 public static class SceneLoader
 {
-    private static int battleSceneBuildIndex = 1;
+    private static int battleSceneBuildIndex = 2;
     private static int savedSceneBuildIndex;
     private static Vector2 savedPlayerLocation;
 
     public static void LoadBattleScene()
     {
+        Game.Map.gameObject.SetActive(false);
         savedSceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
         savedPlayerLocation = Game.Player.CurrentCell.Center2D();
-        //Game.Player.gameObject.SetActive(false);
         SceneManager.LoadScene(battleSceneBuildIndex);
         SceneManager.sceneLoaded += DisablePlayerObject;
     }
 
     public static void ReloadSavedSceneAfterBattle()
     {
-        SceneManager.sceneLoaded += RestorePlayerPositionAndGameObject;
+        SceneManager.sceneLoaded += RestoreMapAndPlayer;  
+        if (savedSceneBuildIndex == 0)
+            savedSceneBuildIndex++;
         SceneManager.LoadScene(savedSceneBuildIndex);
     }
 
-    public static void RestorePlayerPositionAndGameObject(Scene scene, LoadSceneMode mode)
+    public static void RestoreMapAndPlayer(Scene scene, LoadSceneMode mode)
     {
+        Game.Map.gameObject.SetActive(true);
         Game.Player.transform.position = savedPlayerLocation;
         Game.Player.gameObject.SetActive(true);
-        SceneManager.sceneLoaded -= RestorePlayerPositionAndGameObject;
+        SceneManager.sceneLoaded -= RestoreMapAndPlayer;
     }
 
     private static void DisablePlayerObject(Scene scene, LoadSceneMode mode)

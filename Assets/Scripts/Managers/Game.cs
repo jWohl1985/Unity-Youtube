@@ -65,6 +65,7 @@ public class Game : MonoBehaviour
         }
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(Player);
+        DontDestroyOnLoad(Map);
     }
 
     private void Update()
