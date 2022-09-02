@@ -14,12 +14,27 @@ public enum GameState
 public class Game : MonoBehaviour
 {
     private static DialogueWindow dialogueWindow;
+    private static MainMenu mainMenu;
 
     public static GameState State { get; private set; }
     public static Map Map { get; private set; }
     public static Player Player { get; private set; }
-    public static void OpenMenu() => State = GameState.Menu;
-    public static void CloseMenu() => State = GameState.World;
+    public static void ToggleMenu()
+    {
+        if (mainMenu.IsAnimating)
+            return;
+
+        if (mainMenu.IsOpen)
+        {
+            State = GameState.World;
+            mainMenu.Close();
+        }
+        else
+        {
+            State = GameState.Menu;
+            mainMenu.Open();
+        }
+    }
     public static void StartDialogue(DialogueScene sceneToPlay)
     {
         State = GameState.Cutscene;
@@ -37,6 +52,7 @@ public class Game : MonoBehaviour
 
     private void Awake()
     {
+        mainMenu = FindObjectOfType<MainMenu>();
         dialogueWindow = FindObjectOfType<DialogueWindow>();
         if (Map == null)
         {

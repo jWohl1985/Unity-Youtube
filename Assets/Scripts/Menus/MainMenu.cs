@@ -5,28 +5,27 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     private Animator animator;
-    private string menuOpenParameter = "menuOpen";
+    private string menuOpenAnimation = "MenuOpen";
+    private string menuCloseAnimation = "MenuClose";
+    
+    public bool IsOpen { get; private set; }
+    public bool IsAnimating => (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1);
 
-    private bool isMenuOpen => Game.State == GameState.Menu;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    public void Open()
     {
-        animator.SetBool(menuOpenParameter, isMenuOpen);
-
-        if (Input.GetKeyDown(KeyCode.Escape) && isMenuOpen)
-        {
-            StartCoroutine(Co_CloseMenu());
-        }
+        IsOpen = true;
+        animator.Play(menuOpenAnimation);
     }
 
-    private IEnumerator Co_CloseMenu()
+    public void Close()
     {
-        yield return null;
-        Game.CloseMenu();
+        IsOpen = false;
+        animator.Play(menuCloseAnimation);
     }
 }
