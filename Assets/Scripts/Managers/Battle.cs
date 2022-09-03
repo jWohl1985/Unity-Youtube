@@ -8,10 +8,15 @@ public class Battle : MonoBehaviour
     public static EnemyPack EnemyPack;
 
     private List<Actor> turnOrder = new List<Actor>();
+    private List<Ally> allies = new List<Ally>();
+    private List<Enemy> enemies = new List<Enemy>();
     private int turnNumber = 0;
     private bool setupComplete = false;
 
     public IReadOnlyList<Actor> TurnOrder => turnOrder;
+    public IReadOnlyList<Ally> Allies => Allies;
+    public IReadOnlyList<Enemy> Enemies => Enemies;
+
 
     private void Awake()
     {
@@ -38,14 +43,47 @@ public class Battle : MonoBehaviour
 
     private void SpawnPartyMembers()
     {
-        Vector2 spawnPosition = new Vector2(-5, -2);
+        int partyCount = Party.ActiveMembers.Count;
+
         foreach(PartyMember member in Party.ActiveMembers)
         {
-            GameObject partyMember = Instantiate(member.ActorPrefab, spawnPosition, Quaternion.identity);
+            GameObject partyMember = Instantiate(member.ActorPrefab, new Vector2(-10, 0), Quaternion.identity);
             Ally ally = partyMember.GetComponent<Ally>();
             ally.Stats = member.Stats;
             turnOrder.Add(ally);
-            spawnPosition.y += 2;          
+            allies.Add(ally);
+        }
+
+        List<Vector2> spawnPositions = new List<Vector2>();
+
+            switch (partyCount)
+            {
+                case 1:
+                    spawnPositions.Add(new Vector2(-3, 0));
+                    break;
+                case 2:
+                    spawnPositions.Add(new Vector2(-3, 1));
+                    spawnPositions.Add(new Vector2(-3, -1));
+                    break;
+                case 3:
+                    spawnPositions.Add(new Vector2(-3.5f, 1));
+                    spawnPositions.Add(new Vector2(-3, -.5f));
+                    spawnPositions.Add(new Vector2(-3.5f, -2));
+                    break;
+                case 4:
+                    spawnPositions.Add(new Vector2(-3.3f, 1.65f));
+                    spawnPositions.Add(new Vector2(-3.8f, 0.4f));
+                    spawnPositions.Add(new Vector2(-3.3f, -1.1f));
+                    spawnPositions.Add(new Vector2(-3.8f, -2.6f));
+                    break;
+            }
+
+        int spawnPositionIndex = 0;
+
+        foreach(Ally ally in allies)
+        {
+            ally.transform.position = spawnPositions[spawnPositionIndex];
+            spawnPositionIndex++;
         }
     }
 
@@ -58,6 +96,7 @@ public class Battle : MonoBehaviour
             Enemy enemy = enemyActor.GetComponent<Enemy>();
             enemy.Stats = EnemyPack.Enemies[i].Stats;
             turnOrder.Add(enemy);
+            enemies.Add(enemy);
         }
     }
 

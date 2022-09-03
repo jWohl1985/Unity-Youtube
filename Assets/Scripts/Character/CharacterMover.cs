@@ -41,6 +41,7 @@ public class CharacterMover
         }
 
         Ray2D ray = new Ray2D(character.CurrentCell.Center2D(), direction);
+        Debug.DrawRay(ray.origin, ray.direction, Color.red, 2.0f);
         RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
 
         foreach (RaycastHit2D hit in hits)

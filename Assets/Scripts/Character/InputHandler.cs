@@ -27,6 +27,9 @@ public class InputHandler
     {
         command = Command.None;
 
+        if (Game.State == GameState.Cutscene)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             command = Command.ToggleMenu;
