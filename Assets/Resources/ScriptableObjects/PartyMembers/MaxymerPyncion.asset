@@ -20,6 +20,6 @@ MonoBehaviour:
     maxhp: 10
     str: 5
     arm: 3
-    spd: 2
+    spd: 3
   portrait: {fileID: 21300000, guid: 1110c8aba2c7619408d8ad071edd5051, type: 3}
   job: Thief

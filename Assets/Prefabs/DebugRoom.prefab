@@ -3423,7 +3423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
       propertyPath: neverMoves
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
       propertyPath: interaction
@@ -3435,11 +3435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
       propertyPath: moveRouteLoops
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
       propertyPath: moveRoute.Array.size
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
       propertyPath: moveRoute.Array.data[0]
@@ -3455,11 +3455,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
       propertyPath: moveRoute.Array.data[3]
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
       propertyPath: moveRoute.Array.data[4]
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
       propertyPath: moveRoute.Array.data[5]

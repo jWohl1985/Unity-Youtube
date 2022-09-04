@@ -5,25 +5,33 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 
-public class CharacterTests
+
+public class A_CharacterTests
 {
     private bool isReady = false;
     private Player sut;
 
     [OneTimeSetUp]
-    public void LoadTestScene()
+    public void SetupScene()
     {
-        SceneManager.LoadScene(0);
-        SceneManager.sceneLoaded += SceneReady;
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            SceneManager.LoadScene(0);
+            SceneManager.sceneLoaded += OnSceneReady;
+        }
+        else
+        {
+            OnSceneReady(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+            isReady = true;
+        }
     }
 
-    public void SceneReady(Scene scene, LoadSceneMode mode)
+    public void OnSceneReady(Scene scene, LoadSceneMode mode)
     {
         sut = GameObject.FindObjectOfType<Player>();
         isReady = true;
     }
 
-    // Should start in cell 0,0
     [UnityTest, Order(0)]
     public IEnumerator Finds_current_cell()
     {
@@ -31,7 +39,6 @@ public class CharacterTests
         Assert.AreEqual(new Vector2Int(0, 0), sut.CurrentCell);
     }
 
-    // Turns in place a few times
     [Test, Order(1)]
     public void Character_facing_updates_correctly()
     {
@@ -48,7 +55,6 @@ public class CharacterTests
         Assert.AreEqual(Direction.Up, sut.Facing);
     }
 
-    // Moves up, down, left, right, ending in the same spot where we started
     [UnityTest, Order(2)]
     public IEnumerator Moves_to_the_correct_cell()
     {
@@ -77,7 +83,6 @@ public class CharacterTests
         Assert.AreEqual(current + Direction.Up, sut.CurrentCell);
     }
 
-    // Moves left once, checking that the occupied map cells update
     [UnityTest, Order(3)]
     public IEnumerator Updates_cell_map_dictionary()
     {
@@ -94,7 +99,6 @@ public class CharacterTests
         Assert.AreEqual(sut, Game.Map.OccupiedCells[sut.CurrentCell]);
     }
 
-    // Moves next to the NPC and try to move into him
     [UnityTest, Order(4)]
     public IEnumerator Cant_move_into_characters()
     {
@@ -107,7 +111,6 @@ public class CharacterTests
         Assert.AreEqual(originalCell, sut.CurrentCell);
     }
 
-    // Tries to move into the fence below -- shouldn't move, but should turn
     [Test, Order(5)]
     public void Failed_move_changes_facing()
     {
@@ -115,7 +118,6 @@ public class CharacterTests
         Assert.AreEqual(Direction.Down, sut.Facing);
     }
 
-    // Tries to move into the fence below -- shouldn't be able to
     [UnityTest, Order(6)]
     public IEnumerator Cant_move_into_collisions()
     {
@@ -125,7 +127,6 @@ public class CharacterTests
         Assert.AreEqual(originalCell, sut.CurrentCell);
     }
 
-    // Moves up, checks to make sure animation parameters update correctly
     [UnityTest, Order(7)]
     public IEnumerator Animator_updates_parameters()
     {

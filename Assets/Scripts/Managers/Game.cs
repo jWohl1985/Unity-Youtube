@@ -21,7 +21,7 @@ public class Game : MonoBehaviour
     public static Player Player { get; private set; }
     public static void ToggleMenu()
     {
-        if (mainMenu.IsAnimating)
+        if (mainMenu.IsAnimating || State == GameState.Cutscene)
             return;
 
         if (mainMenu.IsOpen)
@@ -82,7 +82,7 @@ public class Game : MonoBehaviour
         }
     }
 
-    private IEnumerator Co_StartBattle()
+    public IEnumerator Co_StartBattle()
     {
         State = GameState.Battle;
         Instantiate(ResourceLoader.Load<GameObject>(ResourceLoader.BattleTransition), Player.transform.position, Quaternion.identity);

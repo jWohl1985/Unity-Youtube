@@ -20,6 +20,6 @@ MonoBehaviour:
     maxhp: 10
     str: 5
     arm: 3
-    spd: 2
+    spd: 4
   portrait: {fileID: 21300000, guid: 3cfa722827881af4198b3308389e8243, type: 3}
   job: Black Mage

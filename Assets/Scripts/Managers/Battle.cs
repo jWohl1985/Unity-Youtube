@@ -14,8 +14,9 @@ public class Battle : MonoBehaviour
     private bool setupComplete = false;
 
     public IReadOnlyList<Actor> TurnOrder => turnOrder;
-    public IReadOnlyList<Ally> Allies => Allies;
-    public IReadOnlyList<Enemy> Enemies => Enemies;
+    public IReadOnlyList<Ally> Allies => allies;
+    public IReadOnlyList<Enemy> Enemies => enemies;
+    public bool SetupComplete => setupComplete;
 
 
     private void Awake()

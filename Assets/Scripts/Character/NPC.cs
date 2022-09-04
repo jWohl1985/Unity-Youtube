@@ -19,6 +19,34 @@ public class NPC : Character, IInteractable
     [SerializeField] private bool movesRandomly = false;
     [SerializeField] private bool moveRouteLoops = false;
 
+    public bool NeverMoves
+    {
+        get => neverMoves;
+        set => neverMoves = value;
+    }
+
+    public bool MovesRandomly
+    {
+        get => movesRandomly;
+        set => movesRandomly = value;
+    }
+
+    public bool MoveRouteLoops
+    {
+        get => moveRouteLoops;
+        set
+        {
+            currentMoveRouteIndex = 0;
+            moveRouteLoops = value;
+        }
+    }
+
+    public float Delay
+    {
+        get => delay;
+        set => delay = Mathf.Clamp(value, 0, 30.0f);
+    }
+
     private int currentMoveRouteIndex = 0;
     private float timeElapsed = 0;
 

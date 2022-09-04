@@ -35,7 +35,7 @@ public class BattleStats
         get => level;
         set
         {
-            level = Mathf.Clamp(value, 0, MAXIMUM_POSSIBLE_LEVEL);
+            level = Mathf.Clamp(value, 1, MAXIMUM_POSSIBLE_LEVEL);
         }
     }
 

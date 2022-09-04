@@ -6,8 +6,9 @@ public static class Party
 {
     private static List<PartyMember> activeMembers = new List<PartyMember>();
     private static List<PartyMember> reserveMembers = new List<PartyMember>();
-    public static IReadOnlyList<PartyMember> ActiveMembers => activeMembers;
 
+    public static IReadOnlyList<PartyMember> ActiveMembers => activeMembers;
+    public static IReadOnlyList<PartyMember> ReserveMembers => reserveMembers;
 
     static Party()
     {

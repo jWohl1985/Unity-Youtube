@@ -24,15 +24,7 @@ public class DialogueWindow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            currentSceneDialogueIndex++;
-            if (currentSceneDialogueIndex < scene.Dialogues.Count)
-            {
-                DisplayDialogue(scene.Dialogues[currentSceneDialogueIndex]);
-            }
-            else
-            {
-                Close();
-            }
+            GoToNextLine();
         }
     }
 
@@ -42,6 +34,19 @@ public class DialogueWindow : MonoBehaviour
         currentSceneDialogueIndex = 0;
         DisplayDialogue(scene.Dialogues[currentSceneDialogueIndex]);
         animator.SetBool(dialogueOpenParameter, true);
+    }
+
+    public void GoToNextLine()
+    {
+        currentSceneDialogueIndex++;
+        if (currentSceneDialogueIndex < scene.Dialogues.Count)
+        {
+            DisplayDialogue(scene.Dialogues[currentSceneDialogueIndex]);
+        }
+        else
+        {
+            Close();
+        }
     }
 
     private void DisplayDialogue(Dialogue dialogue)

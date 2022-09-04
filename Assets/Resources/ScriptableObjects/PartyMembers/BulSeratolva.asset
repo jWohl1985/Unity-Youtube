@@ -20,6 +20,6 @@ MonoBehaviour:
     maxhp: 10
     str: 5
     arm: 3
-    spd: 2
+    spd: 3
   portrait: {fileID: 21300000, guid: c20182c8b4579d6489d43aafcdf30786, type: 3}
   job: Blue Mage
