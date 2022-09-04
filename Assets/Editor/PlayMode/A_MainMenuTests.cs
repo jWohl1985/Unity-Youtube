@@ -4,6 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
+using Core;
 
 public class A_MainMenuTests
 {
@@ -53,7 +54,7 @@ public class A_MainMenuTests
         // Arrange
 
         // Act
-        Game.ToggleMenu();
+        Game.Manager.ToggleMenu();
         yield return null;
 
         // Assert
@@ -67,7 +68,7 @@ public class A_MainMenuTests
         yield return null;
         
         // Act
-        Game.ToggleMenu();
+        Game.Manager.ToggleMenu();
         yield return null;
 
         // Assert
@@ -94,7 +95,7 @@ public class A_MainMenuTests
         // Arrange
 
         // Act
-        Game.ToggleMenu();
+        Game.Manager.ToggleMenu();
         yield return null;
 
         // Assert
@@ -108,7 +109,7 @@ public class A_MainMenuTests
         yield return null;
 
         // Act
-        Game.ToggleMenu();
+        Game.Manager.ToggleMenu();
         yield return null;
 
         // Assert
@@ -156,11 +157,11 @@ public class A_MainMenuTests
     public IEnumerator Cant_open_in_cutscene()
     {
         // Arrange
-        DialogueScene scene = Resources.Load<DialogueScene>("ScriptableObjects/DialogueScenes/TestDialogue");
-        Game.StartDialogue(scene);
+        Dialogue scene = Resources.Load<Dialogue>("ScriptableObjects/DialogueScenes/TestDialogue");
+        Game.Manager.StartDialogue(scene);
 
         // Act
-        Game.ToggleMenu();
+        Game.Manager.ToggleMenu();
         yield return null;
 
         // Assert

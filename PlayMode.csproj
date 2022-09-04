@@ -57,10 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\PlayMode\A_NPCTests.cs" />
+    <Compile Include="Assets\Editor\PlayMode\B_BattleTests.cs" />
     <Compile Include="Assets\Editor\PlayMode\A_DialogueWindowTests.cs" />
     <Compile Include="Assets\Editor\PlayMode\A_CharacterTests.cs" />
     <Compile Include="Assets\Editor\PlayMode\A_MainMenuTests.cs" />
-    <Compile Include="Assets\Editor\PlayMode\B_BattleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\PlayMode\PlayMode.asmdef" />

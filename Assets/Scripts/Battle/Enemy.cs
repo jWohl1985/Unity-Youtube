@@ -2,55 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Actor
+namespace Battle
 {
-    public override void StartTurn()
+    public class Enemy : Actor
     {
-        IsTakingTurn = true;
-        StartCoroutine(Co_MoveToCenter());
-    }
-
-    private IEnumerator Co_MoveToCenter()
-    {
-        float elapsedTime = 0;
-
-        while ((Vector2)transform.position != battlePosition)
+        public override void StartTurn()
         {
-            transform.position = Vector2.Lerp(startingPosition, battlePosition, elapsedTime);
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            IsTakingTurn = true;
+            StartCoroutine(Co_MoveToCenter());
         }
 
-        StartCoroutine(Co_EnemyChooseAction());
-    }
-
-    private IEnumerator Co_EnemyChooseAction()
-    {
-        while (true)
+        private IEnumerator Co_MoveToCenter()
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            float elapsedTime = 0;
+
+            while ((Vector2)transform.position != battlePosition)
             {
-                Debug.Log("Command accepted!");
-                break;
+                transform.position = Vector2.Lerp(startingPosition, battlePosition, elapsedTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
             }
-            yield return null;
+
+            StartCoroutine(Co_EnemyChooseAction());
         }
 
-        StartCoroutine(Co_EndTurn());
-    }
-
-    private IEnumerator Co_EndTurn()
-    {
-        float elapsedTime = 0;
-        Vector2 currentPosition = transform.position;
-
-        while ((Vector2)transform.position != startingPosition)
+        private IEnumerator Co_EnemyChooseAction()
         {
-            transform.position = Vector2.Lerp(currentPosition, startingPosition, elapsedTime);
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            while (true)
+            {
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    Debug.Log("Command accepted!");
+                    break;
+                }
+                yield return null;
+            }
+
+            StartCoroutine(Co_EndTurn());
         }
 
-        IsTakingTurn = false;
+        private IEnumerator Co_EndTurn()
+        {
+            float elapsedTime = 0;
+            Vector2 currentPosition = transform.position;
+
+            while ((Vector2)transform.position != startingPosition)
+            {
+                transform.position = Vector2.Lerp(currentPosition, startingPosition, elapsedTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            IsTakingTurn = false;
+        }
     }
 }

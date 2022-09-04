@@ -5,11 +5,13 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using Core;
+using Battle;
 
 public class B_BattleTests
 {
     private bool isReady = false;
-    private Battle sut;
+    private BattleControl sut;
 
     [OneTimeSetUp]
     public void SetupScene()
@@ -30,13 +32,13 @@ public class B_BattleTests
         SceneManager.sceneLoaded -= OnSceneReady;
         SceneManager.sceneLoaded += OnBattleSceneReady;
         Game game = GameObject.FindObjectOfType<Game>();
-        Battle.EnemyPack = ResourceLoader.Load<EnemyPack>(ResourceLoader.TwoGoblin);
-        game.StartCoroutine(game.Co_StartBattle());
+        BattleControl.EnemyPack = Resources.Load<EnemyPack>(Paths.TwoGoblin);
+        game.StartCoroutine(game.Co_StartBattle(Resources.Load<EnemyPack>(Paths.TwoGoblin)));
     }
 
     public void OnBattleSceneReady(Scene scene, LoadSceneMode mode)
     {
-        sut = GameObject.FindObjectOfType<Battle>();
+        sut = GameObject.FindObjectOfType<BattleControl>();
         isReady = true;
     }
 
@@ -49,7 +51,7 @@ public class B_BattleTests
         // Act
 
         // Assert
-        Assert.AreEqual(GameState.Battle, Game.State);
+        Assert.AreEqual(GameState.Battle, Game.Manager.State);
     }
 
     [Test, Order(1)]
@@ -60,7 +62,7 @@ public class B_BattleTests
         // Act
 
         // Assert
-        Assert.AreEqual(Battle.EnemyPack, ResourceLoader.Load<EnemyPack>(ResourceLoader.TwoGoblin));
+        Assert.AreEqual(BattleControl.EnemyPack, Resources.Load<EnemyPack>(Paths.TwoGoblin));
     }
 
     [UnityTest, Order(1)]
@@ -89,11 +91,11 @@ public class B_BattleTests
         // Act
 
         // Assert
-        Assert.AreEqual(Battle.EnemyPack.Enemies.Count, sut.Enemies.Count);
+        Assert.AreEqual(BattleControl.EnemyPack.Enemies.Count, sut.Enemies.Count);
 
-        for (int i = 0; i < Battle.EnemyPack.Enemies.Count; i++)
+        for (int i = 0; i < BattleControl.EnemyPack.Enemies.Count; i++)
         {
-            Assert.AreSame(Battle.EnemyPack.Enemies[i].Stats, sut.Enemies[i].Stats);
+            Assert.AreSame(BattleControl.EnemyPack.Enemies[i].Stats, sut.Enemies[i].Stats);
             Assert.IsTrue(sut.TurnOrder.Contains(sut.Enemies[i]));
         }
     }
@@ -120,10 +122,10 @@ public class B_BattleTests
         // Act
 
         // Assert
-        for (int i = 0; i < Battle.EnemyPack.Enemies.Count; i++)
+        for (int i = 0; i < BattleControl.EnemyPack.Enemies.Count; i++)
         {
-            Assert.AreEqual(Battle.EnemyPack.XSpawnCoordinates[i], sut.Enemies[i].transform.position.x, .1f);
-            Assert.AreEqual(Battle.EnemyPack.YSpawnCoordinates[i], sut.Enemies[i].transform.position.y, .1f);
+            Assert.AreEqual(BattleControl.EnemyPack.XSpawnCoordinates[i], sut.Enemies[i].transform.position.x, .1f);
+            Assert.AreEqual(BattleControl.EnemyPack.YSpawnCoordinates[i], sut.Enemies[i].transform.position.y, .1f);
         }
     }
 

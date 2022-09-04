@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Battle;
 
 [CreateAssetMenu(fileName = "New Party Member", menuName = "New Party Member")]
 public class PartyMember : ScriptableObject

@@ -4,6 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
+using Core;
 
 
 public class A_CharacterTests
@@ -28,7 +29,7 @@ public class A_CharacterTests
 
     public void OnSceneReady(Scene scene, LoadSceneMode mode)
     {
-        sut = GameObject.FindObjectOfType<Player>();
+        sut = Game.Manager.Player;
         isReady = true;
     }
 
@@ -42,16 +43,16 @@ public class A_CharacterTests
     [Test, Order(1)]
     public void Character_facing_updates_correctly()
     {
-        sut.Turn.Turn(Direction.Left);
+        sut.Turner.Turn(Direction.Left);
         Assert.AreEqual(Direction.Left, sut.Facing);
 
-        sut.Turn.Turn(Direction.Down);
+        sut.Turner.Turn(Direction.Down);
         Assert.AreEqual(Direction.Down, sut.Facing);
 
-        sut.Turn.Turn(Direction.Right);
+        sut.Turner.Turn(Direction.Right);
         Assert.AreEqual(Direction.Right, sut.Facing);
 
-        sut.Turn.Turn(Direction.Up);
+        sut.Turner.Turn(Direction.Up);
         Assert.AreEqual(Direction.Up, sut.Facing);
     }
 
@@ -60,25 +61,25 @@ public class A_CharacterTests
     {
         // Moving Left
         Vector2Int current = sut.CurrentCell;
-        sut.Move.TryMove(Direction.Left);
+        sut.Movement.TryMove(Direction.Left);
         yield return new WaitForSeconds(.5f);
         Assert.AreEqual(current + Direction.Left, sut.CurrentCell);
 
         // Moving Right
         current = sut.CurrentCell;
-        sut.Move.TryMove(Direction.Right);
+        sut.Movement.TryMove(Direction.Right);
         yield return new WaitForSeconds(.5f);
         Assert.AreEqual(current + Direction.Right, sut.CurrentCell);
 
         // Moving Down
         current = sut.CurrentCell;
-        sut.Move.TryMove(Direction.Down);
+        sut.Movement.TryMove(Direction.Down);
         yield return new WaitForSeconds(.5f);
         Assert.AreEqual(current + Direction.Down, sut.CurrentCell);
 
         // Moving Up
         current = sut.CurrentCell;
-        sut.Move.TryMove(Direction.Up);
+        sut.Movement.TryMove(Direction.Up);
         yield return new WaitForSeconds(.5f);
         Assert.AreEqual(current + Direction.Up, sut.CurrentCell);
     }
@@ -88,25 +89,25 @@ public class A_CharacterTests
     {
         Vector2Int originalCell = sut.CurrentCell;
 
-        Assert.IsTrue(Game.Map.OccupiedCells.ContainsKey(originalCell));
-        Assert.AreEqual(sut, Game.Map.OccupiedCells[originalCell]);
+        Assert.IsTrue(Game.Manager.Map.OccupiedCells.ContainsKey(originalCell));
+        Assert.AreEqual(sut, Game.Manager.Map.OccupiedCells[originalCell]);
 
-        sut.Move.TryMove(Direction.Left);
+        sut.Movement.TryMove(Direction.Left);
         yield return new WaitForSeconds(.5f);
 
-        Assert.IsTrue(Game.Map.OccupiedCells.ContainsKey(sut.CurrentCell));
-        Assert.IsFalse(Game.Map.OccupiedCells.ContainsKey(originalCell));
-        Assert.AreEqual(sut, Game.Map.OccupiedCells[sut.CurrentCell]);
+        Assert.IsTrue(Game.Manager.Map.OccupiedCells.ContainsKey(sut.CurrentCell));
+        Assert.IsFalse(Game.Manager.Map.OccupiedCells.ContainsKey(originalCell));
+        Assert.AreEqual(sut, Game.Manager.Map.OccupiedCells[sut.CurrentCell]);
     }
 
     [UnityTest, Order(4)]
     public IEnumerator Cant_move_into_characters()
     {
-        sut.Move.TryMove(Direction.Down);
+        sut.Movement.TryMove(Direction.Down);
         yield return new WaitForSeconds(.5f);
 
         Vector2Int originalCell = sut.CurrentCell;
-        sut.Move.TryMove(Direction.Left);
+        sut.Movement.TryMove(Direction.Left);
         yield return new WaitForSeconds(.5f);
         Assert.AreEqual(originalCell, sut.CurrentCell);
     }
@@ -114,7 +115,7 @@ public class A_CharacterTests
     [Test, Order(5)]
     public void Failed_move_changes_facing()
     {
-        sut.Move.TryMove(Direction.Down);
+        sut.Movement.TryMove(Direction.Down);
         Assert.AreEqual(Direction.Down, sut.Facing);
     }
 
@@ -122,7 +123,7 @@ public class A_CharacterTests
     public IEnumerator Cant_move_into_collisions()
     {
         Vector2Int originalCell = sut.CurrentCell;
-        sut.Move.TryMove(Direction.Down);
+        sut.Movement.TryMove(Direction.Down);
         yield return new WaitForSeconds(.5f);
         Assert.AreEqual(originalCell, sut.CurrentCell);
     }
@@ -137,7 +138,7 @@ public class A_CharacterTests
         Assert.AreEqual(0, animator.GetFloat(charAnimator.HorizontalParameter));
         Assert.AreEqual(-1.0f, animator.GetFloat(charAnimator.VerticalParameter));
 
-        sut.Move.TryMove(Direction.Up);
+        sut.Movement.TryMove(Direction.Up);
 
         yield return new WaitForSeconds(.1f);
 
@@ -147,7 +148,7 @@ public class A_CharacterTests
 
         yield return new WaitForSeconds(.4f);
 
-        sut.Move.TryMove(Direction.Right);
+        sut.Movement.TryMove(Direction.Right);
 
         yield return new WaitForSeconds(.1f);
 

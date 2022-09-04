@@ -4,12 +4,13 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
+using Core;
 
 public class A_DialogueWindowTests
 {
     private bool isReady = false;
     private DialogueWindow sut;
-    private DialogueScene testScene;
+    private Dialogue testScene;
     private Animator sutAnimator;
 
     [OneTimeSetUp]
@@ -30,7 +31,7 @@ public class A_DialogueWindowTests
     public void OnSceneReady(Scene scene, LoadSceneMode mode)
     {
         sut = GameObject.FindObjectOfType<DialogueWindow>();
-        testScene = Resources.Load<DialogueScene>("ScriptableObjects/DialogueScenes/TestDialogue");
+        testScene = Resources.Load<Dialogue>("ScriptableObjects/DialogueScenes/TestDialogue");
         sutAnimator = sut.GetComponent<Animator>();
         isReady = true;
     }
@@ -53,7 +54,7 @@ public class A_DialogueWindowTests
         // Arrange
 
         // Act
-        Game.StartDialogue(testScene);
+        Game.Manager.StartDialogue(testScene);
         yield return null;
 
         // Assert
@@ -87,7 +88,7 @@ public class A_DialogueWindowTests
         yield return null;
 
         // Assert
-        Assert.AreEqual(GameState.World, Game.State);
+        Assert.AreEqual(GameState.World, Game.Manager.State);
     }
 
     [Test, Order(4)]
@@ -98,7 +99,7 @@ public class A_DialogueWindowTests
         // Act
 
         // Assert
-        Assert.AreEqual(GameState.World, Game.State);
+        Assert.AreEqual(GameState.World, Game.Manager.State);
     }
 
     [UnityTest, Order(5)]

@@ -4,6 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
+using Core;
 
 public class A_NPCTests
 {
@@ -36,7 +37,7 @@ public class A_NPCTests
     public IEnumerator Doesnt_move_if_never_moves()
     {
         // Arrange
-        while (!isReady || Game.State != GameState.World) yield return null;
+        while (!isReady || Game.Manager.State != GameState.World) yield return null;
         float timeElapsed = 0;
 
         // Act
@@ -158,7 +159,7 @@ public class A_NPCTests
     public IEnumerator Turns_to_player_on_interact()
     {
         // Arrange
-        sut.Turn.Turn(Direction.Left);
+        sut.Turner.Turn(Direction.Left);
 
         // Act
         sut.Interact();
@@ -177,7 +178,7 @@ public class A_NPCTests
 
         // Assert
         yield return null;
-        Assert.AreEqual(GameState.Cutscene, Game.State);
+        Assert.AreEqual(GameState.Cutscene, Game.Manager.State);
     }
 
     [UnityTest, Order(6)]
