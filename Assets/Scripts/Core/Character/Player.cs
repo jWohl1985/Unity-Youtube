@@ -25,5 +25,15 @@ namespace Core
             base.Update();
             InputHandler.CheckInput();
         }
+
+        public void CheckCurrentCell()
+        {
+            if (Game.Manager.Map.Exits.ContainsKey(CurrentCell))
+            {
+                Exit exit = Game.Manager.Map.Exits[CurrentCell];
+                exit.TeleportPlayer();
+            }
+        }
+
     }
 }

@@ -18,17 +18,12 @@ namespace Core
         private string dialogueCloseAnimation = "DialogueClose";
         private int currentDialogueLine = 0;
 
+        public bool IsOpen { get; private set; }
+        public bool IsAnimating => animator.IsAnimating();
+
         private void Awake()
         {
             animator = GetComponent<Animator>();
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                GoToNextLine();
-            }
         }
 
         public void Open(Dialogue dialogueToPlay)
@@ -37,6 +32,7 @@ namespace Core
             currentDialogueLine = 0;
             ShowDialogueLine(dialogue.DialogueLines[currentDialogueLine]);
             animator.Play(dialogueOpenAnimation);
+            IsOpen = true;
         }
 
         public void GoToNextLine()
@@ -63,6 +59,7 @@ namespace Core
         {
             animator.Play(dialogueCloseAnimation);
             Game.Manager.EndDialogue();
+            IsOpen = false;
         }
     }
 }

@@ -71,6 +71,9 @@ namespace Core
 
             transform.position = endingPosition;
             IsMoving = false;
+
+            if (character is Player player)
+                player.CheckCurrentCell();
         }
     }
 }

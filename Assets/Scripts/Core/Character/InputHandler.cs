@@ -8,7 +8,7 @@ namespace Core
     {
         private Player player;
         private Command command;
-        private Map map;
+        private Map map => Game.Manager.Map;
 
         private enum Command
         {
@@ -19,20 +19,24 @@ namespace Core
             MoveDown,
             Interact,
             ToggleMenu,
+            AdvanceDialogue,
         }
 
         public InputHandler(Player player)
         {
             this.player = player;
-            map = Game.Manager.Map;
         }
 
         public void CheckInput()
         {
             command = Command.None;
 
-            if (Game.Manager.State == GameState.Cutscene)
+            if (Game.Manager.State == GameState.Cutscene && Input.GetKeyDown(KeyCode.Space))
+            {
+                command = Command.AdvanceDialogue;
+                HandleCommand(command);
                 return;
+            }
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -79,6 +83,9 @@ namespace Core
                 case (Command.ToggleMenu):
                     ProcessToggleMenu();
                     break;
+                case (Command.AdvanceDialogue):
+                    ProcessAdvanceDialogue();
+                    break;
             }
         }
 
@@ -109,7 +116,7 @@ namespace Core
         {
             Vector2Int cellToCheck = player.Facing + player.CurrentCell;
 
-            if (map.OccupiedCells.ContainsKey(cellToCheck))
+            if (!map.OccupiedCells.ContainsKey(cellToCheck))
             {
                 return;
             }
@@ -120,9 +127,8 @@ namespace Core
             }
         }
 
-        private void ProcessToggleMenu()
-        {
-            Game.Manager.ToggleMenu();
-        }
+        private void ProcessToggleMenu() => Game.Manager.ToggleMenu();
+
+        private void ProcessAdvanceDialogue() => Game.Manager.AdvanceDialogue();
     }
 }
