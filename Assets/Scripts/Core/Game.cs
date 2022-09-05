@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Battle;
+using System.Linq;
 
 namespace Core
 {
@@ -93,12 +94,16 @@ namespace Core
             dialogueWindow.GoToNextLine();
         }
 
-        public void LoadMap(Map newMap, Vector2Int destinationCell)
+        public void LoadMap(Map newMap, int destinationId)
         {
             Map oldMap = Map;
             Map = Instantiate(newMap);
             Destroy(oldMap.gameObject);
-            Player.transform.position = destinationCell.Center2D();
+
+            Transfer[] transfers = FindObjectsOfType<Transfer>();
+            Transfer transfer = transfers.Where(transfer => transfer.Id == destinationId).ToList().FirstOrDefault();
+
+            Player.transform.position = transfer.Cell.Center2D();
         }
     }
 }

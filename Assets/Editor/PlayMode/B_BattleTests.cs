@@ -118,19 +118,22 @@ public class B_BattleTests
     public void Enemies_spawn_in_correct_positions()
     {
         // Arrange
+        float tolerance;
 
         // Act
 
         // Assert
         for (int i = 0; i < BattleControl.EnemyPack.Enemies.Count; i++)
         {
-            Assert.AreEqual(BattleControl.EnemyPack.XSpawnCoordinates[i], sut.Enemies[i].transform.position.x, .1f);
-            Assert.AreEqual(BattleControl.EnemyPack.YSpawnCoordinates[i], sut.Enemies[i].transform.position.y, .1f);
+            if (sut.Enemies[i].IsTakingTurn) tolerance = .5f;
+            else tolerance = .1f;
+            Assert.AreEqual(BattleControl.EnemyPack.XSpawnCoordinates[i], sut.Enemies[i].transform.position.x, tolerance);
+            Assert.AreEqual(BattleControl.EnemyPack.YSpawnCoordinates[i], sut.Enemies[i].transform.position.y, tolerance);
         }
     }
 
     [UnityTest, Order(5)]
-    public IEnumerator First_actor_takes_turn_and_goes_to_middle()
+    public IEnumerator First_actor_takes_turn()
     {
         // Arrange
         yield return new WaitForSeconds(.1f);

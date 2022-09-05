@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Core\Character\CharacterMover.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueLine.cs" />
     <Compile Include="Assets\Scripts\Core\Character\Character.cs" />
+    <Compile Include="Assets\Scripts\Core\Maps\Transfer.cs" />
     <Compile Include="Assets\Scripts\Core\Character\CharacterAnimator.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\EnemyData.cs" />
     <Compile Include="Assets\Scripts\Core\Utility\SceneLoader.cs" />
@@ -86,7 +87,6 @@
     <Compile Include="Assets\Scripts\Core\Character\Player.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Core\Maps\Exit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

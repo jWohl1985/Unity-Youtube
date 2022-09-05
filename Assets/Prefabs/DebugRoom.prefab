@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5121917274897627537}
   - component: {fileID: 6467051278675954657}
   m_Layer: 0
-  m_Name: CaveExit
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,8 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0470507eaeea56449f6f099aaa82b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMap: {fileID: 6361842508756545494}
-  destinationCell: {x: 3, y: 3}
+  id: 1
+  newMap: {fileID: -2810603696782550641, guid: 7b066aa1606d74a4286972aae0cefd70, type: 3}
+  destinationId: 1
 --- !u!1 &6361842508308886511
 GameObject:
   m_ObjectHideFlags: 0

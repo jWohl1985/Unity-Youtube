@@ -30,7 +30,7 @@ namespace Core
         {
             if (Game.Manager.Map.Exits.ContainsKey(CurrentCell))
             {
-                Exit exit = Game.Manager.Map.Exits[CurrentCell];
+                Transfer exit = Game.Manager.Map.Exits[CurrentCell];
                 exit.TeleportPlayer();
             }
         }

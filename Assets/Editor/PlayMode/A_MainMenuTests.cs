@@ -61,7 +61,18 @@ public class A_MainMenuTests
         Assert.IsTrue(sutMainMenu.IsOpen);
     }
 
-    [UnityTest, Order(2)]
+    [Test, Order(2)]
+    public void Changes_game_state()
+    {
+        // Arrange
+
+        // Act
+
+        // Assert
+        Assert.AreEqual(GameState.Menu, Game.Manager.State);
+    }
+
+    [UnityTest, Order(3)]
     public IEnumerator Cant_be_closed_while_opening()
     {
         // Arrange
@@ -76,7 +87,7 @@ public class A_MainMenuTests
         Assert.IsTrue(sutMainMenu.IsOpen);
     }
 
-    [UnityTest, Order(3)]
+    [UnityTest, Order(4)]
     public IEnumerator Opens_to_correct_position()
     {
         // Arrange
@@ -89,7 +100,7 @@ public class A_MainMenuTests
         Assert.AreEqual(0, sutMainMenu.GetComponent<RectTransform>().anchoredPosition.y, .1f);
     }
 
-    [UnityTest, Order(4)]
+    [UnityTest, Order(5)]
     public IEnumerator Closes()
     {
         // Arrange
@@ -102,7 +113,18 @@ public class A_MainMenuTests
         Assert.IsFalse(sutMainMenu.IsOpen);
     }
 
-    [UnityTest, Order(5)]
+    [Test, Order(6)]
+    public void Releases_game_state()
+    {
+        // Arrange
+
+        // Act
+
+        // Assert
+        Assert.AreEqual(GameState.World, Game.Manager.State);
+    }
+
+    [UnityTest, Order(7)]
     public IEnumerator Cant_be_opened_while_closing()
     {
         // Arrange
@@ -117,7 +139,7 @@ public class A_MainMenuTests
         Assert.IsFalse(sutMainMenu.IsOpen);
     }
 
-    [UnityTest, Order(6)]
+    [UnityTest, Order(8)]
     public IEnumerator Closes_to_correct_position()
     {
         // Arrange
@@ -130,7 +152,7 @@ public class A_MainMenuTests
         Assert.AreEqual(0, sutMainMenu.GetComponent<RectTransform>().anchoredPosition.y, .1f);
     }
 
-    [Test, Order(7)]
+    [Test, Order(9)]
     public void Generated_party_info()
     {
         // Arrange
@@ -141,7 +163,7 @@ public class A_MainMenuTests
         Assert.IsNotNull(sutMainWindow.GetComponentsInChildren<PartyMemberInfo>());
     }
 
-    [Test, Order(8)]
+    [Test, Order(10)]
     public void Generated_correct_amount_of_party_info()
     {
         // Arrange
@@ -153,7 +175,7 @@ public class A_MainMenuTests
         Assert.AreEqual(Party.ActiveMembers.Count, partyMemberInfos.Length);
     }
 
-    [UnityTest, Order(9)]
+    [UnityTest, Order(11)]
     public IEnumerator Cant_open_in_cutscene()
     {
         // Arrange

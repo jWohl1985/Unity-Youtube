@@ -10,7 +10,7 @@ public class A_DialogueWindowTests
 {
     private bool isReady = false;
     private DialogueWindow sut;
-    private Dialogue testScene;
+    private Dialogue testDialogue;
     private Animator sutAnimator;
 
     [OneTimeSetUp]
@@ -31,7 +31,7 @@ public class A_DialogueWindowTests
     public void OnSceneReady(Scene scene, LoadSceneMode mode)
     {
         sut = GameObject.FindObjectOfType<DialogueWindow>();
-        testScene = Resources.Load<Dialogue>("ScriptableObjects/DialogueScenes/TestDialogue");
+        testDialogue = Resources.Load<Dialogue>("ScriptableObjects/DialogueScenes/TestDialogue");
         sutAnimator = sut.GetComponent<Animator>();
         isReady = true;
     }
@@ -54,18 +54,29 @@ public class A_DialogueWindowTests
         // Arrange
 
         // Act
-        Game.Manager.StartDialogue(testScene);
+        Game.Manager.StartDialogue(testDialogue);
         yield return null;
 
         // Assert
         Assert.IsTrue(sutAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1);
     }
 
-    [UnityTest, Order(2)]
+    [Test, Order(2)]
+    public void Changes_game_state()
+    {
+        // Arrange
+
+        // Act
+
+        // Assert
+        Assert.AreEqual(GameState.Cutscene, Game.Manager.State);
+    }
+
+    [UnityTest, Order(3)]
     public IEnumerator Opens_to_correct_position()
     {
         // Arrange
-        while (sutAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1) 
+        while (sut.IsAnimating) 
             yield return null;
 
         // Act
@@ -74,7 +85,7 @@ public class A_DialogueWindowTests
         Assert.AreEqual(-200.0f, sut.GetComponent<RectTransform>().anchoredPosition.y, .1f);
     }
 
-    [UnityTest, Order(3)]
+    [UnityTest, Order(4)]
     public IEnumerator Goes_through_dialogue()
     {
         // Arrange
@@ -91,8 +102,8 @@ public class A_DialogueWindowTests
         Assert.AreEqual(GameState.World, Game.Manager.State);
     }
 
-    [Test, Order(4)]
-    public void Returns_game_state_to_normal_when_done()
+    [Test, Order(5)]
+    public void Releases_game_state()
     {
         // Arrange
 
@@ -102,11 +113,11 @@ public class A_DialogueWindowTests
         Assert.AreEqual(GameState.World, Game.Manager.State);
     }
 
-    [UnityTest, Order(5)]
+    [UnityTest, Order(6)]
     public IEnumerator Closes_to_correct_position()
     {
         // Arrange
-        while (sutAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+        while (sut.IsAnimating)
             yield return null;
 
         // Act
