@@ -40,6 +40,12 @@ namespace Core
             DontDestroyOnLoad(this);
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+                Game.Manager.EndBattle();
+        }
+
         public void ToggleMenu()
         {
             if (mainMenu.IsAnimating || State == GameState.Cutscene)

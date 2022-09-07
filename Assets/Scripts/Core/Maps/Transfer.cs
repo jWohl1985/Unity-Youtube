@@ -24,7 +24,7 @@ namespace Core
 
         private void Start()
         {
-            currentMap.Exits.Add(exitCell, this);
+            currentMap.Transfers.Add(exitCell, this);
         }
 
         public void TeleportPlayer()

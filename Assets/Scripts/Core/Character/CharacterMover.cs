@@ -73,7 +73,7 @@ namespace Core
             IsMoving = false;
 
             if (character is Player player)
-                player.CheckCurrentCell();
+                player.OnMovementFinished();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Core
         public bool IsMoving => Movement.IsMoving;
         public Vector2Int Facing => Turner.Facing;
         public Vector2Int CurrentCell => Game.Manager.Map.Grid.GetCell2D(this.gameObject);
+        public Map Map => Game.Manager.Map;
 
         protected virtual void Awake()
         {

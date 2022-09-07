@@ -26,13 +26,17 @@ namespace Core
             InputHandler.CheckInput();
         }
 
-        public void CheckCurrentCell()
+        public void OnMovementFinished()
         {
-            if (Game.Manager.Map.Exits.ContainsKey(CurrentCell))
+            if (Map.Transfers.ContainsKey(CurrentCell))
             {
-                Transfer exit = Game.Manager.Map.Exits[CurrentCell];
-                exit.TeleportPlayer();
+                Transfer transfer = Map.Transfers[CurrentCell];
+                transfer.TeleportPlayer();
+                return;
             }
+
+            if (Map.Region != null)
+                Map.Region.CheckForEncounter(Map);
         }
 
     }
