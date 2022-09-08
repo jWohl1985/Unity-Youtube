@@ -15,6 +15,6 @@ MonoBehaviour:
   enemies:
   - {fileID: 11400000, guid: c5d5578ccb00ee44e8f5e46e491f6b27, type: 2}
   xSpawnCoordinates:
-  - 5
+  - 3.3
   ySpawnCoordinates:
   - 0

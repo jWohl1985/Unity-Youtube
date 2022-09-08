@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Core\Maps\Map.cs" />
     <Compile Include="Assets\Scripts\Core\Character\CharacterTurner.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleStats.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\BattleRegion.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Core\Utility\Extensions.cs" />
     <Compile Include="Assets\Scripts\Core\Enums.cs" />
@@ -87,7 +88,8 @@
     <Compile Include="Assets\Scripts\Core\Character\Player.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\ScriptableObjects\BattleRegion.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\TurnBar.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\BattlePortrait.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

@@ -10,6 +10,7 @@ namespace Battle
     {
         public static EnemyPack EnemyPack;
 
+        private TurnBar turnBar;
         private List<Actor> turnOrder = new List<Actor>();
         private List<Ally> allies = new List<Ally>();
         private List<Enemy> enemies = new List<Enemy>();
@@ -24,8 +25,10 @@ namespace Battle
 
         private void Awake()
         {
+            turnBar = FindObjectOfType<TurnBar>();
             SpawnPartyMembers();
             SpawnEnemies();
+            turnBar.SpawnPortraitSlots(turnOrder);
         }
 
         private void Update()

@@ -36,7 +36,6 @@ namespace Core
             Map = Instantiate(startingMap);
             Player = Instantiate(playerPrefab, startingCell.Center2D(), Quaternion.identity).GetComponent<Player>();
             DontDestroyOnLoad(Player);
-            DontDestroyOnLoad(Map);
             DontDestroyOnLoad(this);
         }
 
