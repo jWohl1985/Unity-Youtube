@@ -29,6 +29,7 @@ namespace Battle
             SpawnPartyMembers();
             SpawnEnemies();
             turnBar.SpawnPortraitSlots(turnOrder);
+            turnBar.SpawnActorPortraits();
         }
 
         private void Update()

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MaxymerPyncion
   m_EditorClassIdentifier: 
   moniker: Maxymer Pyncion
-  actorPrefab: {fileID: 5176543619620100640, guid: eccb62c21d03c3f478c92bbeb4c38bc6, type: 3}
+  actorPrefab: {fileID: 5176543619620100640, guid: 4aa9350be3f0fe347afa57c919fc431e, type: 3}
   stats:
     level: 1
     hp: 10
@@ -21,5 +21,6 @@ MonoBehaviour:
     str: 5
     arm: 3
     spd: 3
-  portrait: {fileID: 21300000, guid: 1110c8aba2c7619408d8ad071edd5051, type: 3}
+  menuPortrait: {fileID: 21300000, guid: 1110c8aba2c7619408d8ad071edd5051, type: 3}
+  battlePortrait: {fileID: 5173471364560344175, guid: 7ebacfe8e60ba034a848d7d1170a44a1, type: 3}
   job: Thief

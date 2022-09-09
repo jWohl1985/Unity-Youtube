@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
 
 namespace Battle
 {
@@ -16,6 +17,28 @@ namespace Battle
             {
                 GameObject slot = Instantiate(portraitSlotPrefab, this.gameObject.transform);
                 Slots.Add(slot, false);
+            }
+        }
+
+        public void SpawnActorPortraits()
+        {
+            SpawnPartyMemberPortraits();
+            SpawnEnemyPortraits();
+        }
+
+        private void SpawnPartyMemberPortraits()
+        {
+            foreach(PartyMember member in Party.ActiveMembers)
+            {
+                Instantiate(member.BattlePortrait, this.transform);
+            }
+        }
+
+        private void SpawnEnemyPortraits()
+        {
+            foreach(EnemyData enemyData in BattleControl.EnemyPack.Enemies)
+            {
+                Instantiate(enemyData.BattlePortrait, this.transform);
             }
         }
     }

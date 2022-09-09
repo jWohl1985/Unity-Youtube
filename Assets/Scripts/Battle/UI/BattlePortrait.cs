@@ -20,7 +20,7 @@ namespace Battle
                 if (kvp.Value == false)
                 {
                     parent = kvp.Key;
-                    this.transform.parent = parent.transform;
+                    this.transform.SetParent(parent.transform, false);
                     turnBar.Slots[kvp.Key] = true;
                     break;
                 }
