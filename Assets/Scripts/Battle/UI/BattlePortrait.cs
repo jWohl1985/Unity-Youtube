@@ -7,24 +7,17 @@ namespace Battle
 {
     public class BattlePortrait : MonoBehaviour
     {
+        private static int currentSlotIndex = 0;
+
         private RectTransform rectTransform;
         private TurnBar turnBar;
-        private GameObject parent;
 
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
             turnBar = FindObjectOfType<TurnBar>();
-            foreach(KeyValuePair<GameObject,bool> kvp in turnBar.Slots)
-            {
-                if (kvp.Value == false)
-                {
-                    parent = kvp.Key;
-                    this.transform.SetParent(parent.transform, false);
-                    turnBar.Slots[kvp.Key] = true;
-                    break;
-                }
-            }
+            rectTransform.SetParent(turnBar.Slots[currentSlotIndex].transform, false);
+            currentSlotIndex++;
         }
 
         private void Update()

@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Battle\UI\BattlePortrait.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\TurnIndicator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

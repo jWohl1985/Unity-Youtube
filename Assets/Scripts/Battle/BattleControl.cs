@@ -21,7 +21,7 @@ namespace Battle
         public IReadOnlyList<Ally> Allies => allies;
         public IReadOnlyList<Enemy> Enemies => enemies;
         public bool SetupComplete => setupComplete;
-
+        public int TurnNumber => turnNumber;
 
         private void Awake()
         {

@@ -9,14 +9,14 @@ namespace Battle
     {
         [SerializeField] private GameObject portraitSlotPrefab;
 
-        public Dictionary<GameObject, bool> Slots = new Dictionary<GameObject, bool>();
+        public List<GameObject> Slots = new List<GameObject>();
 
         public void SpawnPortraitSlots(List<Actor> actors)
         {
             foreach(Actor actor in actors)
             {
                 GameObject slot = Instantiate(portraitSlotPrefab, this.gameObject.transform);
-                Slots.Add(slot, false);
+                Slots.Add(slot);
             }
         }
 
