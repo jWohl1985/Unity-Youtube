@@ -34,5 +34,19 @@ namespace Core
 
             return false;
         }
+
+        public static int IndexOf<T>(this IReadOnlyList<T> list, T item)
+        {
+            int i = 0;
+            foreach(T element in list)
+            {
+                if (Equals(element, item))
+                    return i;
+
+                i++;
+            }
+
+            return -1;
+        }
     }
 }
