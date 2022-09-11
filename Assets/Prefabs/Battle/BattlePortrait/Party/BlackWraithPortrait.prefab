@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2578941980805002062}
   - component: {fileID: 5173471364560344175}
   m_Layer: 0
-  m_Name: PartyMemberPortrait1
+  m_Name: BlackWraithPortrait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

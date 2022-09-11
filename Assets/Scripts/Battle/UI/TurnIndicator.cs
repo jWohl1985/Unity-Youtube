@@ -36,7 +36,7 @@ namespace Battle
             if (battleControl.TurnNumber == 0)
                 speed = 3f;
 
-            rectTransform.anchoredPosition = Vector2.MoveTowards(currentPosition, targetPosition + new Vector2(0,-60), speed);
+            rectTransform.anchoredPosition = Vector2.MoveTowards(currentPosition, targetPosition, speed);
         }
     }
 }

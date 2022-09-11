@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2578941980805002062}
   - component: {fileID: 5173471364560344175}
   m_Layer: 0
-  m_Name: PartyMemberPortrait4
+  m_Name: BlueMinotaurPortrait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6563f0c94c9a26f4094d4c5eb7b1980f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 542edb232325fc842b08704624cf8efc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

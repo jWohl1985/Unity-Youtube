@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 209f55e9a911d6545b83312d379201ab, type: 3}
-  m_Name: Goblin
+  m_Name: BlueMinotaur
   m_EditorClassIdentifier: 
   actorPrefab: {fileID: 5176543619620100640, guid: 91e7531573e1df34c83a68827cca024b, type: 3}
   stats:

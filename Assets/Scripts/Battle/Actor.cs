@@ -16,7 +16,7 @@ namespace Battle
         public int TurnNumber => battleControl.TurnOrder.IndexOf(this);
 
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             battleControl = FindObjectOfType<BattleControl>();
         }

@@ -6,6 +6,14 @@ namespace Battle
 {
     public class Enemy : Actor
     {
+        private EnemyAI ai;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            ai = GetComponent<EnemyAI>();
+        }
+
         public override void StartTurn()
         {
             IsTakingTurn = true;
@@ -28,16 +36,13 @@ namespace Battle
 
         private IEnumerator Co_EnemyChooseAction()
         {
-            while (true)
+            ICommand command;
+            command = ai.ChooseAction();
+            StartCoroutine(command.Co_Execute());
+            while (!command.IsFinished)
             {
-                if (Input.GetKeyDown(KeyCode.C))
-                {
-                    Debug.Log("Command accepted!");
-                    break;
-                }
                 yield return null;
             }
-
             StartCoroutine(Co_EndTurn());
         }
 
