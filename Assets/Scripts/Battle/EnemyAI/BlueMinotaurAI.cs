@@ -6,18 +6,15 @@ namespace Battle
 {
     public class BlueMinotaurAI : EnemyAI
     {
-        private Actor actor;
-
-        private void Awake()
-        {
-            actor = GetComponent<Actor>();
-        }
-
         public override ICommand ChooseAction()
         {
-            List<Actor> target = new List<Actor>();
-            target.Add(FindObjectOfType<Ally>());
-            return new Attack(actor, target);
+            Actor defender = GetRandomTarget();
+            return new Attack(actor, defender);
+        }
+
+        private Actor GetRandomTarget()
+        {
+            return battleControl.Allies[Random.Range(0, battleControl.Allies.Count)];
         }
     }
 }

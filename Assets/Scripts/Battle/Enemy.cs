@@ -24,12 +24,16 @@ namespace Battle
         {
             float elapsedTime = 0;
 
+            Animator.Play("Moving");
             while ((Vector2)transform.position != battlePosition)
             {
                 transform.position = Vector2.Lerp(startingPosition, battlePosition, elapsedTime);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
+
+            Animator.Play("Idle");
+            yield return new WaitForSeconds(.5f);
 
             StartCoroutine(Co_EnemyChooseAction());
         }
@@ -51,12 +55,25 @@ namespace Battle
             float elapsedTime = 0;
             Vector2 currentPosition = transform.position;
 
-            while ((Vector2)transform.position != startingPosition)
+            Animator.Play("Moving");
+            while ((Vector2)transform.position != battlePosition)
             {
-                transform.position = Vector2.Lerp(currentPosition, startingPosition, elapsedTime);
+                transform.position = Vector2.Lerp(currentPosition, battlePosition, elapsedTime);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
+            Animator.Play("Idle");
+            yield return new WaitForSeconds(.5f);
+
+            elapsedTime = 0;
+            Animator.Play("Moving");
+            while ((Vector2)transform.position != startingPosition)
+            {
+                transform.position = Vector2.Lerp(battlePosition, startingPosition, elapsedTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            Animator.Play("Idle");
 
             IsTakingTurn = false;
         }

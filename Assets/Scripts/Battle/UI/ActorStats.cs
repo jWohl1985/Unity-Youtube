@@ -24,7 +24,7 @@ namespace Battle
 
             hp.text = $"{actor.Stats.HP}/{actor.Stats.MaxHP}";
 
-            if (actor.Stats.HP / actor.Stats.MaxHP < .2f)
+            if ((float)actor.Stats.HP / (float)actor.Stats.MaxHP < .2f)
                 hp.color = Color.yellow;
             else
                 hp.color = Color.white;

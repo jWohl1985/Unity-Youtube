@@ -7,24 +7,40 @@ namespace Battle
     public class Attack : ICommand
     {
         private Actor attacker;
-        private List<Actor> targets;
+        private Actor defender;
+        private Transform attackerTransform;
+        private Transform defenderTransform;
         private float moveSpeed = .01f;
+
+        private readonly Vector3 attackOffset = new Vector3(1.3f, 0, 0);
 
         public bool IsFinished { get; private set; } = false;
 
-        public Attack(Actor actor, List<Actor> targets)
+        public Attack(Actor attacker, Actor defender)
         {
-            this.attacker = actor;
-            this.targets = targets;
+            this.attacker = attacker;
+            this.defender = defender;
+            this.attackerTransform = attacker.GetComponent<Transform>();
+            this.defenderTransform = defender.GetComponent<Transform>();
         }
 
         public IEnumerator Co_Execute()
         {
-            while(attacker.transform.position != targets[0].transform.position)
+            Vector3 targetPosition = defenderTransform.position + attackOffset;
+
+            attacker.Animator.Play("Moving");
+            while(attackerTransform.position != targetPosition)
             {
-                attacker.transform.position = Vector2.MoveTowards(attacker.transform.position, targets[0].transform.position, moveSpeed);
+                attackerTransform.position = Vector3.MoveTowards(attackerTransform.position, targetPosition, moveSpeed);
                 yield return null;
             }
+
+            attacker.Animator.Play("Attack");
+            while(attacker.Animator.IsAnimating())
+                yield return null;
+            attacker.Animator.Play("Idle");
+
+            Calculate.AttackDamage(attacker, defender);
 
             IsFinished = true;
         }
