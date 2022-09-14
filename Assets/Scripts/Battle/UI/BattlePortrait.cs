@@ -7,8 +7,6 @@ namespace Battle
 {
     public class BattlePortrait : MonoBehaviour
     {
-        private static int currentSlotIndex = 0;
-
         private BattleControl battleControl;
         private RectTransform rectTransform;
         private TurnBar turnBar;
@@ -20,9 +18,16 @@ namespace Battle
             rectTransform = GetComponent<RectTransform>();
             turnBar = FindObjectOfType<TurnBar>();
 
-            rectTransform.SetParent(turnBar.Slots[currentSlotIndex].transform, false);
-            actor = battleControl.TurnOrder[currentSlotIndex];
-            currentSlotIndex++;
+            foreach(GameObject slot in turnBar.Slots)
+            {
+                if (slot.GetComponentInChildren<BattlePortrait>() == null)
+                {
+                    rectTransform.SetParent(slot.transform, false);
+                    int index = slot.transform.GetSiblingIndex() - 1;
+                    actor = battleControl.TurnOrder[index];
+                    break;
+                }
+            }
         }
 
         private void Update()

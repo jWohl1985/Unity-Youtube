@@ -37,10 +37,10 @@ namespace Core
 
         private static void GenerateStartingParty()
         {
-            PartyMember Balfam = Resources.Load<PartyMember>(Paths.Balfam);
-            PartyMember Bul = Resources.Load<PartyMember>(Paths.Bul);
-            PartyMember Enna = Resources.Load<PartyMember>(Paths.Enna);
-            PartyMember Maxymer = Resources.Load<PartyMember>(Paths.Maxymer);
+            PartyMember Balfam = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Balfam));
+            PartyMember Bul = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Bul));
+            PartyMember Enna = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Enna));
+            PartyMember Maxymer = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Maxymer));
             AddActiveMember(Balfam);
             AddActiveMember(Bul);
             AddActiveMember(Enna);
