@@ -16,27 +16,30 @@ namespace Battle
         {
             float elapsedTime = 0;
 
+            Animator.Play("Moving");
             while ((Vector2)transform.position != battlePosition)
             {
                 transform.position = Vector2.Lerp(startingPosition, battlePosition, elapsedTime);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
+            Animator.Play("Idle");
 
             StartCoroutine(Co_GetPlayerCommand());
         }
 
         private IEnumerator Co_GetPlayerCommand()
         {
-            while (true)
-            {
-                if (Input.GetKeyDown(KeyCode.C))
-                {
-                    Debug.Log("Command accepted!");
-                    break;
-                }
+            CommandFetcher commandFetcher = new CommandFetcher(this);
+            StartCoroutine(commandFetcher.Co_GetCommand());
+
+            while (commandFetcher.Command is null)
                 yield return null;
-            }
+
+            StartCoroutine(commandFetcher.Command.Co_Execute());
+
+            while (!commandFetcher.Command.IsFinished)
+                yield return null;
 
             StartCoroutine(Co_EndTurn());
         }
@@ -46,12 +49,26 @@ namespace Battle
             float elapsedTime = 0;
             Vector2 currentPosition = transform.position;
 
-            while ((Vector2)transform.position != startingPosition)
+            Animator.Play("Moving");
+            while ((Vector2)transform.position != battlePosition)
             {
-                transform.position = Vector2.Lerp(currentPosition, startingPosition, elapsedTime);
+                transform.position = Vector2.Lerp(currentPosition, battlePosition, elapsedTime);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
+            Animator.Play("Idle");
+
+            yield return new WaitForSeconds(.5f);
+            elapsedTime = 0;
+
+            Animator.Play("Moving");
+            while ((Vector2)transform.position != startingPosition)
+            {
+                transform.position = Vector2.Lerp(battlePosition, startingPosition, elapsedTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            Animator.Play("Idle");
 
             IsTakingTurn = false;
         }
