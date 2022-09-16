@@ -36,6 +36,8 @@ namespace Battle
         {
             if (!setupComplete)
             {
+                foreach (Enemy enemy in enemies)
+                    enemy.WasDefeated += OnDeath;
                 DetermineTurnOrderAndStartFirstTurn();
             }
 
@@ -124,6 +126,19 @@ namespace Battle
         {
             turnNumber = (turnNumber + 1) % turnOrder.Count;
             turnOrder[turnNumber].StartTurn();
+        }
+
+        private void OnDeath()
+        {
+            for (int i = enemies.Count - 1; i >= 0; i--)
+            {
+                if (enemies[i].Stats.HP == 0)
+                {
+                    enemies[i].WasDefeated -= OnDeath;
+                    turnOrder.Remove(enemies[i]);
+                    enemies.Remove(enemies[i]);
+                }
+            }
         }
     }
 }

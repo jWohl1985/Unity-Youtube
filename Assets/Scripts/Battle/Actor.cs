@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Core;
+using System;
 
 namespace Battle
 {
@@ -11,6 +12,7 @@ namespace Battle
         protected Vector2 startingPosition;
         protected Vector2 battlePosition = new Vector2(0.5f, 0);
 
+        public event Action WasDefeated;
 
         public Animator Animator { get; protected set; }
         public bool IsTakingTurn { get; protected set; } = false;
@@ -27,6 +29,12 @@ namespace Battle
         protected virtual void Start()
         {
             startingPosition = transform.position;
+        }
+
+        protected virtual void Update()
+        {
+            if (Stats.HP == 0)
+                WasDefeated?.Invoke();
         }
 
         public abstract void StartTurn();

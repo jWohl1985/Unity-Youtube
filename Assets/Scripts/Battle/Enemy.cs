@@ -12,6 +12,7 @@ namespace Battle
         {
             base.Awake();
             ai = GetComponent<EnemyAI>();
+            WasDefeated += OnDeath;
         }
 
         public override void StartTurn()
@@ -76,6 +77,18 @@ namespace Battle
             Animator.Play("Idle");
 
             IsTakingTurn = false;
+        }
+
+        private void OnDeath() => StartCoroutine(Co_Die());
+
+        private IEnumerator Co_Die()
+        {
+            WasDefeated -= OnDeath;
+            Animator.Play("Attack");
+            yield return null;
+            while (Animator.IsAnimating())
+                yield return null;
+            Destroy(this.gameObject);
         }
     }
 }

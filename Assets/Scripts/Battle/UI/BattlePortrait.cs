@@ -32,6 +32,8 @@ namespace Battle
                     rectTransform.SetParent(slot.transform, false);
                     int index = slot.transform.GetSiblingIndex() - 1;
                     actor = battleControl.TurnOrder[index];
+                    if (actor is Enemy enemy)
+                        enemy.WasDefeated += RemovePortrait;
                     break;
                 }
             }
@@ -44,14 +46,17 @@ namespace Battle
 
         private void Update()
         {
-            if (actor is Enemy enemy && enemy.Stats.HP == 0)
-            {
-                Destroy(turnBar.Slots[actor.TurnNumber]);
-                Destroy(this.gameObject);
-                return;
-            }
             RectTransform slotRect = slotRects[actor.TurnNumber];   
             rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, slotRect.anchoredPosition, .2f);
+        }
+
+        private void RemovePortrait()
+        {
+            (actor as Enemy).WasDefeated -= RemovePortrait;
+            GameObject slot = turnBar.Slots[actor.TurnNumber];
+            Destroy(this.gameObject);
+            Destroy(slot);
+            turnBar.Slots.Remove(slot);
         }
     }
 }
