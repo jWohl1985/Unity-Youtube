@@ -18,9 +18,9 @@ MonoBehaviour:
     level: 1
     hp: 10
     maxhp: 10
-    str: 5
+    str: 99
     arm: 3
-    spd: 3
+    spd: 99
   menuPortrait: {fileID: 21300000, guid: 1110c8aba2c7619408d8ad071edd5051, type: 3}
   battlePortrait: {fileID: 5173471364560344175, guid: 7ebacfe8e60ba034a848d7d1170a44a1, type: 3}
   job: Thief

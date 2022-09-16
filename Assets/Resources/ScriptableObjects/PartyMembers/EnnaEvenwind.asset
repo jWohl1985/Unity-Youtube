@@ -18,9 +18,9 @@ MonoBehaviour:
     level: 1
     hp: 10
     maxhp: 10
-    str: 5
+    str: 99
     arm: 3
-    spd: 4
+    spd: 99
   menuPortrait: {fileID: 21300000, guid: 3cfa722827881af4198b3308389e8243, type: 3}
   battlePortrait: {fileID: 5173471364560344175, guid: 2203fb6e743bf1b4a81bf6611d105428, type: 3}
   job: Black Mage

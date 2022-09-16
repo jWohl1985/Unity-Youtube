@@ -18,9 +18,9 @@ MonoBehaviour:
     level: 1
     hp: 10
     maxhp: 10
-    str: 5
+    str: 99
     arm: 3
-    spd: 2
+    spd: 99
   menuPortrait: {fileID: 21300000, guid: a568352ca141bd74186e2a5d7f70a45a, type: 3}
   battlePortrait: {fileID: 5173471364560344175, guid: 544abd05a68341e4e88b9d4bcb6705b1, type: 3}
   job: Fighter
