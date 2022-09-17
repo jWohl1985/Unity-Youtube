@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59daec8cb88f264f9b7c01060552f09, type: 3}
+  m_Name: Wraith
+  m_EditorClassIdentifier: 
+  moniker: Enna Evenwind
+  actorPrefab: {fileID: 5176543619620100640, guid: 7c7819eee9096b94e8c66dd017ac78d0, type: 3}
+  stats:
+    level: 1
+    hp: 10
+    maxhp: 10
+    str: 99
+    arm: 3
+    spd: 99
+  menuPortrait: {fileID: 21300000, guid: 3cfa722827881af4198b3308389e8243, type: 3}
+  battlePortrait: {fileID: 5173471364560344175, guid: 2203fb6e743bf1b4a81bf6611d105428, type: 3}
+  job: Black Mage

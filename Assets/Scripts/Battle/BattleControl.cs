@@ -119,7 +119,10 @@ namespace Battle
 
         private void CheckForEnd()
         {
-            // to be implemented
+            if (enemies.Count == 0)
+            {
+                Game.Manager.EndBattle();
+            }
         }
 
         private void GoToNextTurn()

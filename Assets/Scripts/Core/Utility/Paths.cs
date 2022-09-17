@@ -17,10 +17,10 @@ namespace Core
         public static string TwoGoblin = enemyPackPath + "TwoGoblin";
 
         // party members
-        public static string Balfam = partyMemberPath + "BalfamIrongull";
-        public static string Bul = partyMemberPath + "BulSeratolva";
-        public static string Enna = partyMemberPath + "EnnaEvenwind";
-        public static string Maxymer = partyMemberPath + "MaxymerPyncion";
+        public static string BlackWraith = partyMemberPath + "BlackWraith";
+        public static string Satyr = partyMemberPath + "Satyr";
+        public static string Wraith = partyMemberPath + "Wraith";
+        public static string Minotaur = partyMemberPath + "Minotaur";
 
         // other
         public static string BattleTransition = "BattleTransition";

@@ -84,7 +84,7 @@ namespace Battle
         private IEnumerator Co_Die()
         {
             WasDefeated -= OnDeath;
-            Animator.Play("Attack");
+            Animator.Play("Death");
             yield return null;
             while (Animator.IsAnimating())
                 yield return null;
