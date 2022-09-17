@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: TestDialogue
   m_EditorClassIdentifier: 
   dialogues:
-  - sprite: {fileID: 21300000, guid: a568352ca141bd74186e2a5d7f70a45a, type: 3}
-    name: Balfam
+  - sprite: {fileID: 21300000, guid: fb46921ae0c55074bb83e4265da7e5c0, type: 3}
+    name: Black Wraith
     message: '"Hello there."'
-  - sprite: {fileID: 21300000, guid: c20182c8b4579d6489d43aafcdf30786, type: 3}
-    name: Bul
+  - sprite: {fileID: 21300000, guid: 65e4a7ad2ae33004e99a79f97f81339c, type: 3}
+    name: Satyr
     message: '"Hello right back at you."'
-  - sprite: {fileID: 21300000, guid: a568352ca141bd74186e2a5d7f70a45a, type: 3}
-    name: Balfam
+  - sprite: {fileID: 21300000, guid: fb46921ae0c55074bb83e4265da7e5c0, type: 3}
+    name: Black Wraith
     message: '"Shut up."'

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59daec8cb88f264f9b7c01060552f09, type: 3}
   m_Name: Satyr
   m_EditorClassIdentifier: 
-  moniker: Bul Seratolva
+  moniker: Satyr
   actorPrefab: {fileID: 5176543619620100640, guid: 7d7a678da767e91428ba3593e343e650, type: 3}
   stats:
     level: 1
@@ -21,6 +21,6 @@ MonoBehaviour:
     str: 99
     arm: 3
     spd: 99
-  menuPortrait: {fileID: 21300000, guid: c20182c8b4579d6489d43aafcdf30786, type: 3}
+  menuPortrait: {fileID: 21300000, guid: 65e4a7ad2ae33004e99a79f97f81339c, type: 3}
   battlePortrait: {fileID: 5173471364560344175, guid: f4a2001b74a10494fbb776df6a446a48, type: 3}
   job: Blue Mage

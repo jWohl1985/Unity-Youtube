@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59daec8cb88f264f9b7c01060552f09, type: 3}
   m_Name: Minotaur
   m_EditorClassIdentifier: 
-  moniker: Maxymer Pyncion
+  moniker: Minotaur
   actorPrefab: {fileID: 5176543619620100640, guid: 4aa9350be3f0fe347afa57c919fc431e, type: 3}
   stats:
     level: 1
@@ -21,6 +21,6 @@ MonoBehaviour:
     str: 99
     arm: 3
     spd: 99
-  menuPortrait: {fileID: 21300000, guid: 1110c8aba2c7619408d8ad071edd5051, type: 3}
+  menuPortrait: {fileID: 21300000, guid: 6563f0c94c9a26f4094d4c5eb7b1980f, type: 3}
   battlePortrait: {fileID: 5173471364560344175, guid: 7ebacfe8e60ba034a848d7d1170a44a1, type: 3}
   job: Thief
