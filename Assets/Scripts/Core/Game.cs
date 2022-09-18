@@ -131,5 +131,29 @@ namespace Core
 
             State = GameState.World;
         }
+
+        public bool TryPlayCutscene(Cutscene scene)
+        {
+            if (State != GameState.World)
+                return false;
+
+            State = GameState.Cutscene;
+            StartCoroutine(Co_PlayCutscene(scene));
+            return true;
+        }
+
+        private IEnumerator Co_PlayCutscene(Cutscene scene)
+        {
+            foreach(ICutsceneCommand command in scene.Commands)
+            {
+                StartCoroutine(command.Co_Execute());
+
+                while (command.IsFinished == false)
+                    yield return null;
+            }
+
+            scene.IsFinished = true;
+            State = GameState.World;
+        }
     }
 }
