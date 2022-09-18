@@ -15,6 +15,7 @@ namespace Core
     public enum GameState
     {
         World,
+        Loading,
         Cutscene,
         Battle,
         Menu,

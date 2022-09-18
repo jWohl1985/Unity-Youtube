@@ -104,8 +104,12 @@ namespace Core
             dialogueWindow.GoToNextLine();
         }
 
-        public IEnumerator Co_LoadMap(Map newMap, int destinationId)
+        public void LoadMap(Map newMap, int destinationId) => StartCoroutine(Co_LoadMap(newMap, destinationId));
+
+        private IEnumerator Co_LoadMap(Map newMap, int destinationId)
         {
+            State = GameState.Loading;
+
             Animator animator = PlayTransition(TransitionType.MapChange);
             while (animator.IsAnimating())
                 yield return null;
@@ -124,6 +128,8 @@ namespace Core
                 yield return null;
 
             Destroy(animator.gameObject);
+
+            State = GameState.World;
         }
     }
 }

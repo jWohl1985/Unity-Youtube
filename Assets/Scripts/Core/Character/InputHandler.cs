@@ -31,37 +31,40 @@ namespace Core
         {
             command = Command.None;
 
-            if (Game.Manager.State == GameState.Cutscene && Input.GetKeyDown(KeyCode.Space))
+            switch (Game.Manager.State)
             {
-                command = Command.AdvanceDialogue;
-                HandleCommand(command);
-                return;
+                case (GameState.Battle):
+                case (GameState.Loading):
+                default:
+                    break;
+                case (GameState.Menu):
+                    if (Input.GetKeyDown(KeyCode.Escape))
+                        command = Command.ToggleMenu;
+                    break;
+                case (GameState.Cutscene):
+                    if (Input.GetKeyDown(KeyCode.Space))
+                        command = Command.AdvanceDialogue;
+                    break;
+                case (GameState.World):
+                    if (Input.GetKeyDown(KeyCode.Escape))
+                        command = Command.ToggleMenu;
+
+                    else if (Input.GetKey(KeyCode.LeftArrow))
+                        command = Command.MoveLeft;
+
+                    else if (Input.GetKey(KeyCode.RightArrow))
+                        command = Command.MoveRight;
+
+                    else if (Input.GetKey(KeyCode.UpArrow))
+                        command = Command.MoveUp;
+
+                    else if (Input.GetKey(KeyCode.DownArrow))
+                        command = Command.MoveDown;
+
+                    else if (Input.GetKeyDown(KeyCode.Space))
+                        command = Command.Interact;
+                    break;
             }
-
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                command = Command.ToggleMenu;
-                HandleCommand(command);
-                return;
-            }
-
-            if (Game.Manager.State != GameState.World)
-                return;
-
-            if (Input.GetKey(KeyCode.LeftArrow)) 
-                command = Command.MoveLeft;
-
-            else if (Input.GetKey(KeyCode.RightArrow)) 
-                command = Command.MoveRight;
-
-            else if (Input.GetKey(KeyCode.UpArrow)) 
-                command = Command.MoveUp;
-
-            else if (Input.GetKey(KeyCode.DownArrow)) 
-                command = Command.MoveDown;
-
-            else if (Input.GetKeyDown(KeyCode.Space)) 
-                command = Command.Interact;
 
             if (command != Command.None)
                 HandleCommand(command);

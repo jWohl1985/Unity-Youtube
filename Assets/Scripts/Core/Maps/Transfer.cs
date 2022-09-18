@@ -27,9 +27,6 @@ namespace Core
             currentMap.Transfers.Add(exitCell, this);
         }
 
-        public void TeleportPlayer()
-        {
-            StartCoroutine(Game.Manager.Co_LoadMap(newMap, destinationId));
-        }
+        public void TeleportPlayer() => Game.Manager.LoadMap(newMap, destinationId);
     }
 }
