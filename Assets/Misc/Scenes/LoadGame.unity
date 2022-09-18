@@ -158,6 +158,7 @@ MonoBehaviour:
   dialogueWindow: {fileID: 428555982409276315}
   mainMenu: {fileID: 652613344}
   battleTransitionPrefab: {fileID: 8962278297424134412, guid: adc2af719cf6c3d4b9b2658d54083668, type: 3}
+  mapTransitionPrefab: {fileID: 2580706660362917072, guid: 6dc67cb553aac4544a1841f238d3dbfb, type: 3}
 --- !u!4 &104294940
 Transform:
   m_ObjectHideFlags: 0

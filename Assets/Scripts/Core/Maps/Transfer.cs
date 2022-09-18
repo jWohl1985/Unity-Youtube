@@ -29,7 +29,7 @@ namespace Core
 
         public void TeleportPlayer()
         {
-            Game.Manager.LoadMap(newMap, destinationId);
+            StartCoroutine(Game.Manager.Co_LoadMap(newMap, destinationId));
         }
     }
 }

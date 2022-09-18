@@ -17,6 +17,7 @@ namespace Core
         [SerializeField] private DialogueWindow dialogueWindow;
         [SerializeField] private MainMenu mainMenu;
         [SerializeField] private GameObject battleTransitionPrefab;
+        [SerializeField] private GameObject mapTransitionPrefab;
 
         public GameState State { get; private set; }
         public Map Map { get; private set; }
@@ -74,7 +75,7 @@ namespace Core
         {
             State = GameState.Battle;
             BattleControl.EnemyPack = pack;
-            Animator animator = PlayBattleTransition();
+            Animator animator = PlayTransition(TransitionType.Battle);
             while (animator.IsAnimating()) yield return null;
             SceneLoader.LoadBattleScene();
         }
@@ -85,9 +86,13 @@ namespace Core
             State = GameState.World;
         }
 
-        private Animator PlayBattleTransition()
+        private Animator PlayTransition(TransitionType type)
         {
-            Animator animator = Instantiate(battleTransitionPrefab, Player.transform.position, Quaternion.identity).GetComponent<Animator>();
+            GameObject transitionPrefab = mapTransitionPrefab;
+            if (type == TransitionType.Battle)
+                transitionPrefab = battleTransitionPrefab;
+
+            Animator animator = Instantiate(transitionPrefab, Player.transform.position, Quaternion.identity).GetComponent<Animator>();
             return animator;
         }
 
@@ -99,16 +104,26 @@ namespace Core
             dialogueWindow.GoToNextLine();
         }
 
-        public void LoadMap(Map newMap, int destinationId)
+        public IEnumerator Co_LoadMap(Map newMap, int destinationId)
         {
+            Animator animator = PlayTransition(TransitionType.MapChange);
+            while (animator.IsAnimating())
+                yield return null;
+
             Map oldMap = Map;
             Map = Instantiate(newMap);
             Destroy(oldMap.gameObject);
 
             Transfer[] transfers = FindObjectsOfType<Transfer>();
             Transfer transfer = transfers.Where(transfer => transfer.Id == destinationId).ToList().FirstOrDefault();
-
             Player.transform.position = transfer.Cell.Center2D();
+
+            animator.Play("MapTransition_FadeIn");
+            yield return null;
+            while (animator.IsAnimating())
+                yield return null;
+
+            Destroy(animator.gameObject);
         }
     }
 }

@@ -19,4 +19,10 @@ namespace Core
         Battle,
         Menu,
     }
+
+    public enum TransitionType
+    {
+        Battle,
+        MapChange,
+    }
 }
