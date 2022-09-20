@@ -36,5 +36,7 @@ namespace Core
 
             IsFinished = true;
         }
+
+        public override string ToString() => "Move Character";
     }
 }

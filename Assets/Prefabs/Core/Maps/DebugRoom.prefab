@@ -90,16 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoplay: 1
-  commands:
-  - id: 0
+  commands: []
   references:
     version: 1
-    00000000:
-      type: {class: MoveCharacter, ns: Core, asm: Scripts}
-      data:
-        character: {fileID: 7532479656071247211}
-        speed: 0
-        route: 03000000030000000100000001000000
 --- !u!1 &5604176741303098814
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,14 +4195,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2013923991599653983, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
   m_PrefabInstance: {fileID: 5035249461697813595}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7532479656071247211 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-  m_PrefabInstance: {fileID: 5035249461697813595}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fa7d964fa109940bcf07add31890ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

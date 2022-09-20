@@ -85,22 +85,23 @@
     <Compile Include="Assets\Scripts\Battle\Actor.cs" />
     <Compile Include="Assets\Scripts\Core\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Battle\Commands\Attack.cs" />
+    <Compile Include="Assets\Scripts\Core\Cutscene\Commands\MoveCharacter.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\TurnIndicator.cs" />
     <Compile Include="Assets\Scripts\Battle\Ally.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\TurnBar.cs" />
     <Compile Include="Assets\Scripts\Battle\CommandFetcher.cs" />
+    <Compile Include="Assets\Scripts\Core\Cutscene\Cutscene.cs" />
     <Compile Include="Assets\Scripts\Battle\Enemy.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleControl.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyAI\BlueMinotaurAI.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\ActorStats.cs" />
     <Compile Include="Assets\Scripts\Core\Party\Party.cs" />
     <Compile Include="Assets\Scripts\Core\Character\Player.cs" />
+    <Compile Include="Assets\Scripts\Core\Interfaces\ICutsceneCommand.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\BattlePortrait.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Core\Cutscene\Cutscene.cs" />
-    <Compile Include="Assets\Scripts\Core\Interfaces\ICutsceneCommand.cs" />
-    <Compile Include="Assets\Scripts\Core\Cutscene\Commands\MoveCharacter.cs" />
+    <Compile Include="Assets\Scripts\Core\Cutscene\Commands\Wait.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

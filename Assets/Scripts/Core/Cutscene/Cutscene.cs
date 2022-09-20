@@ -8,11 +8,8 @@ namespace Core
     {
         [SerializeField] private bool autoplay = false;
 
-        [SerializeReference]
-        private List<ICutsceneCommand> commands = new List<ICutsceneCommand>
-        {
-            new MoveCharacter()
-        };
+        private List<ICutsceneCommand> commands = new List<ICutsceneCommand>();
+
         private bool isfinished = false;
         private bool isStarted = false;
 
@@ -39,5 +36,7 @@ namespace Core
             if (Game.Manager.TryPlayCutscene(this))
                 isStarted = true;
         }
+
+        public void AddCommand(ICutsceneCommand command) => commands.Add(command);
     }
 }
