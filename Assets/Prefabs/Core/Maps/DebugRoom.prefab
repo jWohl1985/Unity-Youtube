@@ -90,9 +90,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoplay: 1
-  commands: []
+  commands:
+  - id: 0
+  - id: 1
+  - id: 2
+  - id: 2
   references:
     version: 1
+    00000000:
+      type: {class: MoveCharacter, ns: Core, asm: Scripts}
+      data:
+        character: {fileID: 0}
+        speed: 0
+        route: 
+    00000001:
+      type: {class: Wait, ns: Core, asm: Scripts}
+      data:
+        seconds: 0
+    00000002:
+      type: {class: MoveCharacter, ns: Core, asm: Scripts}
+      data:
+        character: {fileID: 0}
+        speed: 0
+        route: 
 --- !u!1 &5604176741303098814
 GameObject:
   m_ObjectHideFlags: 0
