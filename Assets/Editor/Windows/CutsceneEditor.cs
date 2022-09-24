@@ -146,23 +146,45 @@ public class CutsceneEditor : EditorWindow
 
             // Find the serialized property for the command we are currently dealing with
             SerializedProperty serializedCommand = cutsceneSerializedObject.FindProperty("commands").GetArrayElementAtIndex(i);
+            List<SerializedProperty> alreadyDrawn = new List<SerializedProperty>();
 
             // Draw all the properties for that command and add them to the container
             foreach(SerializedProperty prop in serializedCommand)
             {
-                // Kind of hacky way to stop the array elements from drawing a 2nd time. Let me know if you find a better way!
-                if (prop.displayName == "Size" || prop.displayName.Contains("Element"))
-                    continue;
+                if (prop.isArray && prop.propertyType == SerializedPropertyType.Generic)
+                {
+                    alreadyDrawn.Add(prop);
+                    ListView listView = new ListView();
+                    MakeUserFriendlyListView(listView);
+                    listView.BindProperty(prop);
+                    listView.headerTitle = prop.displayName;
 
-                // Generate a property field for the property, bind it to the cutscene object, and add it to the container
-                PropertyField field = new PropertyField(prop);
-                field.Bind(cutsceneSerializedObject);
-                commandContainer.Add(field);
+                    commandContainer.Add(listView);
+                }
+                else if (!alreadyDrawn.Contains(prop))
+                {
+                    // Generate a property field for the property, bind it to the cutscene object, and add it to the container
+                    PropertyField field = new PropertyField(prop);
+                    field.Bind(cutsceneSerializedObject);
+                    commandContainer.Add(field);
+                }
             }
 
             // Now that we have the entire Visual Element for the command, add it to the ScrollView
             scrollView.Add(commandContainer);
         }
+    }
+
+    private void MakeUserFriendlyListView(ListView listView)
+    {
+        listView.showFoldoutHeader = true;
+        listView.showAddRemoveFooter = true;
+        listView.showBorder = true;
+        listView.showBoundCollectionSize = false;
+        listView.virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight;
+        listView.reorderable = true;
+        listView.reorderMode = ListViewReorderMode.Animated;
+        listView.selectionType = SelectionType.Single;
     }
 
     // Generates the Delete, Up, and Down buttons for each command

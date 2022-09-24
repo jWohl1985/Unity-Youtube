@@ -8,9 +8,9 @@ namespace Core
     [Serializable]
     public class MovePlayer : ICutsceneCommand
     {
-        [SerializeField] private List<Dir> route;
         [SerializeField] private float speed;
-
+        [SerializeField] private List<Dir> route;
+        
         public bool IsFinished { get; private set; }
 
         public IEnumerator Co_Execute()

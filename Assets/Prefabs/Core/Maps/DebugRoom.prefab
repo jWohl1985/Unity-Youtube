@@ -93,45 +93,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoplay: 1
   commands:
-  - rid: 1790838899118702706
-  - rid: 1790838899118702707
-  - rid: 1790838899118702708
-  - rid: 1790838899118702714
-  - rid: 1790838899118702720
-  - rid: 1790838899118702721
+  - rid: 1790838921289793549
+  - rid: 1790838921289793550
   references:
     version: 2
     RefIds:
-    - rid: 1790838899118702706
+    - rid: 1790838921289793549
       type: {class: MoveCharacter, ns: Core, asm: Scripts}
       data:
         character: {fileID: 7532479656071247211}
         speed: 0
-        route: 0000000000000000
-    - rid: 1790838899118702707
-      type: {class: Wait, ns: Core, asm: Scripts}
-      data:
-        seconds: 3
-    - rid: 1790838899118702708
-      type: {class: MoveCharacter, ns: Core, asm: Scripts}
-      data:
-        character: {fileID: 7532479656071247211}
-        speed: 0
-        route: 0100000001000000
-    - rid: 1790838899118702714
-      type: {class: MovePlayer, ns: Core, asm: Scripts}
-      data:
         route: 0300000003000000
-        speed: 0
-    - rid: 1790838899118702720
+    - rid: 1790838921289793550
       type: {class: StartDialogue, ns: Core, asm: Scripts}
       data:
-        dialogueToStart: {fileID: 11400000, guid: 95031c6e97b64e94e9682cd43e7ba646, type: 2}
-    - rid: 1790838899118702721
-      type: {class: MovePlayer, ns: Core, asm: Scripts}
-      data:
-        route: 0200000002000000
-        speed: 0
+        dialogueLines:
+        - sprite: {fileID: 21300000, guid: 65e4a7ad2ae33004e99a79f97f81339c, type: 3}
+          name: Satyr
+          message: '"Hello."'
 --- !u!1 &5604176741303098814
 GameObject:
   m_ObjectHideFlags: 0

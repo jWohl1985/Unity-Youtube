@@ -65,7 +65,7 @@ namespace Core
             }
         }
 
-        public void StartDialogue(Dialogue sceneToPlay)
+        public void StartDialogue(List<DialogueLine> sceneToPlay)
         {
             previousState = State;
             State = GameState.Dialogue;

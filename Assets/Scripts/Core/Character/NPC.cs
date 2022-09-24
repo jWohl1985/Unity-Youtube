@@ -47,11 +47,7 @@ namespace Core
 
         public void Interact()
         {
-            if (interaction is Dialogue dialogue)
-            {
-                Turner.TurnToPlayer();
-                Game.Manager.StartDialogue(dialogue);
-            }
+
         }
 
         protected override void Update()

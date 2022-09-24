@@ -10,7 +10,7 @@ public class A_DialogueWindowTests
 {
     private bool isReady = false;
     private DialogueWindow sut;
-    private Dialogue testDialogue;
+    private List<DialogueLine> testDialogue;
     private Animator sutAnimator;
 
     [OneTimeSetUp]
@@ -31,7 +31,7 @@ public class A_DialogueWindowTests
     public void OnSceneReady(Scene scene, LoadSceneMode mode)
     {
         sut = GameObject.FindObjectOfType<DialogueWindow>();
-        testDialogue = Resources.Load<Dialogue>("ScriptableObjects/DialogueScenes/TestDialogue");
+        //testDialogue = Resources.Load<Dialogue>("ScriptableObjects/DialogueScenes/TestDialogue");
         sutAnimator = sut.GetComponent<Animator>();
         isReady = true;
     }

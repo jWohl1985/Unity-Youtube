@@ -179,8 +179,8 @@ public class A_MainMenuTests
     public IEnumerator Cant_open_in_cutscene()
     {
         // Arrange
-        Dialogue scene = Resources.Load<Dialogue>("ScriptableObjects/DialogueScenes/TestDialogue");
-        Game.Manager.StartDialogue(scene);
+        //Dialogue scene = Resources.Load<Dialogue>("ScriptableObjects/DialogueScenes/TestDialogue");
+        //Game.Manager.StartDialogue(scene);
 
         // Act
         Game.Manager.ToggleMenu();

@@ -8,7 +8,7 @@ namespace Core
 {
     public class DialogueWindow : MonoBehaviour
     {
-        [SerializeField] private Dialogue dialogue;
+        [SerializeField] private List<DialogueLine> dialogueLines;
         [SerializeField] private Image portrait;
         [SerializeField] private TextMeshProUGUI characterName;
         [SerializeField] private TextMeshProUGUI message;
@@ -26,11 +26,11 @@ namespace Core
             animator = GetComponent<Animator>();
         }
 
-        public void Open(Dialogue dialogueToPlay)
+        public void Open(List<DialogueLine> dialogueToPlay)
         {
-            dialogue = dialogueToPlay;
+            dialogueLines = dialogueToPlay;
             currentDialogueLine = 0;
-            ShowDialogueLine(dialogue.DialogueLines[currentDialogueLine]);
+            ShowDialogueLine(dialogueLines[currentDialogueLine]);
             animator.Play(dialogueOpenAnimation);
             IsOpen = true;
         }
@@ -38,9 +38,9 @@ namespace Core
         public void GoToNextLine()
         {
             currentDialogueLine++;
-            if (currentDialogueLine < dialogue.DialogueLines.Count)
+            if (currentDialogueLine < dialogueLines.Count)
             {
-                ShowDialogueLine(dialogue.DialogueLines[currentDialogueLine]);
+                ShowDialogueLine(dialogueLines[currentDialogueLine]);
             }
             else
             {
