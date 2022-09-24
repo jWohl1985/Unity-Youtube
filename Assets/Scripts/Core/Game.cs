@@ -19,6 +19,8 @@ namespace Core
         [SerializeField] private GameObject battleTransitionPrefab;
         [SerializeField] private GameObject mapTransitionPrefab;
 
+        private GameState previousState;
+
         public GameState State { get; private set; }
         public Map Map { get; private set; }
         public Player Player { get; private set; }
@@ -65,11 +67,20 @@ namespace Core
 
         public void StartDialogue(Dialogue sceneToPlay)
         {
-            State = GameState.Cutscene;
+            previousState = State;
+            State = GameState.Dialogue;
             dialogueWindow.Open(sceneToPlay);
         }
 
-        public void EndDialogue() => State = GameState.World;
+        public void AdvanceDialogue()
+        {
+            if (!dialogueWindow.IsOpen || State != GameState.Dialogue || dialogueWindow.IsAnimating)
+                return;
+
+            dialogueWindow.GoToNextLine();
+        }
+
+        public void EndDialogue() => State = previousState;
 
         public IEnumerator Co_StartBattle(EnemyPack pack)
         {
@@ -94,14 +105,6 @@ namespace Core
 
             Animator animator = Instantiate(transitionPrefab, Player.transform.position, Quaternion.identity).GetComponent<Animator>();
             return animator;
-        }
-
-        public void AdvanceDialogue()
-        {
-            if (!dialogueWindow.IsOpen || State != GameState.Cutscene || dialogueWindow.IsAnimating)
-                return;
-
-            dialogueWindow.GoToNextLine();
         }
 
         public void LoadMap(Map newMap, int destinationId) => StartCoroutine(Co_LoadMap(newMap, destinationId));

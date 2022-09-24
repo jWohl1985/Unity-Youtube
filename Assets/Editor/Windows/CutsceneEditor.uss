@@ -1,45 +1,80 @@
-TemplateContainer
-{
-	flex-grow: 1;
-	flex-direction: row;
+TemplateContainer {
+    flex-grow: 1;
+    flex-direction: row;
 }
 
-.command-header
-{
-	color: white;
-	-unity-font-style: bold;
-	font-size: 18px;
-	background-color: #2c3e50;
+/* =========== Command List =========== */
+#command-list-box {
+    width: 175px;
+    background-color: rgba(0, 0, 0, 0.47);
 }
 
-#command-list-box
-{
-	width: 175px;
-	background-color: rgba(0,0,0,.47);
+#command-list {
+    margin-top: 20px;
+    height: 80px;
+    -unity-text-align: middle-center;
 }
 
-#command-list
-{
-	margin-top: 20px;
-	height: 80px;
-	-unity-text-align: middle-center;
+#add-button {
+    width: 125px;
+    align-content: center;
+    align-self: center;
+    color: white;
+    background-color: rgba(36, 161, 36, 0.47);
 }
 
-#add-button
-{
-	width: 125px;
-	align-content: center;
-	align-self: center;
-	color: white;
-	background-color: rgba(36,161,36,.47);
+#add-button:hover {
+    color: black;
 }
 
-#add-button:hover
-{
-	color: black;
+/* ============ Scene List ============ */
+
+#scene {
+    flex-grow: 1;
 }
 
-#scene
-{
-	flex-grow: 1;
+.header-row {
+    margin-bottom: 15px;
 }
+
+.command-header {
+    color: white;
+    width: 350px;
+    -unity-font-style: bold;
+    font-size: 18px;
+    background-color: rgba(36, 161, 36, 0.47);
+    margin-top: 30px;
+}
+
+.first-command {
+    margin-top: 0px;
+}
+
+.delete-button {
+    width: 80px;
+    height: 20px;
+    align-self: flex-end;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.47);
+    margin-right: 50px;
+}
+
+.delete-button:hover {
+    color: black;
+}
+
+.position-button{
+    width: 80px;
+    height: 20px;
+    align-self: flex-end;
+    color: white;
+    background-color: rgba(0, 0, 255, 0.47);
+}
+
+.position-button:hover{
+    color: black;
+}
+
+
+
+

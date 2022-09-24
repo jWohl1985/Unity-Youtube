@@ -16,6 +16,7 @@ namespace Core
     {
         World,
         Loading,
+        Dialogue,
         Cutscene,
         Battle,
         Menu,

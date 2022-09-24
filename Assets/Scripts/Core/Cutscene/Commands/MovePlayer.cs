@@ -1,21 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
-    [System.Serializable]
-    public class MoveCharacter : ICutsceneCommand
+    [Serializable]
+    public class MovePlayer : ICutsceneCommand
     {
-        [SerializeField] private Character character;
+        [SerializeField] private List<Dir> route;
         [SerializeField] private float speed;
-        [SerializeField] private List<Dir> route = new List<Dir>();
 
         public bool IsFinished { get; private set; }
 
         public IEnumerator Co_Execute()
         {
-            foreach(Dir dir in route)
+            foreach (Dir dir in route)
             {
                 Vector2Int direction = dir switch
                 {
@@ -26,16 +26,16 @@ namespace Core
                     _ => new Vector2Int(0, 0),
                 };
 
-                character.Movement.TryMove(direction);
+                Game.Manager.Player.Movement.TryMove(direction);
                 yield return null;
 
-                while (character.IsMoving)
+                while (Game.Manager.Player.IsMoving)
                     yield return null;
             }
 
             IsFinished = true;
         }
 
-        public override string ToString() => "Move Character";
+        public override string ToString() => "Move Player";
     }
 }

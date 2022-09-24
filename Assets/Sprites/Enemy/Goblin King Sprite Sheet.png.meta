@@ -279,7 +279,7 @@ TextureImporter:
       213: -2093371175363560856
     second: Goblin King Sprite Sheet_91
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -296,10 +296,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -338,6 +340,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -353,6 +357,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2308,9 +2324,101 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Goblin King Sprite Sheet_0: -3084472202944799101
+      Goblin King Sprite Sheet_30: 6723313656949094593
+      Goblin King Sprite Sheet_12: 4921899431572892617
+      Goblin King Sprite Sheet_7: -5865984666730367549
+      Goblin King Sprite Sheet_41: -7970936887613467301
+      Goblin King Sprite Sheet_59: -1081586478174408106
+      Goblin King Sprite Sheet_57: 7929327091599110614
+      Goblin King Sprite Sheet_40: -8979711462631837503
+      Goblin King Sprite Sheet_25: 4218363795381085079
+      Goblin King Sprite Sheet_81: 5116383000596285700
+      Goblin King Sprite Sheet_31: 3573787327457490507
+      Goblin King Sprite Sheet_18: -5581347161570321500
+      Goblin King Sprite Sheet_61: -8375742742993018753
+      Goblin King Sprite Sheet_26: 265039341996740417
+      Goblin King Sprite Sheet_74: -8572577198429208771
+      Goblin King Sprite Sheet_38: 7909932940230747192
+      Goblin King Sprite Sheet_83: -2305592820039656584
+      Goblin King Sprite Sheet_66: 5045827217841183415
+      Goblin King Sprite Sheet_75: 1411012958686592694
+      Goblin King Sprite Sheet_32: 3211277010269834289
+      Goblin King Sprite Sheet_36: 2093316316313979930
+      Goblin King Sprite Sheet_64: 3892823689203871618
+      Goblin King Sprite Sheet_33: -3743412917159853134
+      Goblin King Sprite Sheet_84: -4016291763289227803
+      Goblin King Sprite Sheet_73: -520674296825424913
+      Goblin King Sprite Sheet_76: -8670620724524552765
+      Goblin King Sprite Sheet_44: 6719397359236468548
+      Goblin King Sprite Sheet_85: -2189576495201958027
+      Goblin King Sprite Sheet_15: -7976285102818788903
+      Goblin King Sprite Sheet_77: 3291044521647356353
+      Goblin King Sprite Sheet_1: -3267801681500595072
+      Goblin King Sprite Sheet_48: -2087336550309761094
+      Goblin King Sprite Sheet_53: 1516476287654798328
+      Goblin King Sprite Sheet_63: 6381826310272855877
+      Goblin King Sprite Sheet_62: 5354810134919802727
+      Goblin King Sprite Sheet_34: 1898105422731207118
+      Goblin King Sprite Sheet_24: -9060241743387066264
+      Goblin King Sprite Sheet_28: -671758582016180256
+      Goblin King Sprite Sheet_49: -5286689804504913268
+      Goblin King Sprite Sheet_37: 8733268230945637360
+      Goblin King Sprite Sheet_88: 5936778450173880956
+      Goblin King Sprite Sheet_67: 2243203614921836026
+      Goblin King Sprite Sheet_35: -9090312065081864612
+      Goblin King Sprite Sheet_2: 9077161375292067266
+      Goblin King Sprite Sheet_70: -530938501797878530
+      Goblin King Sprite Sheet_90: -1058497954871963513
+      Goblin King Sprite Sheet_91: -2093371175363560856
+      Goblin King Sprite Sheet_29: 347455193585861809
+      Goblin King Sprite Sheet_89: -4028895589867260163
+      Goblin King Sprite Sheet_19: 8637116442464404790
+      Goblin King Sprite Sheet_68: 8108028018017069762
+      Goblin King Sprite Sheet_55: -9058044868387251622
+      Goblin King Sprite Sheet_45: 4197999444982687157
+      Goblin King Sprite Sheet_47: -1042895846403795502
+      Goblin King Sprite Sheet_52: 2602572365577812413
+      Goblin King Sprite Sheet_6: -7673457119488555420
+      Goblin King Sprite Sheet_60: 8561241785321275630
+      Goblin King Sprite Sheet_16: -6044711509220391116
+      Goblin King Sprite Sheet_54: 1210795810570116323
+      Goblin King Sprite Sheet_72: 3451883091051253988
+      Goblin King Sprite Sheet_58: 3090352323269916290
+      Goblin King Sprite Sheet_10: -7476208285095497111
+      Goblin King Sprite Sheet_20: 6546355906914283033
+      Goblin King Sprite Sheet_9: -7154128226271406832
+      Goblin King Sprite Sheet_50: -7056937424279740845
+      Goblin King Sprite Sheet_80: 3274581444112011216
+      Goblin King Sprite Sheet_23: -6751749177203845713
+      Goblin King Sprite Sheet_56: 689142952570116947
+      Goblin King Sprite Sheet_69: -1263347641320548524
+      Goblin King Sprite Sheet_8: -3676366397676470598
+      Goblin King Sprite Sheet_71: -3000314221914715701
+      Goblin King Sprite Sheet_86: 3267935943014383293
+      Goblin King Sprite Sheet_78: -4959109497288044487
+      Goblin King Sprite Sheet_5: 763924026007532991
+      Goblin King Sprite Sheet_39: -4592178555430711637
+      Goblin King Sprite Sheet_43: 2693530185530047293
+      Goblin King Sprite Sheet_4: -6563596470052181951
+      Goblin King Sprite Sheet_87: -8962399257727410804
+      Goblin King Sprite Sheet_17: -9159761087304058496
+      Goblin King Sprite Sheet_51: -4547977184170327881
+      Goblin King Sprite Sheet_22: 4680393402410768619
+      Goblin King Sprite Sheet_27: -3837195855908331489
+      Goblin King Sprite Sheet_82: 7078478464769317726
+      Goblin King Sprite Sheet_65: -576472543197172139
+      Goblin King Sprite Sheet_11: 6063005006906922945
+      Goblin King Sprite Sheet_13: -1899308460389963783
+      Goblin King Sprite Sheet_14: 1143387619500623625
+      Goblin King Sprite Sheet_46: 8250462999531309229
+      Goblin King Sprite Sheet_21: 5658970605794351638
+      Goblin King Sprite Sheet_42: 1158150673644880871
+      Goblin King Sprite Sheet_79: -766209938559357557
+      Goblin King Sprite Sheet_3: 5780712568294528099
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -1,22 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:engine="UnityEngine.UIElements"
-    xmlns:editor="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
->
-
-    <!-- List of commands -->
-    <engine:Box name="command-list-box">
-        <engine:ListView name="command-list"/>
-        <engine:Button name="add-button" text="Add Selected"></engine:Button>
-    </engine:Box>
-
-    <!-- Commands in the cutscene -->
-    <engine:Box name="scene">
-        <engine:ScrollView name="scene-info-scroll">
-            <engine:ListView name="scene-commands"/>
-        </engine:ScrollView>
-    </engine:Box>
-
-</engine:UXML>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editor/Windows/CutsceneEditor.uss?fileID=7433441132597879392&amp;guid=20ebffc8c54d83d48aa88e79f6b6e231&amp;type=3#CutsceneEditor" />
+    <ui:Box name="command-list-box">
+        <ui:ListView name="command-list" />
+        <ui:IntegerField label="Position" value="0" name="position" />
+        <ui:Button tabindex="-1" text="Add Selected" display-tooltip-when-elided="true" name="add-button" />
+    </ui:Box>
+    <ui:Box name="scene">
+        <ui:ScrollView name="scene-info-scroll">
+            <ui:ListView name="scene-commands" />
+        </ui:ScrollView>
+    </ui:Box>
+</ui:UXML>

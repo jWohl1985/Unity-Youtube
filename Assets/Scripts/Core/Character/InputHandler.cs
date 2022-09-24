@@ -41,7 +41,7 @@ namespace Core
                     if (Input.GetKeyDown(KeyCode.Escape))
                         command = Command.ToggleMenu;
                     break;
-                case (GameState.Cutscene):
+                case (GameState.Dialogue):
                     if (Input.GetKeyDown(KeyCode.Space))
                         command = Command.AdvanceDialogue;
                     break;

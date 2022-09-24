@@ -38,6 +38,11 @@ namespace Core
                 isStarted = true;
         }
 
-        public void AddCommand(ICutsceneCommand command) => commands.Add(command);
+        public void InsertCommand(int index, ICutsceneCommand command) => commands.Insert(index, command);
+        public void RemoveAt(int i) => commands.RemoveAt(i);
+        public void SwapCommands(int i, int j)
+        {
+            (commands[i], commands[j]) = (commands[j], commands[i]);
+        }
     }
 }

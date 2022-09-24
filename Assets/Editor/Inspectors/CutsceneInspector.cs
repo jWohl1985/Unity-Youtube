@@ -34,11 +34,6 @@ public class CutsceneInspector : Editor
         return container;
     }
 
-    public override void OnInspectorGUI()
-    {
-
-    }
-
     private void DisplaySceneCommands()
     {
         foreach(ICutsceneCommand command in (target as Cutscene).Commands)
