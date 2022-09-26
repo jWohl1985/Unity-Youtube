@@ -56,7 +56,7 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Battle\Calculate.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleCalculations.cs" />
     <Compile Include="Assets\Scripts\Battle\Interfaces\ICommand.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\EnemyPack.cs" />
     <Compile Include="Assets\Scripts\Core\Maps\Map.cs" />
@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Core\UI\PartyMemberInfo.cs" />
     <Compile Include="Assets\Scripts\Battle\Actor.cs" />
     <Compile Include="Assets\Scripts\Core\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Core\Interfaces\ITriggerTouch.cs" />
     <Compile Include="Assets\Scripts\Battle\Commands\Attack.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Commands\MoveCharacter.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Commands\MovePlayer.cs" />

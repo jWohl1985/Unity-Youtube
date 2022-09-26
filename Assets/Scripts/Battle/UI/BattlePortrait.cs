@@ -46,8 +46,11 @@ namespace Battle
 
         private void Update()
         {
-            RectTransform slotRect = slotRects[actor.TurnNumber];
-            rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, slotRect.anchoredPosition, 1f);
+            if (gameObject.activeSelf)
+            {
+                RectTransform slotRect = slotRects[actor.TurnNumber];
+                rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, slotRect.anchoredPosition, 1f);
+            }
         }
 
         private void RemovePortrait()

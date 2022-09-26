@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 using Core;
 
-public class A_MainMenuTests
+public class A1_MainMenuTests
 {
     private bool isReady = false;
     private MainMenu sutMainMenu;
@@ -16,9 +16,9 @@ public class A_MainMenuTests
     [OneTimeSetUp]
     public void SetupScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if (SceneManager.GetActiveScene().buildIndex != 3)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(3);
             SceneManager.sceneLoaded += OnSceneReady;
         }
         else
@@ -176,13 +176,15 @@ public class A_MainMenuTests
     }
 
     [UnityTest, Order(11)]
-    public IEnumerator Cant_open_in_cutscene()
+    public IEnumerator Cant_open_in_dialogue()
     {
         // Arrange
-        //Dialogue scene = Resources.Load<Dialogue>("ScriptableObjects/DialogueScenes/TestDialogue");
-        //Game.Manager.StartDialogue(scene);
+        DialogueLine line = new DialogueLine();
+        List<DialogueLine> dialogueLines = new List<DialogueLine>();
+        dialogueLines.Add(line);
 
         // Act
+        Game.Manager.StartDialogue(dialogueLines);
         Game.Manager.ToggleMenu();
         yield return null;
 

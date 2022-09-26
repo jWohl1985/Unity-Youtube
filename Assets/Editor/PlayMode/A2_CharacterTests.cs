@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using Core;
 
 
-public class A_CharacterTests
+public class A2_CharacterTests
 {
     private bool isReady = false;
     private Player sut;
@@ -15,9 +15,9 @@ public class A_CharacterTests
     [OneTimeSetUp]
     public void SetupScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if (SceneManager.GetActiveScene().buildIndex != 3)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(3);
             SceneManager.sceneLoaded += OnSceneReady;
         }
         else
@@ -37,12 +37,22 @@ public class A_CharacterTests
     public IEnumerator Finds_current_cell()
     {
         while (!isReady) yield return null;
-        Assert.AreEqual(new Vector2Int(0, 0), sut.CurrentCell);
+
+        // Arrange
+        Vector2Int startingCell = new Vector2Int(0, 3);
+
+        // Act
+
+        // Assert
+        Assert.AreEqual(startingCell, sut.CurrentCell);
     }
 
     [Test, Order(1)]
     public void Character_facing_updates_correctly()
     {
+        // Arrange
+
+        // Act & Assert
         sut.Turner.Turn(Direction.Left);
         Assert.AreEqual(Direction.Left, sut.Facing);
 
@@ -59,42 +69,48 @@ public class A_CharacterTests
     [UnityTest, Order(2)]
     public IEnumerator Moves_to_the_correct_cell()
     {
-        // Moving Left
+        // Arrange
+
+        // Act & Assert
+
+        // Left
         Vector2Int current = sut.CurrentCell;
         sut.Movement.TryMove(Direction.Left);
-        yield return new WaitForSeconds(.5f);
+        while (sut.IsMoving) yield return null;
         Assert.AreEqual(current + Direction.Left, sut.CurrentCell);
 
-        // Moving Right
+        // Right
         current = sut.CurrentCell;
         sut.Movement.TryMove(Direction.Right);
-        yield return new WaitForSeconds(.5f);
+        while (sut.IsMoving) yield return null;
         Assert.AreEqual(current + Direction.Right, sut.CurrentCell);
 
-        // Moving Down
+        // Down
         current = sut.CurrentCell;
         sut.Movement.TryMove(Direction.Down);
-        yield return new WaitForSeconds(.5f);
+        while (sut.IsMoving) yield return null;
         Assert.AreEqual(current + Direction.Down, sut.CurrentCell);
 
-        // Moving Up
+        // Up
         current = sut.CurrentCell;
         sut.Movement.TryMove(Direction.Up);
-        yield return new WaitForSeconds(.5f);
+        while (sut.IsMoving) yield return null;
         Assert.AreEqual(current + Direction.Up, sut.CurrentCell);
     }
 
     [UnityTest, Order(3)]
     public IEnumerator Updates_cell_map_dictionary()
     {
+        // Arrange
         Vector2Int originalCell = sut.CurrentCell;
-
         Assert.IsTrue(Game.Manager.Map.OccupiedCells.ContainsKey(originalCell));
         Assert.AreEqual(sut, Game.Manager.Map.OccupiedCells[originalCell]);
 
+        // Act
         sut.Movement.TryMove(Direction.Left);
-        yield return new WaitForSeconds(.5f);
+        while (sut.IsMoving) yield return null;
 
+        // Assert
         Assert.IsTrue(Game.Manager.Map.OccupiedCells.ContainsKey(sut.CurrentCell));
         Assert.IsFalse(Game.Manager.Map.OccupiedCells.ContainsKey(originalCell));
         Assert.AreEqual(sut, Game.Manager.Map.OccupiedCells[sut.CurrentCell]);
@@ -103,55 +119,66 @@ public class A_CharacterTests
     [UnityTest, Order(4)]
     public IEnumerator Cant_move_into_characters()
     {
-        sut.Movement.TryMove(Direction.Down);
-        yield return new WaitForSeconds(.5f);
-
+        // Arrange
+        sut.Movement.TryMove(Direction.Down); // move next to the NPC
+        yield return null;
+        while (sut.IsMoving) yield return null;
         Vector2Int originalCell = sut.CurrentCell;
-        sut.Movement.TryMove(Direction.Left);
-        yield return new WaitForSeconds(.5f);
-        Assert.AreEqual(originalCell, sut.CurrentCell);
+
+        // Act
+        sut.Movement.TryMove(Direction.Left); // try to move into the NPC
+        yield return null;
+
+        // Assert
+        Assert.IsFalse(sut.IsMoving);
     }
 
     [Test, Order(5)]
     public void Failed_move_changes_facing()
     {
+        // Arrange
+
+        // Act
         sut.Movement.TryMove(Direction.Down);
+
+        // Assert
         Assert.AreEqual(Direction.Down, sut.Facing);
     }
 
     [UnityTest, Order(6)]
     public IEnumerator Cant_move_into_collisions()
     {
+        // Arrange
         Vector2Int originalCell = sut.CurrentCell;
-        sut.Movement.TryMove(Direction.Down);
-        yield return new WaitForSeconds(.5f);
-        Assert.AreEqual(originalCell, sut.CurrentCell);
+
+        // Act
+        sut.Movement.TryMove(Direction.Down); // try to move into the rock on the tilemap
+        yield return null;
+
+        // Assert
+        Assert.IsFalse(sut.IsMoving);
     }
 
     [UnityTest, Order(7)]
     public IEnumerator Animator_updates_parameters()
     {
+        // Arrange
         Animator animator = sut.GetComponent<Animator>();
         CharacterAnimator charAnimator = sut.Animator;
-
         Assert.IsFalse(animator.GetBool(charAnimator.WalkingParameter));
         Assert.AreEqual(0, animator.GetFloat(charAnimator.HorizontalParameter));
         Assert.AreEqual(-1.0f, animator.GetFloat(charAnimator.VerticalParameter));
 
+        // Act & Assert
         sut.Movement.TryMove(Direction.Up);
-
-        yield return new WaitForSeconds(.1f);
-
+        yield return null;
         Assert.IsTrue(animator.GetBool(charAnimator.WalkingParameter));
         Assert.AreEqual(0, animator.GetFloat(charAnimator.HorizontalParameter));
         Assert.AreEqual(1.0f, animator.GetFloat(charAnimator.VerticalParameter));
-
-        yield return new WaitForSeconds(.4f);
+        while (sut.IsMoving) yield return null;
 
         sut.Movement.TryMove(Direction.Right);
-
-        yield return new WaitForSeconds(.1f);
-
+        yield return null;
         Assert.IsTrue(animator.GetBool(charAnimator.WalkingParameter));
         Assert.AreEqual(1.0f, animator.GetFloat(charAnimator.HorizontalParameter));
         Assert.AreEqual(0.0f, animator.GetFloat(charAnimator.VerticalParameter));

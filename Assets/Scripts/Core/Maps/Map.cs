@@ -9,7 +9,7 @@ namespace Core
         [SerializeField] private BattleRegion region;
 
         public Dictionary<Vector2Int, MonoBehaviour> OccupiedCells { get; private set; }
-        public Dictionary<Vector2Int, Transfer> Transfers { get; private set; }
+        public Dictionary<Vector2Int, ITriggerTouch> TriggerCells { get; private set; }
         public Grid Grid { get; private set; }
         public BattleRegion Region => region;
 
@@ -17,7 +17,7 @@ namespace Core
         {
             Grid = GetComponent<Grid>();
             OccupiedCells = new Dictionary<Vector2Int, MonoBehaviour>();
-            Transfers = new Dictionary<Vector2Int, Transfer>();
+            TriggerCells = new Dictionary<Vector2Int, ITriggerTouch>();
             OccupiedCells.Clear();
         }
     }

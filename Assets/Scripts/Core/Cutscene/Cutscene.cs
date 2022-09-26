@@ -4,31 +4,37 @@ using UnityEngine;
 
 namespace Core
 {
-    public class Cutscene : MonoBehaviour
+    public class Cutscene : MonoBehaviour, ITriggerTouch
     {
-        [SerializeField] private bool autoplay = false;
+        [SerializeField] private TriggerType trigger = TriggerType.Autoplay;
 
         [SerializeReference]
         private List<ICutsceneCommand> commands = new List<ICutsceneCommand>();
-
-        private bool isfinished = false;
+        private bool isFinished = false;
         private bool isStarted = false;
 
+        public Vector2Int Cell => Game.Manager.Map.Grid.GetCell2D(this.gameObject);
         public IReadOnlyList<ICutsceneCommand> Commands => commands;
         public bool IsFinished
         {
-            get => isfinished;
+            get => isFinished;
             set
             {
-                isfinished = value;
+                isFinished = value;
                 if (value == true)
                     Destroy(this.gameObject);
             }
         }
 
+        private void Start()
+        {
+            if (trigger == TriggerType.Touch)
+                Game.Manager.Map.TriggerCells.Add(Cell, this);
+        }
+
         private void Update()
         {
-            if (autoplay && !isStarted)
+            if (trigger == TriggerType.Autoplay && !isStarted)
                 Play();
         }
 
@@ -37,6 +43,8 @@ namespace Core
             if (Game.Manager.TryPlayCutscene(this))
                 isStarted = true;
         }
+
+        public void Trigger() => Play();
 
         public void InsertCommand(int index, ICutsceneCommand command) => commands.Insert(index, command);
         public void RemoveAt(int i) => commands.RemoveAt(i);

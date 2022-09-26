@@ -28,10 +28,10 @@ namespace Core
 
         public void OnMovementFinished()
         {
-            if (Map.Transfers.ContainsKey(CurrentCell))
+            if (Map.TriggerCells.ContainsKey(CurrentCell))
             {
-                Transfer transfer = Map.Transfers[CurrentCell];
-                transfer.TeleportPlayer();
+                ITriggerTouch trigger = Map.TriggerCells[CurrentCell];
+                trigger.Trigger();
                 return;
             }
 

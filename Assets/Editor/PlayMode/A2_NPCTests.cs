@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 using Core;
 
-public class A_NPCTests
+public class A2_NPCTests
 {
     private bool isReady = false;
     private NPC sut;
@@ -14,9 +14,9 @@ public class A_NPCTests
     [OneTimeSetUp]
     public void SetupScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if (SceneManager.GetActiveScene().buildIndex != 3)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(3);
             SceneManager.sceneLoaded += OnSceneReady;
         }
         else
@@ -170,15 +170,15 @@ public class A_NPCTests
     }
 
     [UnityTest, Order(5)]
-    public IEnumerator Interaction_dialogue_triggers()
+    public IEnumerator Interaction_cutscene_triggers()
     {
         // Arrange
 
         // Act
 
         // Assert
-        yield return null;
-        Assert.AreEqual(GameState.Cutscene, Game.Manager.State);
+        yield return new WaitForSeconds(.25f);
+        Assert.AreEqual(GameState.Dialogue, Game.Manager.State);
     }
 
     [UnityTest, Order(6)]

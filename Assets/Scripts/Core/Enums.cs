@@ -27,4 +27,11 @@ namespace Core
         Battle,
         MapChange,
     }
+
+    public enum TriggerType
+    {
+        Autoplay,
+        Touch,
+        Call,
+    }
 }

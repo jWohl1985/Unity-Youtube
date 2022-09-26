@@ -6,7 +6,7 @@ namespace Core
 {
     public class NPC : Character, IInteractable
     {
-        [SerializeField] private ScriptableObject interaction;
+        [SerializeField] private Cutscene interaction;
         [SerializeField] private List<Dir> moveRoute = new List<Dir>();
         [SerializeField] private float delay = 0f;
         [SerializeField] private bool neverMoves = false;
@@ -43,11 +43,12 @@ namespace Core
             set => delay = Mathf.Clamp(value, 0, 30.0f);
         }
 
-        public ScriptableObject Interaction => interaction;
+        public Cutscene Interaction => interaction;
 
         public void Interact()
         {
-
+            Turner.TurnToPlayer();
+            Interaction.Play();
         }
 
         protected override void Update()

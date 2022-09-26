@@ -59,6 +59,7 @@
     <Compile Include="Assets\Editor\EditMode\PartyTests.cs" />
     <Compile Include="Assets\Editor\EditMode\BattleStatsTests.cs" />
     <Compile Include="Assets\Editor\EditMode\DirectionTests.cs" />
+    <Compile Include="Assets\Editor\EditMode\BattleRegionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\EditMode\EditMode.asmdef" />

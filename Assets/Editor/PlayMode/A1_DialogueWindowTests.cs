@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 using Core;
 
-public class A_DialogueWindowTests
+public class A1_DialogueWindowTests
 {
     private bool isReady = false;
     private DialogueWindow sut;
@@ -16,9 +16,9 @@ public class A_DialogueWindowTests
     [OneTimeSetUp]
     public void SetupScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if (SceneManager.GetActiveScene().buildIndex != 3)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(3);
             SceneManager.sceneLoaded += OnSceneReady;
         }
         else
@@ -31,7 +31,10 @@ public class A_DialogueWindowTests
     public void OnSceneReady(Scene scene, LoadSceneMode mode)
     {
         sut = GameObject.FindObjectOfType<DialogueWindow>();
-        //testDialogue = Resources.Load<Dialogue>("ScriptableObjects/DialogueScenes/TestDialogue");
+        testDialogue = new List<DialogueLine>();
+        testDialogue.Add(new DialogueLine());
+        testDialogue.Add(new DialogueLine());
+        testDialogue.Add(new DialogueLine());
         sutAnimator = sut.GetComponent<Animator>();
         isReady = true;
     }
@@ -69,7 +72,7 @@ public class A_DialogueWindowTests
         // Act
 
         // Assert
-        Assert.AreEqual(GameState.Cutscene, Game.Manager.State);
+        Assert.AreEqual(GameState.Dialogue, Game.Manager.State);
     }
 
     [UnityTest, Order(3)]

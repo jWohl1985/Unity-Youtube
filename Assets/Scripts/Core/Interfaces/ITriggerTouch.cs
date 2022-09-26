@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
-    public interface IInteractable
+    public interface ITriggerTouch
     {
-        Cutscene Interaction { get; }
-        void Interact();
+        Vector2Int Cell { get; }
+
+        void Trigger();
     }
 }

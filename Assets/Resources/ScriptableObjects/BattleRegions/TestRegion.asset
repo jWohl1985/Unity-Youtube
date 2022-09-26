@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5903e4c97ac48bd47bfeb7282f773257, type: 3}
   m_Name: TestRegion
   m_EditorClassIdentifier: 
-  encounterChancePerStep: 50
+  encounterChancePerStep: 100
   enemyPacks:
   - {fileID: 11400000, guid: d4ad3f410c9eaa94e95caf62546eb055, type: 2}
   - {fileID: 11400000, guid: d5e34d8f675fc0040a16f120bf5d8569, type: 2}

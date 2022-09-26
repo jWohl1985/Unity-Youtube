@@ -50,7 +50,7 @@ namespace Core
 
         public void ToggleMenu()
         {
-            if (mainMenu.IsAnimating || State == GameState.Cutscene)
+            if (mainMenu.IsAnimating || State == GameState.Cutscene || State == GameState.Dialogue)
                 return;
 
             if (mainMenu.IsOpen)
@@ -121,9 +121,11 @@ namespace Core
             Map = Instantiate(newMap);
             Destroy(oldMap.gameObject);
 
+            yield return null;
+
             Transfer[] transfers = FindObjectsOfType<Transfer>();
             Transfer transfer = transfers.Where(transfer => transfer.Id == destinationId).ToList().FirstOrDefault();
-            Player.transform.position = transfer.Cell.Center2D();
+            Player.transform.position = (transfer.Cell + transfer.Offset).Center2D();
 
             animator.Play("MapTransition_FadeIn");
             yield return null;

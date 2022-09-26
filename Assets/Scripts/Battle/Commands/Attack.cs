@@ -45,7 +45,7 @@ namespace Battle
                 yield return null;
             attacker.Animator.Play("Idle");
 
-            Calculate.AttackDamage(attacker, defender);
+            BattleCalculations.AttackDamage(attacker, defender);
 
             IsFinished = true;
         }
