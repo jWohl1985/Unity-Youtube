@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Test Runner
+  m_Title: Scene
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 429
     height: 686
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 76
+  controlID: 130
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,8 +148,8 @@ MonoBehaviour:
     y: 686
     width: 1466
     height: 261
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 77
+  controlID: 75
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 78
+  controlID: 76
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -368,7 +368,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 165
+    ID: 162
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -399,9 +399,9 @@ MonoBehaviour:
       uniqueId: '[RPG Engine Tutorial][suite]'
       name: RPG Engine Tutorial
       fullName: RPG Engine Tutorial
-      resultStatus: 2
-      duration: 15.402314
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 15.440155
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -415,9 +415,9 @@ MonoBehaviour:
       uniqueId: '[PlayMode][C:/Users/Jeremy/RPG Engine Tutorial/Library/ScriptAssemblies/PlayMode.dll][suite]'
       name: PlayMode.dll
       fullName: C:/Users/Jeremy/RPG Engine Tutorial/Library/ScriptAssemblies/PlayMode.dll
-      resultStatus: 2
-      duration: 15.392101
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 15.430965
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -432,7 +432,7 @@ MonoBehaviour:
       name: A1_DialogueWindowTests
       fullName: A1_DialogueWindowTests
       resultStatus: 1
-      duration: 1.3075428
+      duration: 1.3854295
       messages: 
       output: 
       stacktrace: 
@@ -448,7 +448,7 @@ MonoBehaviour:
       name: Changes_game_state
       fullName: A1_DialogueWindowTests.Changes_game_state
       resultStatus: 1
-      duration: 0.0023681
+      duration: 0.0022643
       messages: 
       output: 
       stacktrace: 
@@ -465,7 +465,7 @@ MonoBehaviour:
       name: Closes_to_correct_position
       fullName: A1_DialogueWindowTests.Closes_to_correct_position
       resultStatus: 1
-      duration: 0.499827
+      duration: 0.499865
       messages: 
       output: 
       stacktrace: 
@@ -482,7 +482,7 @@ MonoBehaviour:
       name: Goes_through_dialogue
       fullName: A1_DialogueWindowTests.Goes_through_dialogue
       resultStatus: 1
-      duration: 0.0101278
+      duration: 0.0093769
       messages: 
       output: 
       stacktrace: 
@@ -499,7 +499,7 @@ MonoBehaviour:
       name: Opens
       fullName: A1_DialogueWindowTests.Opens
       resultStatus: 1
-      duration: 0.0226964
+      duration: 0.0209953
       messages: 
       output: 
       stacktrace: 
@@ -516,7 +516,7 @@ MonoBehaviour:
       name: Opens_to_correct_position
       fullName: A1_DialogueWindowTests.Opens_to_correct_position
       resultStatus: 1
-      duration: 0.4886752
+      duration: 0.4914488
       messages: 
       output: 
       stacktrace: 
@@ -533,7 +533,7 @@ MonoBehaviour:
       name: Releases_game_state
       fullName: A1_DialogueWindowTests.Releases_game_state
       resultStatus: 1
-      duration: 0.0001853
+      duration: 0.0002048
       messages: 
       output: 
       stacktrace: 
@@ -550,7 +550,7 @@ MonoBehaviour:
       name: Starts_in_correct_position
       fullName: A1_DialogueWindowTests.Starts_in_correct_position
       resultStatus: 1
-      duration: 0.2649989
+      duration: 0.3446698
       messages: 
       output: 
       stacktrace: 
@@ -567,7 +567,7 @@ MonoBehaviour:
       name: A1_MainMenuTests
       fullName: A1_MainMenuTests
       resultStatus: 1
-      duration: 1.040337
+      duration: 1.0387795
       messages: 
       output: 
       stacktrace: 
@@ -583,7 +583,7 @@ MonoBehaviour:
       name: Cant_be_closed_while_opening
       fullName: A1_MainMenuTests.Cant_be_closed_while_opening
       resultStatus: 1
-      duration: 0.0067542
+      duration: 0.0082485
       messages: 
       output: 
       stacktrace: 
@@ -600,7 +600,7 @@ MonoBehaviour:
       name: Cant_be_opened_while_closing
       fullName: A1_MainMenuTests.Cant_be_opened_while_closing
       resultStatus: 1
-      duration: 0.0095301
+      duration: 0.008559
       messages: 
       output: 
       stacktrace: 
@@ -617,7 +617,7 @@ MonoBehaviour:
       name: Cant_open_in_dialogue
       fullName: A1_MainMenuTests.Cant_open_in_dialogue
       resultStatus: 1
-      duration: 0.0140029
+      duration: 0.0119688
       messages: 
       output: 
       stacktrace: 
@@ -634,7 +634,7 @@ MonoBehaviour:
       name: Changes_game_state
       fullName: A1_MainMenuTests.Changes_game_state
       resultStatus: 1
-      duration: 0.0002041
+      duration: 0.0002952
       messages: 
       output: 
       stacktrace: 
@@ -651,7 +651,7 @@ MonoBehaviour:
       name: Closes
       fullName: A1_MainMenuTests.Closes
       resultStatus: 1
-      duration: 0.005289
+      duration: 0.0064739
       messages: 
       output: 
       stacktrace: 
@@ -668,7 +668,7 @@ MonoBehaviour:
       name: Closes_to_correct_position
       fullName: A1_MainMenuTests.Closes_to_correct_position
       resultStatus: 1
-      duration: 0.4923402
+      duration: 0.4920141
       messages: 
       output: 
       stacktrace: 
@@ -685,7 +685,7 @@ MonoBehaviour:
       name: Generated_correct_amount_of_party_info
       fullName: A1_MainMenuTests.Generated_correct_amount_of_party_info
       resultStatus: 1
-      duration: 0.0005873
+      duration: 0.0006041
       messages: 
       output: 
       stacktrace: 
@@ -702,7 +702,7 @@ MonoBehaviour:
       name: Generated_party_info
       fullName: A1_MainMenuTests.Generated_party_info
       resultStatus: 1
-      duration: 0.0020202
+      duration: 0.0018751
       messages: 
       output: 
       stacktrace: 
@@ -719,7 +719,7 @@ MonoBehaviour:
       name: Opens
       fullName: A1_MainMenuTests.Opens
       resultStatus: 1
-      duration: 0.0069344
+      duration: 0.0076412
       messages: 
       output: 
       stacktrace: 
@@ -736,7 +736,7 @@ MonoBehaviour:
       name: Opens_to_correct_position
       fullName: A1_MainMenuTests.Opens_to_correct_position
       resultStatus: 1
-      duration: 0.4932625
+      duration: 0.491617
       messages: 
       output: 
       stacktrace: 
@@ -753,7 +753,7 @@ MonoBehaviour:
       name: Releases_game_state
       fullName: A1_MainMenuTests.Releases_game_state
       resultStatus: 1
-      duration: 0.000156
+      duration: 0.0001648
       messages: 
       output: 
       stacktrace: 
@@ -770,7 +770,7 @@ MonoBehaviour:
       name: Starts_in_correct_position
       fullName: A1_MainMenuTests.Starts_in_correct_position
       resultStatus: 1
-      duration: 0.0038234
+      duration: 0.0037666
       messages: 
       output: 
       stacktrace: 
@@ -787,7 +787,7 @@ MonoBehaviour:
       name: A1_MapTests
       fullName: A1_MapTests
       resultStatus: 1
-      duration: 0.0111633
+      duration: 0.011577
       messages: 
       output: 
       stacktrace: 
@@ -803,7 +803,7 @@ MonoBehaviour:
       name: Grid_is_not_null
       fullName: A1_MapTests.Grid_is_not_null
       resultStatus: 1
-      duration: 0.0049032
+      duration: 0.0043298
       messages: 
       output: 
       stacktrace: 
@@ -820,7 +820,7 @@ MonoBehaviour:
       name: Map_region_is_null
       fullName: A1_MapTests.Map_region_is_null
       resultStatus: 1
-      duration: 0.0001663
+      duration: 0.0001899
       messages: 
       output: 
       stacktrace: 
@@ -837,7 +837,7 @@ MonoBehaviour:
       name: Occupied_cells_are_in_dictionary
       fullName: A1_MapTests.Occupied_cells_are_in_dictionary
       resultStatus: 1
-      duration: 0.0009591
+      duration: 0.0009521
       messages: 
       output: 
       stacktrace: 
@@ -854,7 +854,7 @@ MonoBehaviour:
       name: Trigger_cells_are_in_dictionary
       fullName: A1_MapTests.Trigger_cells_are_in_dictionary
       resultStatus: 1
-      duration: 0.0007832
+      duration: 0.0008543
       messages: 
       output: 
       stacktrace: 
@@ -871,7 +871,7 @@ MonoBehaviour:
       name: A2_CharacterTests
       fullName: A2_CharacterTests
       resultStatus: 1
-      duration: 1.8102068
+      duration: 1.8011717
       messages: 
       output: 
       stacktrace: 
@@ -887,7 +887,7 @@ MonoBehaviour:
       name: Animator_updates_parameters
       fullName: A2_CharacterTests.Animator_updates_parameters
       resultStatus: 1
-      duration: 0.2584467
+      duration: 0.257609
       messages: 
       output: 
       stacktrace: 
@@ -904,7 +904,7 @@ MonoBehaviour:
       name: Cant_move_into_characters
       fullName: A2_CharacterTests.Cant_move_into_characters
       resultStatus: 1
-      duration: 0.2596958
+      duration: 0.2578097
       messages: 
       output: 
       stacktrace: 
@@ -921,7 +921,7 @@ MonoBehaviour:
       name: Cant_move_into_collisions
       fullName: A2_CharacterTests.Cant_move_into_collisions
       resultStatus: 1
-      duration: 0.0057705
+      duration: 0.0068052
       messages: 
       output: 
       stacktrace: 
@@ -938,7 +938,7 @@ MonoBehaviour:
       name: Character_facing_updates_correctly
       fullName: A2_CharacterTests.Character_facing_updates_correctly
       resultStatus: 1
-      duration: 0.00066
+      duration: 0.0005724
       messages: 
       output: 
       stacktrace: 
@@ -955,7 +955,7 @@ MonoBehaviour:
       name: Failed_move_changes_facing
       fullName: A2_CharacterTests.Failed_move_changes_facing
       resultStatus: 1
-      duration: 0.0002843
+      duration: 0.0002867
       messages: 
       output: 
       stacktrace: 
@@ -972,7 +972,7 @@ MonoBehaviour:
       name: Finds_current_cell
       fullName: A2_CharacterTests.Finds_current_cell
       resultStatus: 1
-      duration: 0.0063105
+      duration: 0.0039297
       messages: 
       output: 
       stacktrace: 
@@ -989,7 +989,7 @@ MonoBehaviour:
       name: Moves_to_the_correct_cell
       fullName: A2_CharacterTests.Moves_to_the_correct_cell
       resultStatus: 1
-      duration: 1.0169835
+      duration: 1.013132
       messages: 
       output: 
       stacktrace: 
@@ -1006,7 +1006,7 @@ MonoBehaviour:
       name: Updates_cell_map_dictionary
       fullName: A2_CharacterTests.Updates_cell_map_dictionary
       resultStatus: 1
-      duration: 0.2569063
+      duration: 0.2561574
       messages: 
       output: 
       stacktrace: 
@@ -1023,7 +1023,7 @@ MonoBehaviour:
       name: A2_CutsceneTests
       fullName: A2_CutsceneTests
       resultStatus: 1
-      duration: 1.7775759
+      duration: 1.7773186
       messages: 
       output: 
       stacktrace: 
@@ -1039,7 +1039,7 @@ MonoBehaviour:
       name: Autoplay_scene_ends
       fullName: A2_CutsceneTests.Autoplay_scene_ends
       resultStatus: 1
-      duration: 0.9973512
+      duration: 0.9981841
       messages: 
       output: 
       stacktrace: 
@@ -1056,7 +1056,7 @@ MonoBehaviour:
       name: Autoplay_scene_plays
       fullName: A2_CutsceneTests.Autoplay_scene_plays
       resultStatus: 1
-      duration: 0.0058412
+      duration: 0.0058755
       messages: 
       output: 
       stacktrace: 
@@ -1073,7 +1073,7 @@ MonoBehaviour:
       name: Called_scene_ends
       fullName: A2_CutsceneTests.Called_scene_ends
       resultStatus: 1
-      duration: 0.2497917
+      duration: 0.2505327
       messages: 
       output: 
       stacktrace: 
@@ -1090,7 +1090,7 @@ MonoBehaviour:
       name: Called_scene_plays
       fullName: A2_CutsceneTests.Called_scene_plays
       resultStatus: 1
-      duration: 0.0060394
+      duration: 0.006302
       messages: 
       output: 
       stacktrace: 
@@ -1107,7 +1107,7 @@ MonoBehaviour:
       name: Touch_scene_ends
       fullName: A2_CutsceneTests.Touch_scene_ends
       resultStatus: 1
-      duration: 0.0046331
+      duration: 0.0047538
       messages: 
       output: 
       stacktrace: 
@@ -1124,7 +1124,7 @@ MonoBehaviour:
       name: Touch_scene_plays
       fullName: A2_CutsceneTests.Touch_scene_plays
       resultStatus: 1
-      duration: 0.508404
+      duration: 0.5070228
       messages: 
       output: 
       stacktrace: 
@@ -1141,7 +1141,7 @@ MonoBehaviour:
       name: A2_NPCTests
       fullName: A2_NPCTests
       resultStatus: 1
-      duration: 5.33999
+      duration: 5.338863
       messages: 
       output: 
       stacktrace: 
@@ -1157,7 +1157,7 @@ MonoBehaviour:
       name: Does_move_route_once_if_not_stationary_or_random
       fullName: A2_NPCTests.Does_move_route_once_if_not_stationary_or_random
       resultStatus: 1
-      duration: 1.3681632
+      duration: 1.3618605
       messages: 
       output: 
       stacktrace: 
@@ -1174,7 +1174,7 @@ MonoBehaviour:
       name: Doesnt_move_during_scene
       fullName: A2_NPCTests.Doesnt_move_during_scene
       resultStatus: 1
-      duration: 0.1287444
+      duration: 0.1293766
       messages: 
       output: 
       stacktrace: 
@@ -1191,7 +1191,7 @@ MonoBehaviour:
       name: Doesnt_move_if_never_moves
       fullName: A2_NPCTests.Doesnt_move_if_never_moves
       resultStatus: 1
-      duration: 0.5234857
+      duration: 0.5240353
       messages: 
       output: 
       stacktrace: 
@@ -1208,7 +1208,7 @@ MonoBehaviour:
       name: Interaction_cutscene_triggers
       fullName: A2_NPCTests.Interaction_cutscene_triggers
       resultStatus: 1
-      duration: 0.255759
+      duration: 0.2578666
       messages: 
       output: 
       stacktrace: 
@@ -1225,7 +1225,7 @@ MonoBehaviour:
       name: Move_route_loops_if_set
       fullName: A2_NPCTests.Move_route_loops_if_set
       resultStatus: 1
-      duration: 3.0212646
+      duration: 3.023586
       messages: 
       output: 
       stacktrace: 'at A2_NPCTests+<Move_route_loops_if_set>d__7.MoveNext () [0x000bd]
@@ -1249,7 +1249,7 @@ MonoBehaviour:
       name: Moves_if_randomly_moves
       fullName: A2_NPCTests.Moves_if_randomly_moves
       resultStatus: 1
-      duration: 0.0301453
+      duration: 0.030109
       messages: 
       output: 
       stacktrace: 'at A2_NPCTests+<Moves_if_randomly_moves>d__5.MoveNext () [0x00081]
@@ -1273,7 +1273,7 @@ MonoBehaviour:
       name: Turns_to_player_on_interact
       fullName: A2_NPCTests.Turns_to_player_on_interact
       resultStatus: 1
-      duration: 0.0073916
+      duration: 0.0071768
       messages: 
       output: 
       stacktrace: 
@@ -1289,9 +1289,9 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/[PlayMode][A2_TransferTests][suite]
       name: A2_TransferTests
       fullName: A2_TransferTests
-      resultStatus: 2
-      duration: 1.275192
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 1.2704053
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1306,7 +1306,7 @@ MonoBehaviour:
       name: Loads_new_map
       fullName: A2_TransferTests.Loads_new_map
       resultStatus: 1
-      duration: 1.0009342
+      duration: 1.0029517
       messages: 
       output: 
       stacktrace: 
@@ -1323,7 +1323,7 @@ MonoBehaviour:
       name: Registers_with_map
       fullName: A2_TransferTests.Registers_with_map
       resultStatus: 1
-      duration: 0.0030932
+      duration: 0.0035435
       messages: 
       output: 
       stacktrace: 
@@ -1340,7 +1340,7 @@ MonoBehaviour:
       name: Returns_game_state
       fullName: A2_TransferTests.Returns_game_state
       resultStatus: 1
-      duration: 0.0001784
+      duration: 0.0001653
       messages: 
       output: 
       stacktrace: 
@@ -1356,14 +1356,11 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/A2_TransferTests/[PlayMode][A2_TransferTests.Sends_to_correct_position]
       name: Sends_to_correct_position
       fullName: A2_TransferTests.Sends_to_correct_position
-      resultStatus: 2
-      duration: 0.0031149
-      messages: "  Expected: (-2, 0)\r\n  But was:  (-2, 1)\r\n"
+      resultStatus: 1
+      duration: 0.0005307
+      messages: 
       output: 
-      stacktrace: 'at A2_TransferTests.Sends_to_correct_position () [0x0000b] in
-        C:\Users\Jeremy\RPG Engine Tutorial\Assets\Editor\PlayMode\A2_TransferTests.cs:93
-
-'
+      stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1377,7 +1374,7 @@ MonoBehaviour:
       name: Triggers_on_touch
       fullName: A2_TransferTests.Triggers_on_touch
       resultStatus: 1
-      duration: 0.2636218
+      duration: 0.2589528
       messages: 
       output: 
       stacktrace: 
@@ -1394,7 +1391,7 @@ MonoBehaviour:
       name: B1_BattleControlTests
       fullName: B1_BattleControlTests
       resultStatus: 1
-      duration: 1.563468
+      duration: 1.5991638
       messages: 
       output: 
       stacktrace: 
@@ -1410,7 +1407,7 @@ MonoBehaviour:
       name: Allies_spawned_and_have_stats
       fullName: B1_BattleControlTests.Allies_spawned_and_have_stats
       resultStatus: 1
-      duration: 0.0007555
+      duration: 0.0006858
       messages: 
       output: 
       stacktrace: 
@@ -1427,7 +1424,7 @@ MonoBehaviour:
       name: Battle_setup_finishes
       fullName: B1_BattleControlTests.Battle_setup_finishes
       resultStatus: 1
-      duration: 0.027625
+      duration: 0.0222496
       messages: 
       output: 
       stacktrace: 'at B1_BattleControlTests+<Battle_setup_finishes>d__7.MoveNext
@@ -1451,7 +1448,7 @@ MonoBehaviour:
       name: Enemies_spawn_in_correct_positions
       fullName: B1_BattleControlTests.Enemies_spawn_in_correct_positions
       resultStatus: 1
-      duration: 0.0002638
+      duration: 0.0002672
       messages: 
       output: 
       stacktrace: 
@@ -1468,7 +1465,7 @@ MonoBehaviour:
       name: Enemies_spawned_and_have_stats
       fullName: B1_BattleControlTests.Enemies_spawned_and_have_stats
       resultStatus: 1
-      duration: 0.000396
+      duration: 0.0003625
       messages: 
       output: 
       stacktrace: 
@@ -1485,7 +1482,7 @@ MonoBehaviour:
       name: First_actor_takes_turn
       fullName: B1_BattleControlTests.First_actor_takes_turn
       resultStatus: 1
-      duration: 0.1078768
+      duration: 0.1072873
       messages: 
       output: 
       stacktrace: 
@@ -1502,7 +1499,7 @@ MonoBehaviour:
       name: Found_an_enemy_pack
       fullName: B1_BattleControlTests.Found_an_enemy_pack
       resultStatus: 1
-      duration: 0.0006619
+      duration: 0.0001694
       messages: 
       output: 
       stacktrace: 
@@ -1519,7 +1516,7 @@ MonoBehaviour:
       name: Game_state_changes
       fullName: B1_BattleControlTests.Game_state_changes
       resultStatus: 1
-      duration: 1.4193456
+      duration: 1.4621865
       messages: 
       output: 
       stacktrace: 
@@ -1536,7 +1533,7 @@ MonoBehaviour:
       name: Turn_number_starts_at_0
       fullName: B1_BattleControlTests.Turn_number_starts_at_0
       resultStatus: 1
-      duration: 0.0001246
+      duration: 0.0001493
       messages: 
       output: 
       stacktrace: 
@@ -1553,7 +1550,7 @@ MonoBehaviour:
       name: Turn_order_based_on_initiative
       fullName: B1_BattleControlTests.Turn_order_based_on_initiative
       resultStatus: 1
-      duration: 0.000235
+      duration: 0.0002248
       messages: 
       output: 
       stacktrace: 
@@ -1569,9 +1566,9 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/[PlayMode][B2_BattleCalculationTests][suite]
       name: B2_BattleCalculationTests
       fullName: B2_BattleCalculationTests
-      resultStatus: 2
-      duration: 0.0050531
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.0049054
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1585,14 +1582,11 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/B2_BattleCalculationTests/[PlayMode][B2_BattleCalculationTests.Attack_damage_calculates_correctly]
       name: Attack_damage_calculates_correctly
       fullName: B2_BattleCalculationTests.Attack_damage_calculates_correctly
-      resultStatus: 2
-      duration: 0.0012003
-      messages: "  Expected: 0\r\n  But was:  -1\r\n"
+      resultStatus: 1
+      duration: 0.0004196
+      messages: 
       output: 
-      stacktrace: 'at B2_BattleCalculationTests.Attack_damage_calculates_correctly
-        () [0x000c4] in C:\Users\Jeremy\RPG Engine Tutorial\Assets\Editor\PlayMode\B2_BattleCalculationTests.cs:54
-
-'
+      stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1606,7 +1600,7 @@ MonoBehaviour:
       name: B2_BattlePortraitTests
       fullName: B2_BattlePortraitTests
       resultStatus: 1
-      duration: 1.2415768
+      duration: 1.1864706
       messages: 
       output: 
       stacktrace: 
@@ -1622,7 +1616,7 @@ MonoBehaviour:
       name: All_portraits_spawned
       fullName: B2_BattlePortraitTests.All_portraits_spawned
       resultStatus: 1
-      duration: 0.0037081
+      duration: 0.0045173
       messages: 
       output: 
       stacktrace: 
@@ -1639,7 +1633,7 @@ MonoBehaviour:
       name: Moves_to_slot_position
       fullName: B2_BattlePortraitTests.Moves_to_slot_position
       resultStatus: 1
-      duration: 1.2318276
+      duration: 1.1736536
       messages: 
       output: 
       stacktrace: 'at B2_BattlePortraitTests+<Moves_to_slot_position>d__7.MoveNext
@@ -1663,7 +1657,7 @@ MonoBehaviour:
       name: One_portrait_per_slot
       fullName: B2_BattlePortraitTests.One_portrait_per_slot
       resultStatus: 1
-      duration: 0.0004538
+      duration: 0.0005783
       messages: 
       output: 
       stacktrace: 'at B2_BattlePortraitTests.One_portrait_per_slot () [0x00068] in
@@ -1683,7 +1677,7 @@ MonoBehaviour:
       name: Turnbar_is_parent
       fullName: B2_BattlePortraitTests.Turnbar_is_parent
       resultStatus: 1
-      duration: 0.0003338
+      duration: 0.0003269
       messages: 
       output: 
       stacktrace: 
@@ -1700,7 +1694,7 @@ MonoBehaviour:
       name: B2_TurnBarAndIndicatorTests
       fullName: B2_TurnBarAndIndicatorTests
       resultStatus: 1
-      duration: 0.0149143
+      duration: 0.0122387
       messages: 
       output: 
       stacktrace: 
@@ -1716,7 +1710,7 @@ MonoBehaviour:
       name: Indicator_moves_to_correct_position
       fullName: B2_TurnBarAndIndicatorTests.Indicator_moves_to_correct_position
       resultStatus: 1
-      duration: 0.006406
+      duration: 0.0047389
       messages: 
       output: 
       stacktrace: 'at B2_TurnBarAndIndicatorTests+<Indicator_moves_to_correct_position>d__7.MoveNext
@@ -1740,7 +1734,7 @@ MonoBehaviour:
       name: Spawns_correct_number_of_portraits
       fullName: B2_TurnBarAndIndicatorTests.Spawns_correct_number_of_portraits
       resultStatus: 1
-      duration: 0.0004262
+      duration: 0.0002789
       messages: 
       output: 
       stacktrace: 
@@ -1757,7 +1751,7 @@ MonoBehaviour:
       name: Spawns_correct_number_of_slots
       fullName: B2_TurnBarAndIndicatorTests.Spawns_correct_number_of_slots
       resultStatus: 1
-      duration: 0.0039992
+      duration: 0.0031159
       messages: 
       output: 
       stacktrace: 
@@ -1769,17 +1763,12 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1074
       parentUniqueId: PlayMode.dll/[PlayMode][B2_TurnBarAndIndicatorTests][suite]
-    m_ResultText: 'A2_TransferTests (1.275s)
-
-      ---
-
-      One or more child
-      tests had errors'
+    m_ResultText: Sends_to_correct_position (0.001s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 5b60fb04
-      m_LastClickedID: 83583067
+      m_SelectedIDs: d4ebdc4b
+      m_LastClickedID: 1272769492
       m_ExpandedIDs: 38bd888ef778f093bfcb90964036ee9ff3aad5a45aa502d6f4f5e9fb76bd983af3d6b3481138224bdaec8370ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -2319,7 +2308,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 18ac0000
     m_LastClickedID: 44056
-    m_ExpandedIDs: 00000000525800005458000056580000585800005a5800005c5800005e58000060580000625800006458000066580000685800006a5800006c5800006e58000070580000725800007458000076580000785800007a5800007c5800007e580000805800008258000084580000
+    m_ExpandedIDs: 00000000085800000a5800000c5800000e58000010580000125800001458000016580000185800001a5800001c5800001e58000020580000225800002458000026580000285800002a5800002c5800002e5800003058000032580000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2344,21 +2333,21 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 540}
+    scrollPos: {x: 0, y: 240}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000525800005458000056580000585800005a5800005c5800005e58000060580000625800006458000066580000685800006a5800006c5800006e580000705800007258000074580000765800007a5800007c58000084580000e658000048790000827d0000f47e0000
+    m_ExpandedIDs: ffffffff00000000085800000a5800000c5800000e58000010580000125800001458000016580000185800001a5800001c5800001e58000020580000225800002458000026580000285800002a5800002c5800002e5800003058000032580000665800009e580000a0580000ae5800009862000070770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: TurnBar
-      m_OriginalName: TurnBar
+      m_Name: MoveCharacter
+      m_OriginalName: MoveCharacter
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 5420
+      m_UserData: 4968
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -2438,7 +2427,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 54
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -2477,7 +2466,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: c83dffff083effff8e46ffff6447ffffa447ffff2a50ffff8655ffffc655ffff085effffb662fffff662ffff386bffff206dffff606dffffa275ffff8c77ffffcc77ffffce7ffffff883ffff3884ffff8e85ffff1488ffff5488ffff3690fffff091ffff3092ffff669affff209cffff609cffff42a4fffffca5ffff3ca6ffff7aaeffff1ab7ffff5ab7ffff44bffffff4c1ffff34c2ffff5ecaffff74cdffffb4cdffffded5ffffa8d7ffffe8d7fffffedfffffc8e0ffff08e1ffff32e9ffff68f0ffffa8f0ffffccf8ffff28fbffff
+      m_ExpandedIDs: d458ffff1459ffff9a61ffff36f1ffff76f1ffff96f9ffff1cfbfffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

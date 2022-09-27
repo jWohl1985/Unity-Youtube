@@ -10,7 +10,7 @@ namespace Core
     {
         [SerializeField] private List<DialogueLine> dialogueLines;
 
-        public bool IsFinished { get; private set; }
+        public bool IsFinished { get; set; }
 
         public IEnumerator Co_Execute()
         {

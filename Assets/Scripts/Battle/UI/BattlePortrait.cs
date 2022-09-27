@@ -7,15 +7,16 @@ namespace Battle
 {
     public class BattlePortrait : MonoBehaviour
     {
+        private static List<RectTransform> slotRects = new List<RectTransform>();
+
         private BattleControl battleControl;
         private RectTransform rectTransform;
         private TurnBar turnBar;
         private Actor actor;
 
-        private List<RectTransform> slotRects = new List<RectTransform>();
-
         private void Awake()
         {
+            slotRects.Clear();
             battleControl = FindObjectOfType<BattleControl>();
             rectTransform = GetComponent<RectTransform>();
             turnBar = FindObjectOfType<TurnBar>();
@@ -46,17 +47,15 @@ namespace Battle
 
         private void Update()
         {
-            if (gameObject.activeSelf)
-            {
-                RectTransform slotRect = slotRects[actor.TurnNumber];
-                rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, slotRect.anchoredPosition, 1f);
-            }
+            RectTransform slotRect = slotRects[actor.TurnNumber];
+            rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, slotRect.anchoredPosition, 1f);
         }
 
         private void RemovePortrait()
         {
             (actor as Enemy).WasDefeated -= RemovePortrait;
             GameObject slot = turnBar.Slots[actor.TurnNumber];
+            slotRects.Remove(slot.GetComponent<RectTransform>());
             Destroy(this.gameObject);
             Destroy(slot);
             turnBar.Slots.Remove(slot);

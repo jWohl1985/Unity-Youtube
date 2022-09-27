@@ -143,6 +143,8 @@ namespace Core
                 return false;
 
             State = GameState.Cutscene;
+            foreach (ICutsceneCommand command in scene.Commands)
+                command.IsFinished = false;
             StartCoroutine(Co_PlayCutscene(scene));
             return true;
         }
@@ -157,7 +159,7 @@ namespace Core
                     yield return null;
             }
 
-            scene.IsFinished = true;
+            scene.HasBeenPlayed = true;
             State = GameState.World;
         }
     }

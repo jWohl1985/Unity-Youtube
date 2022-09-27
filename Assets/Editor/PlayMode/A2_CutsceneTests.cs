@@ -55,7 +55,7 @@ public class A2_CutsceneTests
         // Assert
         Assert.IsNotNull(sutAuto);
         Assert.AreEqual(GameState.Cutscene, Game.Manager.State);
-        Assert.IsFalse(sutAuto.IsFinished);
+        Assert.IsFalse(sutAuto.HasBeenPlayed);
     }
 
     [UnityTest, Order(1)]
@@ -63,7 +63,7 @@ public class A2_CutsceneTests
     {
         // Arrange
         float elapsedTime = 0;
-        while (!sutAuto.IsFinished)
+        while (!sutAuto.HasBeenPlayed)
         {
             yield return null;
             elapsedTime += Time.deltaTime;
@@ -76,7 +76,7 @@ public class A2_CutsceneTests
 
         // Assert
         Assert.AreEqual(GameState.World, Game.Manager.State);
-        Assert.IsTrue(sutAuto.IsFinished);
+        Assert.IsTrue(sutAuto.HasBeenPlayed);
     }
 
     [UnityTest, Order(2)]
@@ -89,7 +89,7 @@ public class A2_CutsceneTests
         yield return new WaitForSeconds(.5f);
 
         // Assert -- the touched scene should trigger and move the player left
-        Assert.IsFalse(sutTouch.IsFinished);
+        Assert.IsFalse(sutTouch.HasBeenPlayed);
         Assert.AreEqual(GameState.Cutscene, Game.Manager.State);
         Assert.IsTrue(player.IsMoving);
     }
@@ -103,7 +103,7 @@ public class A2_CutsceneTests
         // Act
 
         // Assert
-        Assert.IsTrue(sutTouch.IsFinished);
+        Assert.IsTrue(sutTouch.HasBeenPlayed);
         Assert.AreEqual(GameState.World, Game.Manager.State);
         Assert.IsFalse(player.IsMoving);
     }
@@ -114,12 +114,12 @@ public class A2_CutsceneTests
         // Arrange
 
         // Act
-        sutCall.Play();
+        sutCall.TryPlay();
         yield return null;
 
         // Assert
         Assert.AreEqual(GameState.Cutscene, Game.Manager.State);
-        Assert.IsFalse(sutCall.IsFinished);
+        Assert.IsFalse(sutCall.HasBeenPlayed);
         Assert.IsTrue(player.IsMoving);
     }
 
@@ -128,7 +128,7 @@ public class A2_CutsceneTests
     {
         // Arrange
         float elapsedTime = 0;
-        while (!sutCall.IsFinished)
+        while (!sutCall.HasBeenPlayed)
         {
             yield return null;
             elapsedTime += Time.deltaTime;
@@ -139,7 +139,7 @@ public class A2_CutsceneTests
         // Act
 
         // Assert
-        Assert.IsTrue(sutCall.IsFinished);
+        Assert.IsTrue(sutCall.HasBeenPlayed);
         Assert.AreEqual(GameState.World, Game.Manager.State);
     }
 }

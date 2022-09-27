@@ -9,7 +9,7 @@ namespace Core
     {
         [SerializeField] private float seconds = 0;
 
-        public bool IsFinished { get; private set; }
+        public bool IsFinished { get; set; }
 
         public IEnumerator Co_Execute()
         {

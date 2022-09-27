@@ -11,7 +11,7 @@ namespace Core
         [SerializeField] private float speed;
         [SerializeField] private List<Dir> route;
         
-        public bool IsFinished { get; private set; }
+        public bool IsFinished { get; set; }
 
         public IEnumerator Co_Execute()
         {

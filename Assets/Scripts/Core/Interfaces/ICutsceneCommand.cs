@@ -7,6 +7,6 @@ namespace Core
     public interface ICutsceneCommand
     {
         IEnumerator Co_Execute();
-        bool IsFinished { get; }
+        bool IsFinished { get; set; }
     }
 }

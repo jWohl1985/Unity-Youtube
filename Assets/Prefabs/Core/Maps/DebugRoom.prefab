@@ -48,70 +48,6 @@ MonoBehaviour:
   newMap: {fileID: -2810603696782550641, guid: 7b066aa1606d74a4286972aae0cefd70, type: 3}
   destinationId: 1
   offset: {x: 0, y: -1}
---- !u!1 &3289737502250140581
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2715170560826799685}
-  - component: {fileID: 6161842799086646071}
-  m_Layer: 0
-  m_Name: Cutscene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2715170560826799685
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3289737502250140581}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.79, y: 3.24, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6361842508756545495}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6161842799086646071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3289737502250140581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6900012330a563549a36ea4262dd4d4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: 0
-  commands:
-  - rid: 1790838921289793549
-  - rid: 1790838921289793550
-  references:
-    version: 2
-    RefIds:
-    - rid: 1790838921289793549
-      type: {class: MoveCharacter, ns: Core, asm: Scripts}
-      data:
-        character: {fileID: 7532479656071247211}
-        speed: 0
-        route: 0300000003000000
-    - rid: 1790838921289793550
-      type: {class: StartDialogue, ns: Core, asm: Scripts}
-      data:
-        dialogueLines:
-        - sprite: {fileID: 21300000, guid: 65e4a7ad2ae33004e99a79f97f81339c, type: 3}
-          name: Satyr
-          message: '"Hello."'
 --- !u!1 &5604176741303098814
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +726,7 @@ GameObject:
   - component: {fileID: 7353381828648759401}
   - component: {fileID: 6693376359588568036}
   m_Layer: 0
-  m_Name: Cutscene 2
+  m_Name: TouchScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -824,6 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 1
+  oneTimeOnly: 0
   commands:
   - rid: 1790838932201013345
   references:
@@ -3621,7 +3558,6 @@ Transform:
   - {fileID: 6361842508308886510}
   - {fileID: 8434756483760819156}
   - {fileID: 5700398124116122408}
-  - {fileID: 2715170560826799685}
   - {fileID: 7353381828648759401}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -4227,54 +4163,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: delay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: neverMoves
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: interaction
-      value: 
-      objectReference: {fileID: 11400000, guid: 95031c6e97b64e94e9682cd43e7ba646, type: 2}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: movesRandomly
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: moveRouteLoops
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: moveRoute.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: moveRoute.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: moveRoute.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: moveRoute.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: moveRoute.Array.data[3]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: moveRoute.Array.data[4]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-      propertyPath: moveRoute.Array.data[5]
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
@@ -4283,14 +4171,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2013923991599653983, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
   m_PrefabInstance: {fileID: 5035249461697813595}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7532479656071247211 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3271991451755620656, guid: 48e86c6245e3ab8439d4e9fafb0f109e, type: 3}
-  m_PrefabInstance: {fileID: 5035249461697813595}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fa7d964fa109940bcf07add31890ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

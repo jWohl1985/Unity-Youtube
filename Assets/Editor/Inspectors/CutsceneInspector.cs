@@ -26,6 +26,10 @@ public class CutsceneInspector : Editor
         PropertyField field = new PropertyField(property);
         container.Add(field);
 
+        SerializedProperty oneTimeProperty = serializedObject.FindProperty("oneTimeOnly");
+        PropertyField oneTimeField = new PropertyField(oneTimeProperty);
+        container.Add(oneTimeField);
+
         Button button = new Button(openEditor) { text = "Open Editor" };
         container.Add(button);
 

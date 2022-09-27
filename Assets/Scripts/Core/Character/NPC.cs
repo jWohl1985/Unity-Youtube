@@ -47,8 +47,11 @@ namespace Core
 
         public void Interact()
         {
-            Turner.TurnToPlayer();
-            Interaction.Play();
+            if (interaction != null)
+            {
+                Turner.TurnToPlayer();
+                Interaction.TryPlay();
+            }
         }
 
         protected override void Update()
