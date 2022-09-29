@@ -15,7 +15,7 @@ namespace Core
         {
             Vector3Int threeDimensionCell = new Vector3Int(cell.x, cell.y, 0);
 
-            return (Vector2)Game.Manager.Map.Grid.GetCellCenterWorld(threeDimensionCell);
+            return (Vector2)Game.World.Map.Grid.GetCellCenterWorld(threeDimensionCell);
         }
     }
 }

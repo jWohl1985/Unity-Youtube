@@ -73,7 +73,7 @@
     <Compile Include="Assets\Scripts\ScriptableObjects\PartyMember.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyAI\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Core\Character\InputHandler.cs" />
-    <Compile Include="Assets\Scripts\Core\Game.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\Game.cs" />
     <Compile Include="Assets\Scripts\Core\Character\CharacterMover.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueLine.cs" />
     <Compile Include="Assets\Scripts\Core\Character\Character.cs" />
@@ -104,6 +104,12 @@
     <Compile Include="Assets\Scripts\Battle\UI\BattlePortrait.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\StateManager.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\CutsceneManager.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\BattleManager.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\MapManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

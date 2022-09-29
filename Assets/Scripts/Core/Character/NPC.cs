@@ -58,7 +58,7 @@ namespace Core
         {
             base.Update();
 
-            if (Game.Manager.State != GameState.World)
+            if (Game.State != GameState.World)
                 return;
 
             if (neverMoves || IsMoving)

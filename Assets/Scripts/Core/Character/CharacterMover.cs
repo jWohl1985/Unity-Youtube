@@ -8,7 +8,7 @@ namespace Core
     {
         private Character character;
         private Transform transform;
-        private Map map => Game.Manager.Map;
+        private Map map => Game.World.Map;
         private const float TIME_TO_MOVE_ONE_SQUARE = .25f;
 
         public bool IsMoving { get; private set; } = false;
@@ -45,7 +45,7 @@ namespace Core
             RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
 
             foreach (RaycastHit2D hit in hits)
-                if (hit.distance < Game.Manager.Map.Grid.cellSize.x)
+                if (hit.distance < Game.World.Map.Grid.cellSize.x)
                     return false;
 
             return true;

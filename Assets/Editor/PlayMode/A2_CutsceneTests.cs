@@ -32,7 +32,7 @@ public class A2_CutsceneTests
 
     public void OnSceneReady(Scene scene, LoadSceneMode mode)
     {
-        player = Game.Manager.Player;
+        player = Game.Player;
 
         // instantiate the autoplaying one so it doesn't mess up other tests
         sutAuto = GameObject.Instantiate(Resources.Load<Cutscene>("TestPrefabs/TestAutoScene")); 
@@ -54,7 +54,7 @@ public class A2_CutsceneTests
 
         // Assert
         Assert.IsNotNull(sutAuto);
-        Assert.AreEqual(GameState.Cutscene, Game.Manager.State);
+        Assert.AreEqual(GameState.Cutscene, Game.State);
         Assert.IsFalse(sutAuto.HasBeenPlayed);
     }
 
@@ -75,7 +75,7 @@ public class A2_CutsceneTests
         // Act
 
         // Assert
-        Assert.AreEqual(GameState.World, Game.Manager.State);
+        Assert.AreEqual(GameState.World, Game.State);
         Assert.IsTrue(sutAuto.HasBeenPlayed);
     }
 
@@ -90,7 +90,7 @@ public class A2_CutsceneTests
 
         // Assert -- the touched scene should trigger and move the player left
         Assert.IsFalse(sutTouch.HasBeenPlayed);
-        Assert.AreEqual(GameState.Cutscene, Game.Manager.State);
+        Assert.AreEqual(GameState.Cutscene, Game.State);
         Assert.IsTrue(player.IsMoving);
     }
 
@@ -104,7 +104,7 @@ public class A2_CutsceneTests
 
         // Assert
         Assert.IsTrue(sutTouch.HasBeenPlayed);
-        Assert.AreEqual(GameState.World, Game.Manager.State);
+        Assert.AreEqual(GameState.World, Game.State);
         Assert.IsFalse(player.IsMoving);
     }
 
@@ -118,7 +118,7 @@ public class A2_CutsceneTests
         yield return null;
 
         // Assert
-        Assert.AreEqual(GameState.Cutscene, Game.Manager.State);
+        Assert.AreEqual(GameState.Cutscene, Game.State);
         Assert.IsFalse(sutCall.HasBeenPlayed);
         Assert.IsTrue(player.IsMoving);
     }
@@ -140,6 +140,6 @@ public class A2_CutsceneTests
 
         // Assert
         Assert.IsTrue(sutCall.HasBeenPlayed);
-        Assert.AreEqual(GameState.World, Game.Manager.State);
+        Assert.AreEqual(GameState.World, Game.State);
     }
 }

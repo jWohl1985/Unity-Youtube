@@ -14,9 +14,9 @@ namespace Core
 
         public IEnumerator Co_Execute()
         {
-            Game.Manager.StartDialogue(dialogueLines);
+            Game.Dialogue.StartDialogue(dialogueLines);
 
-            while (Game.Manager.State == GameState.Dialogue)
+            while (Game.State == GameState.Dialogue)
             {
                 yield return null;
             }

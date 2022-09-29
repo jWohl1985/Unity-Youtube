@@ -37,7 +37,7 @@ public class A2_NPCTests
     public IEnumerator Doesnt_move_if_never_moves()
     {
         // Arrange
-        while (!isReady || Game.Manager.State != GameState.World) yield return null;
+        while (!isReady || Game.State != GameState.World) yield return null;
         float timeElapsed = 0;
 
         // Act
@@ -178,7 +178,7 @@ public class A2_NPCTests
 
         // Assert
         yield return new WaitForSeconds(.25f);
-        Assert.AreEqual(GameState.Dialogue, Game.Manager.State);
+        Assert.AreEqual(GameState.Dialogue, Game.State);
     }
 
     [UnityTest, Order(6)]

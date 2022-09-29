@@ -41,14 +41,14 @@ public class A2_TransferTests
         // Act
 
         // Assert
-        Assert.IsTrue(Game.Manager.Map.TriggerCells.ContainsKey(sut.Cell));
+        Assert.IsTrue(Game.World.Map.TriggerCells.ContainsKey(sut.Cell));
     }
 
     [UnityTest, Order(1)]
     public IEnumerator Triggers_on_touch()
     {
         // Arrange
-        Player player = Game.Manager.Player;
+        Player player = Game.Player;
         
         // Act -- player should be just below the transfer -- move into it
         player.Movement.TryMove(Direction.Up);
@@ -57,16 +57,16 @@ public class A2_TransferTests
         yield return null;
 
         // Assert
-        Assert.AreEqual(GameState.Loading, Game.Manager.State);
+        Assert.AreEqual(GameState.Loading, Game.State);
     }
 
     [UnityTest, Order(2)]
     public IEnumerator Loads_new_map()
     {
         // Arrange
-        Map oldMap = Game.Manager.Map;
+        Map oldMap = Game.World.Map;
         float elapsedTime = 0;
-        while (Game.Manager.State == GameState.Loading)
+        while (Game.State == GameState.Loading)
         {
             yield return null;
             elapsedTime += Time.deltaTime;
@@ -77,8 +77,8 @@ public class A2_TransferTests
         // Act
 
         // Assert
-        Assert.AreNotEqual(oldMap, Game.Manager.Map);
-        Assert.IsNotNull(Game.Manager.Map);
+        Assert.AreNotEqual(oldMap, Game.World.Map);
+        Assert.IsNotNull(Game.World.Map);
     }
 
     [Test, Order(3)]
@@ -90,7 +90,7 @@ public class A2_TransferTests
         // Act
 
         // Assert
-        Assert.AreEqual(sut.Cell + sut.Offset, Game.Manager.Player.CurrentCell);
+        Assert.AreEqual(sut.Cell + sut.Offset, Game.Player.CurrentCell);
     }
 
     [Test, Order(4)]
@@ -101,7 +101,7 @@ public class A2_TransferTests
         // Act
 
         // Assert
-        Assert.AreEqual(GameState.World, Game.Manager.State);
+        Assert.AreEqual(GameState.World, Game.State);
     }
 
 }

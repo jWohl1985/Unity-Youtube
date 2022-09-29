@@ -8,7 +8,7 @@ using System.Linq;
 using Core;
 using Battle;
 
-public class B2_BattleCalculationTests
+public class B3_BattleCalculationTests
 {
     private bool isReady = false;
     private Ally ally;
@@ -30,9 +30,12 @@ public class B2_BattleCalculationTests
         }
     }
 
-    [Test]
-    public void Attack_damage_calculates_correctly()
+    [UnityTest, Order(0)]
+    public IEnumerator Attack_damage_calculates_correctly()
     {
+        while (!isReady)
+            yield return null;
+
         int damage;
 
         // Arrange, Act, Assert

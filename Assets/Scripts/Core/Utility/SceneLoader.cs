@@ -13,10 +13,10 @@ namespace Core
 
         public static void LoadBattleScene()
         {
-            GameObject.DontDestroyOnLoad(Game.Manager.Map);
-            Game.Manager.Map.gameObject.SetActive(false);
+            GameObject.DontDestroyOnLoad(Game.World.Map);
+            Game.World.Map.gameObject.SetActive(false);
             savedSceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
-            savedPlayerLocation = Game.Manager.Player.CurrentCell.Center2D();
+            savedPlayerLocation = Game.Player.CurrentCell.Center2D();
             SceneManager.LoadScene(battleSceneBuildIndex);
             SceneManager.sceneLoaded += DisablePlayerObject;
         }
@@ -31,15 +31,15 @@ namespace Core
 
         public static void RestoreMapAndPlayer(Scene scene, LoadSceneMode mode)
         {
-            Game.Manager.Map.gameObject.SetActive(true);
-            Game.Manager.Player.transform.position = savedPlayerLocation;
-            Game.Manager.Player.gameObject.SetActive(true);
+            Game.World.Map.gameObject.SetActive(true);
+            Game.Player.transform.position = savedPlayerLocation;
+            Game.Player.gameObject.SetActive(true);
             SceneManager.sceneLoaded -= RestoreMapAndPlayer;
         }
 
         private static void DisablePlayerObject(Scene scene, LoadSceneMode mode)
         {
-            Game.Manager.Player.gameObject.SetActive(false);
+            Game.Player.gameObject.SetActive(false);
         }
 
     }

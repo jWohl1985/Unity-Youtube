@@ -25,7 +25,7 @@ namespace Core
 
         public void TurnToPlayer()
         {
-            Player player = Game.Manager.Player;
+            Player player = Game.Player;
 
             if (player.CurrentCell.x > character.CurrentCell.x)
                 Turn(Direction.Right);

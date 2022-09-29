@@ -8,7 +8,7 @@ namespace Core
     {
         private Player player;
         private Command command;
-        private Map map => Game.Manager.Map;
+        private Map map => Game.World.Map;
 
         private enum Command
         {
@@ -31,7 +31,7 @@ namespace Core
         {
             command = Command.None;
 
-            switch (Game.Manager.State)
+            switch (Game.State)
             {
                 case (GameState.Battle):
                 case (GameState.Loading):
@@ -130,8 +130,8 @@ namespace Core
             }
         }
 
-        private void ProcessToggleMenu() => Game.Manager.ToggleMenu();
+        private void ProcessToggleMenu() => Game.Menu.ToggleMenu();
 
-        private void ProcessAdvanceDialogue() => Game.Manager.AdvanceDialogue();
+        private void ProcessAdvanceDialogue() => Game.Dialogue.AdvanceDialogue();
     }
 }

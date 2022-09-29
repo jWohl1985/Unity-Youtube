@@ -121,7 +121,7 @@ namespace Battle
         {
             if (enemies.Count == 0)
             {
-                Game.Manager.EndBattle();
+                Game.Battle.EndBattle();
             }
         }
 

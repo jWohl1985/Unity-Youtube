@@ -34,7 +34,7 @@ public class BattleRegion : ScriptableObject
         if (random <= map.Region.EncounterChancePerStep)
         {
             EnemyPack enemyPack = GetRandomEnemyPack();
-            Game.Manager.StartCoroutine(Game.Manager.Co_StartBattle(enemyPack));
+            Game.Battle.StartBattle(enemyPack);
         }
     }
 }

@@ -49,7 +49,7 @@ public class A1_MapTests
     public void Occupied_cells_are_in_dictionary()
     {
         // Arrange
-        Player player = Game.Manager.Player;
+        Player player = Game.Player;
         NPC npc = GameObject.FindObjectOfType<NPC>();
 
         // Act

@@ -54,7 +54,7 @@ public class A1_MainMenuTests
         // Arrange
 
         // Act
-        Game.Manager.ToggleMenu();
+        Game.Menu.ToggleMenu();
         yield return null;
 
         // Assert
@@ -69,7 +69,7 @@ public class A1_MainMenuTests
         // Act
 
         // Assert
-        Assert.AreEqual(GameState.Menu, Game.Manager.State);
+        Assert.AreEqual(GameState.Menu, Game.State);
     }
 
     [UnityTest, Order(3)]
@@ -79,7 +79,7 @@ public class A1_MainMenuTests
         yield return null;
         
         // Act
-        Game.Manager.ToggleMenu();
+        Game.Menu.ToggleMenu();
         yield return null;
 
         // Assert
@@ -106,7 +106,7 @@ public class A1_MainMenuTests
         // Arrange
 
         // Act
-        Game.Manager.ToggleMenu();
+        Game.Menu.ToggleMenu();
         yield return null;
 
         // Assert
@@ -121,7 +121,7 @@ public class A1_MainMenuTests
         // Act
 
         // Assert
-        Assert.AreEqual(GameState.World, Game.Manager.State);
+        Assert.AreEqual(GameState.World, Game.State);
     }
 
     [UnityTest, Order(7)]
@@ -131,7 +131,7 @@ public class A1_MainMenuTests
         yield return null;
 
         // Act
-        Game.Manager.ToggleMenu();
+        Game.Menu.ToggleMenu();
         yield return null;
 
         // Assert
@@ -184,8 +184,8 @@ public class A1_MainMenuTests
         dialogueLines.Add(line);
 
         // Act
-        Game.Manager.StartDialogue(dialogueLines);
-        Game.Manager.ToggleMenu();
+        Game.Dialogue.StartDialogue(dialogueLines);
+        Game.Menu.ToggleMenu();
         yield return null;
 
         // Assert

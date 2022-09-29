@@ -57,7 +57,7 @@ public class A1_DialogueWindowTests
         // Arrange
 
         // Act
-        Game.Manager.StartDialogue(testDialogue);
+        Game.Dialogue.StartDialogue(testDialogue);
         yield return null;
 
         // Assert
@@ -72,7 +72,7 @@ public class A1_DialogueWindowTests
         // Act
 
         // Assert
-        Assert.AreEqual(GameState.Dialogue, Game.Manager.State);
+        Assert.AreEqual(GameState.Dialogue, Game.State);
     }
 
     [UnityTest, Order(3)]
@@ -102,7 +102,7 @@ public class A1_DialogueWindowTests
         yield return null;
 
         // Assert
-        Assert.AreEqual(GameState.World, Game.Manager.State);
+        Assert.AreEqual(GameState.World, Game.State);
     }
 
     [Test, Order(5)]
@@ -113,7 +113,7 @@ public class A1_DialogueWindowTests
         // Act
 
         // Assert
-        Assert.AreEqual(GameState.World, Game.Manager.State);
+        Assert.AreEqual(GameState.World, Game.State);
     }
 
     [UnityTest, Order(6)]

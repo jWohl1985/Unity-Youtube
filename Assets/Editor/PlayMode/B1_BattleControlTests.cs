@@ -33,7 +33,7 @@ public class B1_BattleControlTests
         SceneManager.sceneLoaded += OnBattleSceneReady;
 
         // the test pack is set to 100% encounter, so this should start a fight
-        Game.Manager.Player.Movement.TryMove(Direction.Up); 
+        Game.Player.Movement.TryMove(Direction.Up); 
     }
 
     public void OnBattleSceneReady(Scene scene, LoadSceneMode mode)
@@ -51,7 +51,7 @@ public class B1_BattleControlTests
         // Act
 
         // Assert
-        Assert.AreEqual(GameState.Battle, Game.Manager.State);
+        Assert.AreEqual(GameState.Battle, Game.State);
     }
 
     [Test, Order(1)]

@@ -13,14 +13,14 @@ namespace Core
         private List<ICutsceneCommand> commands = new List<ICutsceneCommand>();
         private bool isStarted = false;
 
-        public Vector2Int Cell => Game.Manager.Map.Grid.GetCell2D(this.gameObject);
+        public Vector2Int Cell => Game.World.Map.Grid.GetCell2D(this.gameObject);
         public IReadOnlyList<ICutsceneCommand> Commands => commands;
         public bool HasBeenPlayed { get; set; } = false;
 
         private void Start()
         {
             if (trigger == TriggerType.Touch)
-                Game.Manager.Map.TriggerCells.Add(Cell, this);
+                Game.World.Map.TriggerCells.Add(Cell, this);
         }
 
         private void Update()
@@ -34,7 +34,7 @@ namespace Core
             if (oneTimeOnly && HasBeenPlayed)
                 return;
 
-            if (Game.Manager.TryPlayCutscene(this))
+            if (Game.Cutscenes.TryPlayCutscene(this))
                 isStarted = true;
         }
 

@@ -26,10 +26,10 @@ namespace Core
                     _ => new Vector2Int(0, 0),
                 };
 
-                Game.Manager.Player.Movement.TryMove(direction);
+                Game.Player.Movement.TryMove(direction);
                 yield return null;
 
-                while (Game.Manager.Player.IsMoving)
+                while (Game.Player.IsMoving)
                     yield return null;
             }
 

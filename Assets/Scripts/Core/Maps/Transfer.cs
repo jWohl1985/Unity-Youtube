@@ -30,6 +30,6 @@ namespace Core
             currentMap.TriggerCells.Add(exitCell, this);
         }
 
-        public void Trigger() => Game.Manager.LoadMap(newMap, destinationId);
+        public void Trigger() => Game.World.LoadMap(newMap, destinationId);
     }
 }

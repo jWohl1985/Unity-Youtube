@@ -29,7 +29,7 @@ public class A2_CharacterTests
 
     public void OnSceneReady(Scene scene, LoadSceneMode mode)
     {
-        sut = Game.Manager.Player;
+        sut = Game.Player;
         isReady = true;
     }
 
@@ -103,17 +103,17 @@ public class A2_CharacterTests
     {
         // Arrange
         Vector2Int originalCell = sut.CurrentCell;
-        Assert.IsTrue(Game.Manager.Map.OccupiedCells.ContainsKey(originalCell));
-        Assert.AreEqual(sut, Game.Manager.Map.OccupiedCells[originalCell]);
+        Assert.IsTrue(Game.World.Map.OccupiedCells.ContainsKey(originalCell));
+        Assert.AreEqual(sut, Game.World.Map.OccupiedCells[originalCell]);
 
         // Act
         sut.Movement.TryMove(Direction.Left);
         while (sut.IsMoving) yield return null;
 
         // Assert
-        Assert.IsTrue(Game.Manager.Map.OccupiedCells.ContainsKey(sut.CurrentCell));
-        Assert.IsFalse(Game.Manager.Map.OccupiedCells.ContainsKey(originalCell));
-        Assert.AreEqual(sut, Game.Manager.Map.OccupiedCells[sut.CurrentCell]);
+        Assert.IsTrue(Game.World.Map.OccupiedCells.ContainsKey(sut.CurrentCell));
+        Assert.IsFalse(Game.World.Map.OccupiedCells.ContainsKey(originalCell));
+        Assert.AreEqual(sut, Game.World.Map.OccupiedCells[sut.CurrentCell]);
     }
 
     [UnityTest, Order(4)]
