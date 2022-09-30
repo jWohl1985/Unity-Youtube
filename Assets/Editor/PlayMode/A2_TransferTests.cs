@@ -57,7 +57,7 @@ public class A2_TransferTests
         yield return null;
 
         // Assert
-        Assert.AreEqual(GameState.Loading, Game.State);
+        Assert.AreEqual(GameState.MapChange, Game.State);
     }
 
     [UnityTest, Order(2)]
@@ -66,7 +66,7 @@ public class A2_TransferTests
         // Arrange
         Map oldMap = Game.World.Map;
         float elapsedTime = 0;
-        while (Game.State == GameState.Loading)
+        while (Game.State == GameState.MapChange)
         {
             yield return null;
             elapsedTime += Time.deltaTime;

@@ -34,7 +34,7 @@ namespace Core
             switch (Game.State)
             {
                 case (GameState.Battle):
-                case (GameState.Loading):
+                case (GameState.MapChange):
                 default:
                     break;
                 case (GameState.Menu):

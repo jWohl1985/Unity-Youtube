@@ -58,7 +58,6 @@ namespace Core
         private void Close()
         {
             animator.Play(dialogueCloseAnimation);
-            Game.Dialogue.EndDialogue();
             IsOpen = false;
         }
     }

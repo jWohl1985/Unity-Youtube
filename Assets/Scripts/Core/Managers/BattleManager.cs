@@ -16,21 +16,27 @@ namespace Core
             this.battleTransition = Resources.Load<GameObject>("Transitions/BattleTransition");
         }
 
-        public void StartBattle(EnemyPack pack) => Game.Player.StartCoroutine(Co_StartBattle(pack));
+        public void StartBattle(EnemyPack pack)
+        {
+            if (stateManager.TryState(GameState.Battle))
+                Game.Player.StartCoroutine(Co_StartBattle(pack));
+        }
 
         private IEnumerator Co_StartBattle(EnemyPack pack)
         {
-            stateManager.SetState(GameState.Battle);
             BattleControl.EnemyPack = pack;
+
             Animator animator = PlayTransition();
-            while (animator.IsAnimating()) yield return null;
+            while (animator.IsAnimating()) 
+                yield return null;
+
             SceneLoader.LoadBattleScene();
         }
 
         public void EndBattle()
         {
             SceneLoader.ReloadSavedSceneAfterBattle();
-            stateManager.SetState(GameState.World);
+            stateManager.RestorePreviousState();
         }
 
         private Animator PlayTransition()

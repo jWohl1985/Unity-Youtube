@@ -15,19 +15,12 @@ namespace Core
     public enum GameState
     {
         World,
-        Loading,
+        MapChange,
         Dialogue,
         Cutscene,
         Battle,
         Menu,
     }
-
-    public enum TransitionType
-    {
-        Battle,
-        MapChange,
-    }
-
     public enum TriggerType
     {
         Autoplay,

@@ -201,11 +201,10 @@ public class A2_NPCTests
 
         // Close the dialogue window
         DialogueWindow window = GameObject.FindObjectOfType<DialogueWindow>();
-        window.GoToNextLine();
-        yield return null;
-        window.GoToNextLine();
-        yield return null;
-        window.GoToNextLine();
-        yield return null;
+        while (window.IsOpen)
+        {
+            window.GoToNextLine();
+            yield return null;
+        }
     }
 }

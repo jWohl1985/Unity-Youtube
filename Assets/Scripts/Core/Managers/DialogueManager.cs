@@ -15,20 +15,30 @@ namespace Core
             this.dialogueWindow = GameObject.FindObjectOfType<DialogueWindow>();
         }
 
-        public void StartDialogue(List<DialogueLine> sceneToPlay)
+        public void StartDialogue(List<DialogueLine> dialogue)
         {
-            stateManager.SetState(GameState.Dialogue);
-            dialogueWindow.Open(sceneToPlay);
+            if (stateManager.TryState(GameState.Dialogue))
+                dialogueWindow.StartCoroutine(Co_StartDialogue(dialogue));
+        }
+
+        private IEnumerator Co_StartDialogue(List<DialogueLine> dialogue)
+        {
+            dialogueWindow.Open(dialogue);
+
+            while (dialogueWindow.IsOpen)
+                yield return null;
+
+            EndDialogue();
         }
 
         public void AdvanceDialogue()
         {
-            if (!dialogueWindow.IsOpen || Game.State != GameState.Dialogue || dialogueWindow.IsAnimating)
+            if (dialogueWindow.IsAnimating)
                 return;
 
             dialogueWindow.GoToNextLine();
         }
 
-        public void EndDialogue() => stateManager.SetState(stateManager.PreviousState);
+        private void EndDialogue() => stateManager.RestorePreviousState();
     }
 }

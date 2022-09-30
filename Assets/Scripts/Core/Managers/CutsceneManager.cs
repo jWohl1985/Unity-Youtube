@@ -15,13 +15,13 @@ namespace Core
 
         public bool TryPlayCutscene(Cutscene scene)
         {
-            if (Game.State != GameState.World)
+            if (stateManager.TryState(GameState.Cutscene) == false)
                 return false;
 
-            stateManager.SetState(GameState.Cutscene);
             foreach (ICutsceneCommand command in scene.Commands)
                 command.IsFinished = false;
-            Game.Player.StartCoroutine(Co_PlayCutscene(scene));
+
+            scene.StartCoroutine(Co_PlayCutscene(scene));
             return true;
         }
 
@@ -29,14 +29,14 @@ namespace Core
         {
             foreach (ICutsceneCommand command in scene.Commands)
             {
-                Game.Player.StartCoroutine(command.Co_Execute());
+                scene.StartCoroutine(command.Co_Execute());
 
                 while (command.IsFinished == false)
                     yield return null;
             }
 
             scene.HasBeenPlayed = true;
-            stateManager.SetState(GameState.World);
+            stateManager.RestorePreviousState();
         }
     }
 }

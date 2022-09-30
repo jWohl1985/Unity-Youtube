@@ -19,25 +19,20 @@ namespace Core
             mapTransition = Resources.Load<GameObject>("Transitions/MapTransition");
         }
 
-        public void LoadMap(Map newMap, int destinationId) => Game.Player.StartCoroutine(Co_LoadMap(newMap, destinationId));
+        public void LoadMap(Map newMap, int destinationId)
+        {
+            if (stateManager.TryState(GameState.MapChange))
+                Game.Player.StartCoroutine(Co_LoadMap(newMap, destinationId));
+        }
 
         private IEnumerator Co_LoadMap(Map newMap, int destinationId)
         {
-            stateManager.SetState(GameState.Loading);
-
-            Animator animator = PlayTransition();
+            Animator animator = FadeOut();
             while (animator.IsAnimating())
                 yield return null;
 
-            Map oldMap = Map;
-            Map = GameObject.Instantiate(newMap);
-            GameObject.Destroy(oldMap.gameObject);
-
-            yield return null;
-
-            Transfer[] transfers = GameObject.FindObjectsOfType<Transfer>();
-            Transfer transfer = transfers.Where(transfer => transfer.Id == destinationId).ToList().FirstOrDefault();
-            Game.Player.transform.position = (transfer.Cell + transfer.Offset).Center2D();
+            SwapMaps(newMap);
+            LocatePlayerOnNewMap(destinationId);
 
             animator.Play("MapTransition_FadeIn");
             yield return null;
@@ -46,14 +41,28 @@ namespace Core
 
             GameObject.Destroy(animator.gameObject);
 
-            stateManager.SetState(GameState.World);
+            stateManager.RestorePreviousState();
         }
 
-        private Animator PlayTransition()
+        private Animator FadeOut()
         {
             Vector3 position = Game.Player.transform.position;
             Animator animator = GameObject.Instantiate(mapTransition, position, Quaternion.identity).GetComponent<Animator>();
             return animator;
         }
+
+        private void SwapMaps(Map newMap)
+        {
+            Map oldMap = Map;
+            Map = GameObject.Instantiate(newMap);
+            GameObject.Destroy(oldMap.gameObject);
+        }
+
+        private void LocatePlayerOnNewMap(int destinationId)
+        {
+            Transfer[] transfers = GameObject.FindObjectsOfType<Transfer>();
+            Transfer transfer = transfers.Where(transfer => transfer.Id == destinationId).ToList().FirstOrDefault();
+            Game.Player.transform.position = (transfer.Cell + transfer.Offset).Center2D();
+        }  
     }
 }

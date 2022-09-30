@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Core\Managers\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleCalculations.cs" />
     <Compile Include="Assets\Scripts\Battle\Interfaces\ICommand.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\EnemyPack.cs" />
@@ -66,13 +67,16 @@
     <Compile Include="Assets\Scripts\Core\Utility\Extensions.cs" />
     <Compile Include="Assets\Scripts\Core\Enums.cs" />
     <Compile Include="Assets\Scripts\Core\UI\MainWindow.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Core\Utility\Direction.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Commands\Wait.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Commands\StartDialogue.cs" />
     <Compile Include="Assets\Scripts\Core\Utility\Paths.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\PartyMember.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyAI\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Core\Character\InputHandler.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\CutsceneManager.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\Game.cs" />
     <Compile Include="Assets\Scripts\Core\Character\CharacterMover.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueLine.cs" />
@@ -86,6 +90,7 @@
     <Compile Include="Assets\Scripts\Battle\Actor.cs" />
     <Compile Include="Assets\Scripts\Core\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\ITriggerTouch.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\MapManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Commands\Attack.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Commands\MoveCharacter.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Commands\MovePlayer.cs" />
@@ -93,6 +98,7 @@
     <Compile Include="Assets\Scripts\Battle\Ally.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\TurnBar.cs" />
     <Compile Include="Assets\Scripts\Battle\CommandFetcher.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\StateManager.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Cutscene.cs" />
     <Compile Include="Assets\Scripts\Battle\Enemy.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleControl.cs" />
@@ -104,12 +110,7 @@
     <Compile Include="Assets\Scripts\Battle\UI\BattlePortrait.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Core\Managers\StateManager.cs" />
-    <Compile Include="Assets\Scripts\Core\Managers\DialogueManager.cs" />
-    <Compile Include="Assets\Scripts\Core\Managers\CutsceneManager.cs" />
-    <Compile Include="Assets\Scripts\Core\Managers\MenuManager.cs" />
-    <Compile Include="Assets\Scripts\Core\Managers\BattleManager.cs" />
-    <Compile Include="Assets\Scripts\Core\Managers\MapManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

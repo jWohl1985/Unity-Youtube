@@ -17,18 +17,18 @@ namespace Core
 
         public void ToggleMenu()
         {
-            if (mainMenu.IsAnimating || Game.State == GameState.Cutscene || Game.State == GameState.Dialogue)
+            if (mainMenu.IsAnimating)
                 return;
 
             if (mainMenu.IsOpen)
             {
-                stateManager.SetState(GameState.World);
-                mainMenu.Close();
+                if(stateManager.TryState(GameState.World))
+                    mainMenu.Close();
             }
             else
             {
-                stateManager.SetState(GameState.Menu);
-                mainMenu.Open();
+                if(stateManager.TryState(GameState.Menu))
+                    mainMenu.Open();
             }
         }
     }
