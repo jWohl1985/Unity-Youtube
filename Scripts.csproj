@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\Battle\Enemy.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleControl.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyAI\BlueMinotaurAI.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleSetup.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\ActorStats.cs" />
     <Compile Include="Assets\Scripts\Core\Party\Party.cs" />
     <Compile Include="Assets\Scripts\Core\Character\Player.cs" />
@@ -110,7 +111,11 @@
     <Compile Include="Assets\Scripts\Battle\UI\BattlePortrait.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Battle\BattleSetup.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Equipment.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Armor.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Weapon.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Accessory.cs" />
+    <Compile Include="Assets\Scripts\Core\Party\Inventory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

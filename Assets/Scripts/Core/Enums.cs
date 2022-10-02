@@ -27,4 +27,10 @@ namespace Core
         Touch,
         Call,
     }
+
+    public enum EquipmentEffect
+    {
+        IncreasedLoot,
+        IncreaseMaxHP,
+    }
 }

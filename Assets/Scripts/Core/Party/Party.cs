@@ -8,9 +8,11 @@ namespace Core
     {
         private static List<PartyMember> activeMembers = new List<PartyMember>();
         private static List<PartyMember> reserveMembers = new List<PartyMember>();
+        private static Inventory inventory = new Inventory();
 
         public static IReadOnlyList<PartyMember> ActiveMembers => activeMembers;
         public static IReadOnlyList<PartyMember> ReserveMembers => reserveMembers;
+        public static Inventory Inventory => inventory;
 
         static Party()
         {
@@ -45,6 +47,12 @@ namespace Core
             AddActiveMember(Bul);
             AddActiveMember(Enna);
             AddActiveMember(Maxymer);
+
+            inventory.Initialize();
+
+            Balfam.EquipItem(inventory.Equipment[0]);
+            Bul.EquipItem(inventory.Equipment[1]);
+            Enna.EquipItem(inventory.Equipment[2]);
         }
     }
 }
