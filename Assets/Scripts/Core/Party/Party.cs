@@ -53,6 +53,11 @@ namespace Core
             Balfam.EquipItem(inventory.Equipment[0]);
             Bul.EquipItem(inventory.Equipment[1]);
             Enna.EquipItem(inventory.Equipment[2]);
+
+            foreach(PartyMember member in ActiveMembers)
+            {
+                member.Initialize(member, 1);
+            }
         }
     }
 }

@@ -14,13 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moniker: Satyr
   actorPrefab: {fileID: 5176543619620100640, guid: 7d7a678da767e91428ba3593e343e650, type: 3}
-  stats:
-    level: 1
-    hp: 10
-    maxhp: 10
-    str: 99
-    arm: 3
-    spd: 99
   menuPortrait: {fileID: 21300000, guid: 65e4a7ad2ae33004e99a79f97f81339c, type: 3}
   battlePortrait: {fileID: 5173471364560344175, guid: f4a2001b74a10494fbb776df6a446a48, type: 3}
-  job: Blue Mage
+  job: 3

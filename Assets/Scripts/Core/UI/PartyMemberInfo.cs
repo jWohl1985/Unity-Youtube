@@ -10,6 +10,7 @@ namespace Core
     public class PartyMemberInfo : MonoBehaviour
     {
         private PartyMember partyMember;
+        private PartyMemberStats stats;
 
         [SerializeField] private Image memberPortrait;
         [SerializeField] private TextMeshProUGUI memberName;
@@ -27,26 +28,76 @@ namespace Core
         {
             int siblingIndex = this.gameObject.transform.GetSiblingIndex();
             partyMember = Party.ActiveMembers[siblingIndex];
+            stats = partyMember.Stats as PartyMemberStats;
             DisplayInformation();
         }
 
-        public void DisplayInformation()
+        private void DisplayInformation()
         {
-            BattleStats stats = partyMember.Stats;
-
             memberName.text = partyMember.Name;
             memberPortrait.sprite = partyMember.MenuPortrait;
-            string levelJob = $"Level {stats.Level} {partyMember.Job}";
-            memberLevelJob.text = levelJob;
+            memberLevelJob.text = $"Level {stats.Level} {partyMember.Job}";
 
             memberHP.text = $"HP: {stats.HP}/{stats.MaxHP}";
-            memberSpecial.text = "MP 0:0";
-            memberBaseSTR.text = $"STR: {stats.STR}";
-            memberBaseARM.text = $"ARM: {stats.ARM}";
-            memberBaseSPD.text = $"SPD: {stats.SPD}";
+            memberSpecial.text = DisplaySpecialStat();
+
+            memberBaseSTR.text = $"STR: {stats.BaseSTR}";
+            memberBaseARM.text = $"ARM: {stats.BaseARM}";
+            memberBaseSPD.text = $"SPD: {stats.BaseSPD}";
+
             memberEquipSTR.text = $"STR: {stats.STR}";
+            ApplySTRColoring();
+
             memberEquipARM.text = $"ARM: {stats.ARM}";
+            ApplyARMColoring();
+
             memberEquipSPD.text = $"SPD: {stats.SPD}";
+            ApplySPDColoring();
+        }
+
+        private string DisplaySpecialStat()
+        {
+            if (stats is FighterStats fighterStats)
+                return $"Rage: {fighterStats.Rage}";
+
+            else if (stats is MageStats mageStats)
+                return $"MP: {mageStats.MP}/{mageStats.Level * 10}";
+
+            else if (stats is ThiefStats thiefStats)
+                return $"Stealth: {thiefStats.Stealth}/{thiefStats.Level * 2}";
+
+            Debug.LogWarning("No special stat found!");
+            return "";
+        }
+
+        private void ApplySTRColoring()
+        {
+            if (stats.STR > stats.BaseSTR)
+                memberEquipSTR.color = Color.green;
+            else if (stats.STR == stats.BaseSTR)
+                memberEquipSTR.color = Color.white;
+            else
+                memberEquipSTR.color = Color.red;
+        }
+
+        private void ApplyARMColoring()
+        {
+            if (stats.ARM > stats.BaseARM)
+                memberEquipARM.color = Color.green;
+            else if (stats.ARM == stats.BaseARM)
+                memberEquipARM.color = Color.white;
+            else
+                memberEquipARM.color = Color.red;
+        }
+
+        private void ApplySPDColoring()
+        {
+            if (stats.SPD > stats.BaseSPD)
+                memberEquipSPD.color = Color.green;
+            else if (stats.SPD == stats.BaseSPD)
+                memberEquipSPD.color = Color.white;
+            else
+                memberEquipSPD.color = Color.red;
         }
     }
 }

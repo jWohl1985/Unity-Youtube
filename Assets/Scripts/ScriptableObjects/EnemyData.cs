@@ -7,7 +7,7 @@ using Battle;
 public class EnemyData : ScriptableObject
 {
     [SerializeField] private GameObject actorPrefab;
-    [SerializeField] private BattleStats stats;
+    [SerializeField] private EnemyStats stats;
     [SerializeField] private BattlePortrait battlePortrait;
 
     public GameObject ActorPrefab => actorPrefab;

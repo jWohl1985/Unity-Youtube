@@ -10,7 +10,6 @@ namespace Battle
         public static int AttackDamage(Actor attacker, Actor defender)
         {
             int damage = Math.Max(0, attacker.Stats.STR - defender.Stats.ARM);
-            defender.Stats.HP -= damage;
             return damage;
         }
     }

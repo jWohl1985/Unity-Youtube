@@ -30,7 +30,16 @@ namespace Core
 
     public enum EquipmentEffect
     {
+        None,
         IncreasedLoot,
         IncreaseMaxHP,
+    }
+
+    public enum Job
+    {
+        Fighter,
+        BlackMage,
+        WhiteMage,
+        Thief,
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorPrefab: {fileID: 5176543619620100640, guid: 91e7531573e1df34c83a68827cca024b, type: 3}
   stats:
-    level: 0
+    level: 1
     hp: 5
     maxhp: 5
     str: 5

@@ -62,7 +62,6 @@
     <Compile Include="Assets\Editor\PlayMode\B1_BattleControlTests.cs" />
     <Compile Include="Assets\Editor\PlayMode\A1_DialogueWindowTests.cs" />
     <Compile Include="Assets\Editor\PlayMode\A2_CharacterTests.cs" />
-    <Compile Include="Assets\Editor\PlayMode\B2_BattleCalculationTests.cs" />
     <Compile Include="Assets\Editor\PlayMode\A2_CutsceneTests.cs" />
     <Compile Include="Assets\Editor\PlayMode\A1_MapTests.cs" />
     <Compile Include="Assets\Editor\PlayMode\A1_MainMenuTests.cs" />

@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Battle;
+using Core;
 
 [CreateAssetMenu(fileName = "New Party Member", menuName = "New Party Member")]
 public class PartyMember : ScriptableObject
 {
     [SerializeField] private string moniker;
     [SerializeField] private GameObject actorPrefab;
-    [SerializeField] private BattleStats stats;
     [SerializeField] private Sprite menuPortrait;
     [SerializeField] private BattlePortrait battlePortrait;
-    [SerializeField] private string job = "Some job";
+    [SerializeField] private Job job;
+    private PartyMemberStats stats;
 
     private Weapon equippedWeapon;
     private Armor equippedArmor;
@@ -22,10 +23,10 @@ public class PartyMember : ScriptableObject
     public BattleStats Stats => stats;
     public Sprite MenuPortrait => menuPortrait;
     public BattlePortrait BattlePortrait => battlePortrait;
-    public string Job => job;
-    public Weapon EquippedWeapon => equippedWeapon;
-    public Armor EquippedArmor => equippedArmor;
-    public Accessory EquippedAccessory => equippedAccessory;
+    public Job Job => job;
+    public Weapon EquippedWeapon => equippedWeapon ?? Resources.Load<Weapon>(Paths.NoWeapon);
+    public Armor EquippedArmor => equippedArmor ?? Resources.Load<Armor>(Paths.NoArmor);
+    public Accessory EquippedAccessory => equippedAccessory ?? Resources.Load<Accessory>(Paths.NoAccessory);
 
     public void EquipItem(Equipment itemToEquip)
     {
@@ -37,5 +38,10 @@ public class PartyMember : ScriptableObject
 
         else if (itemToEquip is Accessory accessory)
             equippedAccessory = accessory;
+    }
+
+    public void Initialize(PartyMember member, int level)
+    {
+        stats = PartyMemberStats.CreateStats(member, level);
     }
 }
