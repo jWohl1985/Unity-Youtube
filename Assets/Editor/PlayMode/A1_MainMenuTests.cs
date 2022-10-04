@@ -54,7 +54,7 @@ public class A1_MainMenuTests
         // Arrange
 
         // Act
-        Game.Menu.ToggleMenu();
+        Game.Menu.OpenMenu();
         yield return null;
 
         // Assert
@@ -79,7 +79,7 @@ public class A1_MainMenuTests
         yield return null;
         
         // Act
-        Game.Menu.ToggleMenu();
+        Game.Menu.OpenMenu();
         yield return null;
 
         // Assert
@@ -106,7 +106,7 @@ public class A1_MainMenuTests
         // Arrange
 
         // Act
-        Game.Menu.ToggleMenu();
+        Game.Menu.OpenMenu();
         yield return null;
 
         // Assert
@@ -131,7 +131,7 @@ public class A1_MainMenuTests
         yield return null;
 
         // Act
-        Game.Menu.ToggleMenu();
+        Game.Menu.OpenMenu();
         yield return null;
 
         // Assert
@@ -185,7 +185,7 @@ public class A1_MainMenuTests
 
         // Act
         Game.Dialogue.StartDialogue(dialogueLines);
-        Game.Menu.ToggleMenu();
+        Game.Menu.OpenMenu();
         yield return null;
 
         // Assert

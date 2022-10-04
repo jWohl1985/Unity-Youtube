@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Accessory.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\Stats\BlackMageStats.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\BattleCalculations.cs" />
     <Compile Include="Assets\Scripts\Battle\Interfaces\ICommand.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Weapon.cs" />
@@ -66,7 +67,9 @@
     <Compile Include="Assets\Scripts\Core\Maps\Map.cs" />
     <Compile Include="Assets\Scripts\Core\Character\CharacterTurner.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\BattleStats.cs" />
+    <Compile Include="Assets\Scripts\Battle\Stats\FighterStats.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\BattleRegion.cs" />
+    <Compile Include="Assets\Scripts\Battle\Stats\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Core\Utility\Extensions.cs" />
     <Compile Include="Assets\Scripts\Core\Party\Inventory.cs" />
     <Compile Include="Assets\Scripts\Core\Enums.cs" />
@@ -90,6 +93,7 @@
     <Compile Include="Assets\Scripts\Core\Character\CharacterAnimator.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\EnemyData.cs" />
     <Compile Include="Assets\Scripts\Core\Utility\SceneLoader.cs" />
+    <Compile Include="Assets\Scripts\Battle\Stats\PartyMemberStats.cs" />
     <Compile Include="Assets\Scripts\Core\Character\NPC.cs" />
     <Compile Include="Assets\Scripts\Core\UI\PartyMemberInfo.cs" />
     <Compile Include="Assets\Scripts\Battle\Actor.cs" />
@@ -105,6 +109,7 @@
     <Compile Include="Assets\Scripts\Battle\CommandFetcher.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\StateManager.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Cutscene.cs" />
+    <Compile Include="Assets\Scripts\Core\UI\MenuSelector.cs" />
     <Compile Include="Assets\Scripts\Battle\Enemy.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleControl.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyAI\BlueMinotaurAI.cs" />
@@ -115,12 +120,8 @@
     <Compile Include="Assets\Scripts\Core\Interfaces\ICutsceneCommand.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\BattlePortrait.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
-    <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Battle\Stats\EnemyStats.cs" />
-    <Compile Include="Assets\Scripts\Battle\Stats\PartyMemberStats.cs" />
-    <Compile Include="Assets\Scripts\Battle\Stats\FighterStats.cs" />
-    <Compile Include="Assets\Scripts\Battle\Stats\BlackMageStats.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\ThiefStats.cs" />
+    <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

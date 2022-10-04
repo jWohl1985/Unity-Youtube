@@ -18,7 +18,7 @@ namespace Core
             MoveUp,
             MoveDown,
             Interact,
-            ToggleMenu,
+            OpenMenu,
             AdvanceDialogue,
         }
 
@@ -35,11 +35,8 @@ namespace Core
             {
                 case (GameState.Battle):
                 case (GameState.MapChange):
-                default:
-                    break;
                 case (GameState.Menu):
-                    if (Input.GetKeyDown(KeyCode.Escape))
-                        command = Command.ToggleMenu;
+                default:
                     break;
                 case (GameState.Dialogue):
                     if (Input.GetKeyDown(KeyCode.Space))
@@ -47,7 +44,7 @@ namespace Core
                     break;
                 case (GameState.World):
                     if (Input.GetKeyDown(KeyCode.Escape))
-                        command = Command.ToggleMenu;
+                        command = Command.OpenMenu;
 
                     else if (Input.GetKey(KeyCode.LeftArrow))
                         command = Command.MoveLeft;
@@ -83,8 +80,8 @@ namespace Core
                 case (Command.Interact):
                     ProcessInteract();
                     break;
-                case (Command.ToggleMenu):
-                    ProcessToggleMenu();
+                case (Command.OpenMenu):
+                    ProcessOpenMenu();
                     break;
                 case (Command.AdvanceDialogue):
                     ProcessAdvanceDialogue();
@@ -130,7 +127,7 @@ namespace Core
             }
         }
 
-        private void ProcessToggleMenu() => Game.Menu.ToggleMenu();
+        private void ProcessOpenMenu() => Game.Menu.OpenMenu();
 
         private void ProcessAdvanceDialogue() => Game.Dialogue.AdvanceDialogue();
     }

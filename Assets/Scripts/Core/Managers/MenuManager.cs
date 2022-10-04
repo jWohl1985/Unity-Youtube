@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
@@ -15,21 +14,21 @@ namespace Core
             this.mainMenu = GameObject.FindObjectOfType<MainMenu>();
         }
 
-        public void ToggleMenu()
+        public void OpenMenu()
         {
-            if (mainMenu.IsAnimating)
-                return;
+            if (stateManager.TryState(GameState.Menu))
+            {
+                mainMenu.Open();
+                mainMenu.StartCoroutine(Co_WaitForMenu());
+            }
+        }
 
-            if (mainMenu.IsOpen)
-            {
-                if(stateManager.TryState(GameState.World))
-                    mainMenu.Close();
-            }
-            else
-            {
-                if(stateManager.TryState(GameState.Menu))
-                    mainMenu.Open();
-            }
+        private IEnumerator Co_WaitForMenu()
+        {
+            while (mainMenu.IsOpen)
+                yield return null;
+
+            stateManager.RestorePreviousState();
         }
     }
 }

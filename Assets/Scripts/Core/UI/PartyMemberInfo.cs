@@ -26,7 +26,7 @@ namespace Core
 
         void Start()
         {
-            int siblingIndex = this.gameObject.transform.GetSiblingIndex();
+            int siblingIndex = this.gameObject.transform.GetSiblingIndex() - 1; // the selector takes up index 0
             partyMember = Party.ActiveMembers[siblingIndex];
             stats = partyMember.Stats as PartyMemberStats;
             DisplayInformation();
