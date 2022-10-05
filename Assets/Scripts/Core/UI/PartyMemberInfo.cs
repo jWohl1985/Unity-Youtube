@@ -24,12 +24,15 @@ namespace Core
         [SerializeField] private TextMeshProUGUI memberEquipARM;
         [SerializeField] private TextMeshProUGUI memberEquipSPD;
 
-        void Start()
+        void OnEnable()
         {
-            int siblingIndex = this.gameObject.transform.GetSiblingIndex() - 1; // the selector takes up index 0
-            partyMember = Party.ActiveMembers[siblingIndex];
-            stats = partyMember.Stats as PartyMemberStats;
-            DisplayInformation();
+            int siblingIndex = this.gameObject.transform.GetSiblingIndex();
+            if (siblingIndex < Party.ActiveMembers.Count)
+            {
+                partyMember = Party.ActiveMembers[siblingIndex];
+                stats = partyMember.Stats as PartyMemberStats;
+                DisplayInformation();
+            }
         }
 
         private void DisplayInformation()

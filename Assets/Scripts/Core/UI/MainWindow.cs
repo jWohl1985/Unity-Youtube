@@ -6,18 +6,19 @@ namespace Core
 {
     public class MainWindow : MonoBehaviour
     {
-        [SerializeField] private GameObject partyMemberInfoPrefab;
-
         void Start()
         {
-            GeneratePartyMemberInfo();
+            ShowDefaultView();
         }
 
-        private void GeneratePartyMemberInfo()
+        private void ShowDefaultView()
         {
-            foreach (PartyMember member in Party.ActiveMembers)
+            foreach(Transform child in transform)
             {
-                Instantiate(partyMemberInfoPrefab, this.gameObject.transform);
+                if (child.GetComponent<PartyMemberInfo>() != null)
+                    child.gameObject.SetActive(true);
+                else
+                    child.gameObject.SetActive(false);
             }
         }
     }

@@ -23,10 +23,8 @@ namespace Core
 
             for (int i = 0; i < rectTransform.parent.childCount; i++)
             {
-                if (rectTransform.parent.GetChild(i).GetComponent<MenuSelector>() != null)
-                    continue;
-
-                selectableOptions.Add(rectTransform.parent.GetChild(i).GetComponent<RectTransform>());
+                if (rectTransform.parent.GetChild(i).CompareTag("Selectable"))
+                    selectableOptions.Add(rectTransform.parent.GetChild(i).GetComponent<RectTransform>());
             }
         }
 
