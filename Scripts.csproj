@@ -73,7 +73,7 @@
     <Compile Include="Assets\Scripts\Core\Utility\Extensions.cs" />
     <Compile Include="Assets\Scripts\Core\Party\Inventory.cs" />
     <Compile Include="Assets\Scripts\Core\Enums.cs" />
-    <Compile Include="Assets\Scripts\Core\UI\MainWindow.cs" />
+    <Compile Include="Assets\Scripts\Core\UI\MainMenu\MainWindow.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Core\Utility\Direction.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Commands\Wait.cs" />
@@ -95,9 +95,9 @@
     <Compile Include="Assets\Scripts\Core\Utility\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\PartyMemberStats.cs" />
     <Compile Include="Assets\Scripts\Core\Character\NPC.cs" />
-    <Compile Include="Assets\Scripts\Core\UI\PartyMemberInfo.cs" />
+    <Compile Include="Assets\Scripts\Core\UI\MainMenu\PartyMemberInfo.cs" />
     <Compile Include="Assets\Scripts\Battle\Actor.cs" />
-    <Compile Include="Assets\Scripts\Core\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Core\UI\MainMenu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\ITriggerTouch.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\MapManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Commands\Attack.cs" />
@@ -109,7 +109,7 @@
     <Compile Include="Assets\Scripts\Battle\CommandFetcher.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\StateManager.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Cutscene.cs" />
-    <Compile Include="Assets\Scripts\Core\UI\MenuSelector.cs" />
+    <Compile Include="Assets\Scripts\Core\UI\MainMenu\MenuSelector.cs" />
     <Compile Include="Assets\Scripts\Battle\Enemy.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleControl.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyAI\BlueMinotaurAI.cs" />
@@ -122,6 +122,7 @@
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\ThiefStats.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
+    <Compile Include="Assets\Scripts\Core\UI\MainMenu\MemberEquipmentInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

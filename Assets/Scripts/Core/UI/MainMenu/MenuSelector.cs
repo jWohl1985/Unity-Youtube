@@ -10,11 +10,9 @@ namespace Core
         private RectTransform rectTransform;
         private List<RectTransform> selectableOptions = new List<RectTransform>();
 
-        [SerializeField] private AudioSource menuChangeSound;
-
-        public bool IsActiveSelector { get; set; } = false;
         public int SelectedIndex { get; set; } = 0;
 
+        public IReadOnlyList<RectTransform> SelectableOptions => selectableOptions;
 
         private void Awake()
         {
@@ -31,44 +29,16 @@ namespace Core
 
         void Update()
         {
-            if (!IsActiveSelector)
+            if (mainMenu.CurrentSelector != this)
                 return;
 
             if (rectTransform.anchoredPosition != selectableOptions[SelectedIndex].anchoredPosition)
                 MoveToSelectedOption();
-
-            if (Input.GetKeyDown(KeyCode.UpArrow) && SelectedIndex > 0)
-            {
-                menuChangeSound.Play();
-                SelectedIndex--;
-            }
-
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && (SelectedIndex < selectableOptions.Count - 1))
-            {
-                menuChangeSound.Play();
-                SelectedIndex++;
-            }
-
-            else if (Input.GetKeyDown(KeyCode.Return))
-                Accept();
-
-            else if (Input.GetKeyDown(KeyCode.Escape))
-                Cancel();
         }
 
         private void MoveToSelectedOption()
         {
             rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, selectableOptions[SelectedIndex].anchoredPosition, 8f);
-        }
-
-        private void Accept()
-        {
-            mainMenu.Accept();
-        }
-
-        private void Cancel()
-        {
-            mainMenu.Cancel();
         }
     }
 }

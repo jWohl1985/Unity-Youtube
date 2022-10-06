@@ -24,6 +24,8 @@ namespace Core
         [SerializeField] private TextMeshProUGUI memberEquipARM;
         [SerializeField] private TextMeshProUGUI memberEquipSPD;
 
+        public PartyMember PartyMember => partyMember;
+
         void OnEnable()
         {
             int siblingIndex = this.gameObject.transform.GetSiblingIndex();
