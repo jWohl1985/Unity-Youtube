@@ -19,5 +19,5 @@ MonoBehaviour:
     maxhp: 5
     str: 5
     arm: 1
-    spd: 7
+    spd: 0
   battlePortrait: {fileID: 5173471364560344175, guid: 7ba4f1b309a99fa4b91778d6d685030b, type: 3}

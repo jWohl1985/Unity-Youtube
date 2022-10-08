@@ -79,7 +79,7 @@ namespace Battle
             IsTakingTurn = false;
         }
 
-        private void OnDeath() => StartCoroutine(Co_Die());
+        private void OnDeath(Actor actor) => StartCoroutine(Co_Die());
 
         private IEnumerator Co_Die()
         {

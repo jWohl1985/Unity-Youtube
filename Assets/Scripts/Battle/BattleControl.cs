@@ -49,7 +49,7 @@ namespace Battle
             }
         }
 
-        private void DetermineTurnOrder() => turnOrder = turnOrder.OrderByDescending(actor => actor.Stats.Initiative).ToList(); 
+        private void DetermineTurnOrder() => turnOrder = turnOrder.OrderByDescending(actor => actor.Stats.Initiative).ToList();
 
         private void CheckForEnd()
         {
@@ -65,19 +65,16 @@ namespace Battle
             turnOrder[TurnNumber].StartTurn();
         }
 
-        private void OnDeath()
+        private void OnDeath(Actor actor)
         {
-            for (int i = enemies.Count - 1; i >= 0; i--)
+            if (actor is Enemy enemy)
             {
-                if (enemies[i].Stats.HP == 0)
-                {
-                    enemies[i].WasDefeated -= OnDeath;
-                    int index = turnOrder.IndexOf(enemies[i]);
-                    if (index <= TurnNumber)
-                        TurnNumber--;
-                    turnOrder.Remove(enemies[i]);
-                    enemies.Remove(enemies[i]);
-                }
+                enemy.WasDefeated -= OnDeath;
+                int index = turnOrder.IndexOf(enemy);
+                if (index <= TurnNumber)
+                    TurnNumber--;
+                turnOrder.Remove(enemy);
+                enemies.Remove(enemy);
             }
         }
     }
