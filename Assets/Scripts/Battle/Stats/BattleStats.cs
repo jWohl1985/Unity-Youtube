@@ -19,5 +19,7 @@ namespace Battle
         public abstract int ARM { get; }
         public abstract int SPD { get; }
         public int Initiative => SPD + Random.Range(-1, 2);
+
+        public abstract void ReduceHP(int amount);
     }
 }

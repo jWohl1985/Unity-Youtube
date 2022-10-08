@@ -19,9 +19,19 @@ namespace Battle
             };
         }
 
+        protected int hp;
+
         public abstract int BaseMaxHP { get; }
         public abstract int BaseSTR { get; }
         public abstract int BaseARM { get; }
         public abstract int BaseSPD { get; }
+
+        public override void ReduceHP(int amount)
+        {
+            if (amount <= 0)
+                return;
+
+            hp = Mathf.Clamp(hp - amount, 0, MaxHP);
+        }
     }
 }

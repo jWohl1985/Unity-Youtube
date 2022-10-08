@@ -63,7 +63,6 @@ namespace Core
         public void Open()
         {
             SetMenuState(MenuState.Main);
-            mainSelector.SelectedIndex = 0;
             IsOpen = true;
             animator.Play(menuOpenAnimation);
         }
@@ -98,10 +97,12 @@ namespace Core
                     Close();
                     break;
                 case (MenuState.EquipMemberSelection):
-                    memberSelector.SelectedIndex = 0;
-                    memberSelector.gameObject.SetActive(false);
                     SetMenuState(MenuState.Main);
-                    break;     
+                    break;
+                case (MenuState.EquipmentSelection):
+                    mainWindow.ShowDefaultView();
+                    SetMenuState(MenuState.EquipMemberSelection);
+                    break;
             }
         }
 
@@ -120,9 +121,7 @@ namespace Core
 
         private void Equip()
         {
-            menuState = MenuState.EquipMemberSelection;
-            memberSelector.gameObject.SetActive(true);
-            memberSelector.SelectedIndex = 0;
+            SetMenuState(MenuState.EquipMemberSelection);
         }
 
         private void SetMenuState(MenuState newState)

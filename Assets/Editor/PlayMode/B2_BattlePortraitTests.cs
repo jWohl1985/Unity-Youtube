@@ -60,7 +60,7 @@ public class B2_BattlePortraitTests
     public IEnumerator Moves_to_slot_position()
     {
         // Arrange
-        List<GameObject> slots = turnBar.Slots;
+        List<RectTransform> slots = turnBar.Slots;
         float elapsedTime = 0;
 
         // Act

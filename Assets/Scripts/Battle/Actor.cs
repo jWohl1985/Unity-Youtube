@@ -13,6 +13,7 @@ namespace Battle
         protected Vector2 battlePosition = new Vector2(0.5f, 0);
 
         public event Action WasDefeated;
+        public event Action TookDamage;
 
         public Animator Animator { get; protected set; }
         public bool IsTakingTurn { get; protected set; } = false;
@@ -38,5 +39,17 @@ namespace Battle
         }
 
         public abstract void StartTurn();
+
+        public virtual void TakeDamage(int amount)
+        {
+            if (amount <= 0)
+                return;
+
+            Stats.ReduceHP(amount);
+            TookDamage?.Invoke();
+
+            if (Stats.HP == 0)
+                WasDefeated?.Invoke();
+        }
     }
 }

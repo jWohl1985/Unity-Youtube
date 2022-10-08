@@ -59,7 +59,7 @@
     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Accessory.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\MenuManager.cs" />
-    <Compile Include="Assets\Scripts\Battle\Stats\BlackMageStats.cs" />
+    <Compile Include="Assets\Scripts\Battle\Stats\MageStats.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\BattleCalculations.cs" />
     <Compile Include="Assets\Scripts\Battle\Interfaces\ICommand.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Weapon.cs" />
@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\Core\UI\MainMenu\PartyMemberInfo.cs" />
     <Compile Include="Assets\Scripts\Battle\Actor.cs" />
     <Compile Include="Assets\Scripts\Core\UI\MainMenu\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Core\UI\MainMenu\MemberEquipmentInfo.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\ITriggerTouch.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\MapManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Commands\Attack.cs" />
@@ -122,7 +123,6 @@
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\ThiefStats.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Core\UI\MainMenu\MemberEquipmentInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

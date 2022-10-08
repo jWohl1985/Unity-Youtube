@@ -8,7 +8,7 @@ namespace Battle
     {
         protected PartyMember member;
         protected int level;
-        protected int hp;
+        
 
         // PartyMemberStats
         public override int BaseMaxHP => level * 13;

@@ -72,6 +72,9 @@ namespace Battle
                 if (enemies[i].Stats.HP == 0)
                 {
                     enemies[i].WasDefeated -= OnDeath;
+                    int index = turnOrder.IndexOf(enemies[i]);
+                    if (index <= TurnNumber)
+                        TurnNumber--;
                     turnOrder.Remove(enemies[i]);
                     enemies.Remove(enemies[i]);
                 }

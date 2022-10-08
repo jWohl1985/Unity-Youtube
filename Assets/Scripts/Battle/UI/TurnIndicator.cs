@@ -10,8 +10,6 @@ namespace Battle
         private RectTransform rectTransform;
         private BattleControl battleControl;
 
-        private List<RectTransform> slots = new List<RectTransform>();
-
         private void Awake()
         {
             turnBar = GetComponentInParent<TurnBar>();
@@ -19,18 +17,10 @@ namespace Battle
             battleControl = FindObjectOfType<BattleControl>();
         }
 
-        void Start()
-        {
-            foreach(GameObject slot in turnBar.Slots)
-            {
-                slots.Add(slot.GetComponent<RectTransform>());
-            }
-        }
-
         void Update()
         {
             Vector2 currentPosition = rectTransform.anchoredPosition;
-            Vector2 targetPosition = slots[battleControl.TurnNumber].anchoredPosition;
+            Vector2 targetPosition = turnBar.Slots[battleControl.TurnNumber].anchoredPosition;
 
             float speed = 1f;
             if (battleControl.TurnNumber == 0)

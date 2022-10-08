@@ -21,5 +21,13 @@ namespace Battle
         public override int STR => str;
         public override int ARM => arm;
         public override int SPD => spd;
+
+        public override void ReduceHP(int amount)
+        {
+            if (amount <= 0)
+                return;
+
+            hp = Mathf.Clamp(hp - amount, 0, maxhp);
+        }
     }
 }
