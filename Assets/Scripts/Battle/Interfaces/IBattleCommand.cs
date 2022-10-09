@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Battle
 {
-    public interface ICommand
+    public interface IBattleCommand
     {
         bool IsFinished { get; }
         IEnumerator Co_Execute();

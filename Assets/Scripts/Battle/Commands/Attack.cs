@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Battle
 {
-    public class Attack : ICommand
+    public class Attack : IBattleCommand
     {
         private Actor attacker;
         private Actor defender;

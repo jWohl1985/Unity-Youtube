@@ -19,8 +19,10 @@ namespace Battle
 
         void Update()
         {
+            int targetSlot = (battleControl.TurnNumber < 0) ? 0 : battleControl.TurnNumber;
+
             Vector2 currentPosition = rectTransform.anchoredPosition;
-            Vector2 targetPosition = turnBar.Slots[battleControl.TurnNumber].anchoredPosition;
+            Vector2 targetPosition = turnBar.Slots[targetSlot].anchoredPosition;
 
             float speed = 1f;
             if (battleControl.TurnNumber == 0)

@@ -9,7 +9,7 @@ namespace Battle
         private BattleControl battleControl;
         private Actor actor;
 
-        public ICommand Command { get; private set; }
+        public IBattleCommand Command { get; private set; }
 
         public CommandFetcher(Actor actor)
         {
@@ -25,6 +25,10 @@ namespace Battle
                 if (Input.GetKeyDown(KeyCode.A))
                 {
                     Command = new Attack(actor, battleControl.Enemies[0]);
+                }
+                else if (Input.GetKeyDown(KeyCode.R))
+                {
+                    Command = new RunAway(actor);
                 }
                 // TEST CODE
 

@@ -41,14 +41,16 @@ namespace Battle
 
         private IEnumerator Co_EnemyChooseAction()
         {
-            ICommand command;
-            command = ai.ChooseAction();
+            IBattleCommand command = ai.ChooseAction();
+
             StartCoroutine(command.Co_Execute());
             while (!command.IsFinished)
-            {
                 yield return null;
-            }
-            StartCoroutine(Co_EndTurn());
+
+            if (command is not RunAway)
+                StartCoroutine(Co_EndTurn());
+            else
+                IsTakingTurn = false;
         }
 
         private IEnumerator Co_EndTurn()

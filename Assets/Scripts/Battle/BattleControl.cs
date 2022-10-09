@@ -32,11 +32,18 @@ namespace Battle
         {
             if (!SetupComplete)
             {
-                foreach (Enemy enemy in enemies)
-                    enemy.WasDefeated += OnDeath;
+                foreach (Actor actor in turnOrder)
+                    SubscribeToActorEvents(actor);
                 DetermineTurnOrder();
                 turnOrder[0].StartTurn();
                 SetupComplete = true;
+            }
+
+            if (TurnNumber < 0)
+            {
+                CheckForEnd();
+                turnOrder[0].StartTurn();
+                TurnNumber = 0;
             }
 
             if (turnOrder[TurnNumber].IsTakingTurn)
@@ -53,6 +60,10 @@ namespace Battle
 
         private void CheckForEnd()
         {
+            if (allies.Count == 0)
+            {
+                Game.Battle.EndBattle();
+            }
             if (enemies.Count == 0)
             {
                 Game.Battle.EndBattle();
@@ -65,17 +76,44 @@ namespace Battle
             turnOrder[TurnNumber].StartTurn();
         }
 
+        private void SubscribeToActorEvents(Actor actor)
+        {
+            actor.WasDefeated += OnDeath;
+            actor.Escaped += OnEscape;
+        }
+
+        private void UnsubscribeFromActorEvents(Actor actor)
+        {
+            actor.WasDefeated -= OnDeath;
+            actor.Escaped -= OnEscape;
+        }
+
         private void OnDeath(Actor actor)
         {
             if (actor is Enemy enemy)
             {
-                enemy.WasDefeated -= OnDeath;
-                int index = turnOrder.IndexOf(enemy);
-                if (index <= TurnNumber)
-                    TurnNumber--;
-                turnOrder.Remove(enemy);
-                enemies.Remove(enemy);
+                UnsubscribeFromActorEvents(enemy);
+                RemoveFromBattle(enemy);
             }
+        }
+
+        private void OnEscape(Actor actor)
+        {
+            UnsubscribeFromActorEvents(actor);
+            RemoveFromBattle(actor);
+        }
+
+        private void RemoveFromBattle(Actor actor)
+        {
+            int index = turnOrder.IndexOf(actor);
+            if (index <= TurnNumber)
+                TurnNumber--;
+            turnOrder.Remove(actor);
+
+            if (actor is Ally)
+                allies.Remove(actor as Ally);
+            else
+                enemies.Remove(actor as Enemy);
         }
     }
 }

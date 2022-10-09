@@ -15,6 +15,6 @@ namespace Battle
             actor = GetComponent<Actor>();
         }
 
-        public abstract ICommand ChooseAction();
+        public abstract IBattleCommand ChooseAction();
     }
 }

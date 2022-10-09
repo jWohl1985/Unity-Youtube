@@ -61,7 +61,7 @@
     <Compile Include="Assets\Scripts\Core\Managers\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\MageStats.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\BattleCalculations.cs" />
-    <Compile Include="Assets\Scripts\Battle\Interfaces\ICommand.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\DamagePopup.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Weapon.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\EnemyPack.cs" />
     <Compile Include="Assets\Scripts\Core\Maps\Map.cs" />
@@ -113,6 +113,7 @@
     <Compile Include="Assets\Scripts\Core\UI\MainMenu\MenuSelector.cs" />
     <Compile Include="Assets\Scripts\Battle\Enemy.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleControl.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\PopupSpawner.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyAI\BlueMinotaurAI.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleSetup.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\ActorStats.cs" />
@@ -123,8 +124,8 @@
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\ThiefStats.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Battle\UI\PopupSpawner.cs" />
-    <Compile Include="Assets\Scripts\Battle\UI\DamagePopup.cs" />
+    <Compile Include="Assets\Scripts\Battle\Interfaces\IBattleCommand.cs" />
+    <Compile Include="Assets\Scripts\Battle\Commands\RunAway.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

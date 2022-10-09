@@ -14,6 +14,7 @@ namespace Battle
 
         public event Action<Actor> WasDefeated;
         public event Action<Actor, int> TookDamage;
+        public event Action<Actor> Escaped;
 
         public Animator Animator { get; protected set; }
         public bool IsTakingTurn { get; protected set; } = false;
@@ -38,6 +39,8 @@ namespace Battle
         }
 
         public abstract void StartTurn();
+
+        public void RanAway() => Escaped?.Invoke(this);
 
         public virtual void TakeDamage(int amount)
         {

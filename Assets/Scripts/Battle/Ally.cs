@@ -36,12 +36,17 @@ namespace Battle
             while (commandFetcher.Command is null)
                 yield return null;
 
-            StartCoroutine(commandFetcher.Command.Co_Execute());
+            IBattleCommand command = commandFetcher.Command;
 
-            while (!commandFetcher.Command.IsFinished)
+            StartCoroutine(command.Co_Execute());
+
+            while (!command.IsFinished)
                 yield return null;
 
-            StartCoroutine(Co_EndTurn());
+            if (command is not RunAway)
+                StartCoroutine(Co_EndTurn());
+            else
+                IsTakingTurn = false;
         }
 
         private IEnumerator Co_EndTurn()

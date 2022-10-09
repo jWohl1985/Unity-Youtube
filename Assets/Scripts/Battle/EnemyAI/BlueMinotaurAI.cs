@@ -6,7 +6,7 @@ namespace Battle
 {
     public class BlueMinotaurAI : EnemyAI
     {
-        public override ICommand ChooseAction()
+        public override IBattleCommand ChooseAction()
         {
             Actor defender = GetRandomTarget();
             return new Attack(actor, defender);
