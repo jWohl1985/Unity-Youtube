@@ -7,14 +7,16 @@ namespace Battle
     public class CommandFetcher
     {
         private BattleControl battleControl;
-        private Actor actor;
+        private TargetSystem targetSystem;
+        private Ally ally;
 
         public IBattleCommand Command { get; private set; }
 
-        public CommandFetcher(Actor actor)
+        public CommandFetcher(Ally ally)
         {
-            this.actor = actor;
+            this.ally = ally;
             battleControl = GameObject.FindObjectOfType<BattleControl>();
+            targetSystem = battleControl.GetComponentInChildren<TargetSystem>();
         }
 
         public IEnumerator Co_GetCommand()
@@ -24,11 +26,17 @@ namespace Battle
                 // TEST CODE
                 if (Input.GetKeyDown(KeyCode.A))
                 {
-                    Command = new Attack(actor, battleControl.Enemies[0]);
+                    ally.RequestTarget(TargetType.AnySingle, TargetDefault.Enemy);
+
+                    while (targetSystem.IsFindingTarget)
+                        yield return null;
+
+                    Actor target = targetSystem.SelectedTargets[0];
+                    Command = new Attack(ally, target);
                 }
                 else if (Input.GetKeyDown(KeyCode.R))
                 {
-                    Command = new RunAway(actor);
+                    Command = new RunAway(ally);
                 }
                 // TEST CODE
 

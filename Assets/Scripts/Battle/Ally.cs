@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ namespace Battle
 {
     public class Ally : Actor
     {
+        public event Action<Actor, TargetType, TargetDefault> NeedTarget;
+
+        public void RequestTarget(TargetType targetType, TargetDefault targetDefault) => NeedTarget?.Invoke(this, targetType, targetDefault);
+
         public override void StartTurn()
         {
             IsTakingTurn = true;

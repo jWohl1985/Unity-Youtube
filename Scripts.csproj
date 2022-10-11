@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Core\Cutscene\Commands\Wait.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Commands\StartDialogue.cs" />
     <Compile Include="Assets\Scripts\Core\Utility\Paths.cs" />
+    <Compile Include="Assets\Scripts\Battle\Interfaces\IBattleCommand.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\PartyMember.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyAI\EnemyAI.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Assets\Scripts\Core\Cutscene\Commands\MovePlayer.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\TurnIndicator.cs" />
     <Compile Include="Assets\Scripts\Battle\Ally.cs" />
+    <Compile Include="Assets\Scripts\Battle\Commands\RunAway.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\TurnBar.cs" />
     <Compile Include="Assets\Scripts\Battle\CommandFetcher.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\StateManager.cs" />
@@ -124,8 +126,9 @@
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\ThiefStats.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Battle\Interfaces\IBattleCommand.cs" />
-    <Compile Include="Assets\Scripts\Battle\Commands\RunAway.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\TargetSelector.cs" />
+    <Compile Include="Assets\Scripts\Battle\Enums.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\TargetSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />
