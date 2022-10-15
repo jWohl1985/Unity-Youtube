@@ -26,7 +26,7 @@ namespace Battle
                 // TEST CODE
                 if (Input.GetKeyDown(KeyCode.A))
                 {
-                    ally.RequestTarget(TargetType.AnySingle, TargetDefault.Enemy);
+                    targetSystem.GetTarget(TargetType.AnySingle, TargetDefault.Enemy);
 
                     while (targetSystem.IsFindingTarget)
                         yield return null;

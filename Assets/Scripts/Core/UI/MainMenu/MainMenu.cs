@@ -41,6 +41,9 @@ namespace Core
 
         private void Update()
         {
+            if (Game.State != GameState.World)
+                return;
+
             if (Input.GetKeyDown(KeyCode.UpArrow) && CurrentSelector.SelectedIndex > 0)
             {
                 menuChangeSound.Play();

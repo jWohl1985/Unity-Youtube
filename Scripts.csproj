@@ -69,10 +69,12 @@
     <Compile Include="Assets\Scripts\Battle\Stats\BattleStats.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\FighterStats.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\BattleRegion.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\TargetSystem.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Core\Utility\Extensions.cs" />
     <Compile Include="Assets\Scripts\Core\Party\Inventory.cs" />
     <Compile Include="Assets\Scripts\Core\Enums.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\TargetSelector.cs" />
     <Compile Include="Assets\Scripts\Core\UI\MainMenu\MainWindow.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Core\Utility\Direction.cs" />
@@ -122,13 +124,11 @@
     <Compile Include="Assets\Scripts\Core\Party\Party.cs" />
     <Compile Include="Assets\Scripts\Core\Character\Player.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\ICutsceneCommand.cs" />
+    <Compile Include="Assets\Scripts\Battle\Enums.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\BattlePortrait.cs" />
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\ThiefStats.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Battle\UI\TargetSelector.cs" />
-    <Compile Include="Assets\Scripts\Battle\Enums.cs" />
-    <Compile Include="Assets\Scripts\Battle\UI\TargetSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

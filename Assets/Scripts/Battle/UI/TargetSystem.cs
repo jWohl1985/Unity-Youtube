@@ -21,15 +21,8 @@ namespace Battle
         {
             battleControl = GetComponentInParent<BattleControl>();
         }
-
-        private void Start()
-        {
-            foreach (Ally ally in battleControl.Allies)
-                ally.NeedTarget += GetTarget;
-        }
-
         
-        private void GetTarget(Actor requestingActor, TargetType targetType, TargetDefault targetDefault)
+        public void GetTarget(TargetType targetType, TargetDefault targetDefault)
         {
             IsFindingTarget = true;
             selectedTargets = new List<Actor>();
@@ -37,7 +30,7 @@ namespace Battle
             switch(targetType)
             {
                 case (TargetType.AnySingle):
-                    StartCoroutine(Co_GetAnySingleTarget(requestingActor, targetDefault));
+                    StartCoroutine(Co_GetAnySingleTarget(targetDefault));
                     break;
                 default:
                     Debug.LogWarning("Target type not implemented yet!");
@@ -45,11 +38,12 @@ namespace Battle
             }
         }
 
-        private IEnumerator Co_GetAnySingleTarget(Actor requestingActor, TargetDefault targetDefault)
+        private IEnumerator Co_GetAnySingleTarget(TargetDefault targetDefault)
         {
             validTargets = battleControl.TurnOrder;
 
             TargetSelector targetSelector;
+            Actor requestingActor = battleControl.TurnOrder[battleControl.TurnNumber];
 
             if (targetDefault == TargetDefault.Ally)
                 targetSelector = Instantiate(targetSelectorPrefab, requestingActor.transform);
@@ -61,6 +55,7 @@ namespace Battle
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     selectedTargets.Add(targetSelector.GetComponentInParent<Actor>());
+                    Destroy(targetSelector.gameObject);
                     break;
                 }
                 yield return null;
