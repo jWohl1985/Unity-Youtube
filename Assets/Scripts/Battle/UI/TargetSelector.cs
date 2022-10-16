@@ -36,69 +36,105 @@ namespace Battle
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                StartCoroutine(Co_MoveUp());
+                FindSelectionInDirection(Dir.Up);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                StartCoroutine(Co_MoveDown());
+                FindSelectionInDirection(Dir.Down);
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                FindSelectionInDirection(Dir.Left);
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                FindSelectionInDirection(Dir.Right);
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if ((Vector2)selectorTransform.localPosition != selectorOffset)
+                    return;
+
+                targetSystem.Accept(this);
             }
 
         }
 
-        private IEnumerator Co_MoveUp()
+        private void FindSelectionInDirection(Dir dir)
         {
-            List<Actor> actorsFound = FindActorInDirection(Dir.Up);
-            if (actorsFound.Count == 0)
-                yield break;
+            Actor actorFound = FindActorInDirection(dir);
+            if (actorFound == null)
+                return;
 
-            CurrentSelection = actorsFound.First().GetComponent<Transform>();
-
+            CurrentSelection = actorFound.GetComponent<Transform>();
             selectorTransform.SetParent(CurrentSelection);
         }
 
-        private IEnumerator Co_MoveDown()
-        {
-            List<Actor> actorsFound = FindActorInDirection(Dir.Down);
-            if (actorsFound.Count == 0)
-                yield break;
-
-            CurrentSelection = actorsFound.First().GetComponent<Transform>();
-
-            selectorTransform.SetParent(CurrentSelection);
-        }
-
-        /*private IEnumerator Co_MoveLeft()
-        {
-            List<Actor> actorsFound = FindActorsInDirection();
-        }
-
-        private IEnumerator Co_MoveRight()
-        {
-            List<Actor> actorsFound = FindActorsInDirection();
-        }*/
-
-        private List<Actor> FindActorInDirection(Dir direction)
+        private Actor FindActorInDirection(Dir direction)
         {
             List<Actor> actorsFound;
             switch (direction)
             {
                 case (Dir.Up):
-                    actorsFound = targets
+                    return targets
                         .Where(actor => actor.transform.position.x == CurrentSelection.transform.position.x)
                         .Where(actor => actor.transform.position.y > CurrentSelection.transform.position.y)
                         .OrderBy(actor => actor.transform.position.y)
-                        .ToList();
-                    return actorsFound;
+                        .FirstOrDefault();
+
                 case (Dir.Down):
-                    actorsFound = targets
+                    return targets
                         .Where(actor => actor.transform.position.x == CurrentSelection.transform.position.x)
                         .Where(actor => actor.transform.position.y < CurrentSelection.transform.position.y)
                         .OrderByDescending(actor => actor.transform.position.y)
+                        .FirstOrDefault();
+
+                case (Dir.Left):
+                    actorsFound = targets
+                        .Where(actor => actor.transform.position.x < CurrentSelection.transform.position.x)
+                        .OrderByDescending(actor => actor.transform.position.x)
                         .ToList();
-                    return actorsFound;
+
+                    if (actorsFound.Count == 0)
+                        return null;
+
+                    float highestX = actorsFound.First().transform.position.x;
+
+                    return FindClosestActor(actorsFound.Where(actor => actor.transform.position.x == highestX));
+
+                case (Dir.Right):
+                    actorsFound = targets
+                        .Where(actor => actor.transform.position.x > CurrentSelection.transform.position.x)
+                        .OrderBy(actor => actor.transform.position.x)
+                        .ToList();
+
+                    if (actorsFound.Count == 0)
+                        return null;
+
+                    float lowestX = actorsFound.First().transform.position.x;
+
+                    return FindClosestActor(actorsFound.Where(actor => actor.transform.position.x == lowestX));
                 default:
                     return null;
             }
+        }
+
+        private Actor FindClosestActor(IEnumerable<Actor> actors)
+        {
+            float closestDistance = float.MaxValue;
+            Actor closestActor = actors.First();
+
+            foreach(Actor actor in actors)
+            {
+                float distance = ((Vector2)actor.transform.position - (Vector2)CurrentSelection.transform.position).magnitude;
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestActor = actor;
+                }
+            }
+
+            return closestActor;
         }
     }
 }
