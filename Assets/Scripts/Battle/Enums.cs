@@ -4,6 +4,14 @@ using UnityEngine;
 
 namespace Battle
 {
+    public enum BattleCommand
+    {
+        Attack,
+        Special,
+        Run,
+        Item,
+    }
+
     public enum TargetType
     {
         AnySingle,

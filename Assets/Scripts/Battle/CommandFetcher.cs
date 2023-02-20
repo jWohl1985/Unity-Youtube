@@ -9,6 +9,7 @@ namespace Battle
         private BattleControl battleControl;
         private TargetSystem targetSystem;
         private Ally ally;
+        private CommandMenu commandMenu;
 
         public IBattleCommand Command { get; private set; }
 
@@ -17,15 +18,23 @@ namespace Battle
             this.ally = ally;
             battleControl = GameObject.FindObjectOfType<BattleControl>();
             targetSystem = battleControl.GetComponentInChildren<TargetSystem>();
+            commandMenu = GameObject.FindObjectOfType<CommandMenu>();
         }
 
         public IEnumerator Co_GetCommand()
         {
-            while (Command == null)
+            commandMenu.Activate();
+
+            while (commandMenu.SelectedCommand is null)
             {
-                // TEST CODE
-                if (Input.GetKeyDown(KeyCode.A))
-                {
+                yield return null;
+            }
+
+            commandMenu.Deactivate();
+
+            switch (commandMenu.SelectedCommand)
+            {
+                case (BattleCommand.Attack):
                     targetSystem.GetTarget(TargetType.AnySingle, TargetDefault.Enemy);
 
                     while (targetSystem.IsFindingTarget)
@@ -33,14 +42,11 @@ namespace Battle
 
                     Actor target = targetSystem.SelectedTargets[0];
                     Command = new Attack(ally, target);
-                }
-                else if (Input.GetKeyDown(KeyCode.R))
-                {
-                    Command = new RunAway(ally);
-                }
-                // TEST CODE
+                    break;
 
-                yield return null;
+                case (BattleCommand.Run):
+                    Command = new RunAway(ally);
+                    break;
             }
         }
     }
