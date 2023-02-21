@@ -1,0 +1,5 @@
+Item Level,Item Name,Item Description,CanUseInMenu,CanUseInBattle
+1,Life Potion,Heals 5 HP.,TRUE,TRUE
+1,Mana Potion,Recovers 3 MP.,TRUE,TRUE
+1,Throwing Knife,Deals 3 STR damage to target.,FALSE,TRUE
+1,Warding Potion,No random battles for 30 steps.,TRUE,FALSE

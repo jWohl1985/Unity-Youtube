@@ -14,9 +14,9 @@ public class PartyMember : ScriptableObject
     [SerializeField] private Job job;
     private PartyMemberStats stats;
 
-    private Weapon equippedWeapon;
-    private Armor equippedArmor;
-    private Accessory equippedAccessory;
+    private Weapon? equippedWeapon;
+    private Armor? equippedArmor;
+    private Accessory? equippedAccessory;
 
     public string Name => moniker;
     public GameObject ActorPrefab => actorPrefab;

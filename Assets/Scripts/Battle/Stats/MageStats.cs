@@ -19,8 +19,8 @@ namespace Battle
         public override int Level => level;
         public override int HP => hp;
         public override int MaxHP => BaseMaxHP;
-        public override int STR => BaseSTR + member.EquippedWeapon.StrBonus;
-        public override int ARM => BaseARM + member.EquippedArmor.ArmBonus;
+        public override int STR => member.EquippedWeapon is null ? BaseSTR : BaseSTR + member.EquippedWeapon.StrBonus;
+        public override int ARM => member.EquippedArmor is null ? BaseARM : BaseARM + member.EquippedArmor.ArmBonus;
         public override int SPD => BaseSPD;
         public int MP { get; private set; }
 

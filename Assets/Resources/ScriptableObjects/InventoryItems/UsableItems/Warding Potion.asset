@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 319e6d0c70fc7334d86c1766610b90ea, type: 3}
-  m_Name: None
+  m_Script: {fileID: 11500000, guid: 6566a0978947a3345ae2956a6fdcf096, type: 3}
+  m_Name: Warding Potion
   m_EditorClassIdentifier: 
-  accessoryName: None
-  effect: 0
-  requiredLevel: 0
+  itemlevel: 1
+  itemName: Warding Potion
+  itemDescription: No random battles for 30 steps.
+  canUseInMenu: 1
+  canUseInBattle: 0
