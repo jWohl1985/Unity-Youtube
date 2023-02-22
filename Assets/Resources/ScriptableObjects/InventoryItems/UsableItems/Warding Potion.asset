@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6566a0978947a3345ae2956a6fdcf096, type: 3}
   m_Name: Warding Potion
   m_EditorClassIdentifier: 
-  itemlevel: 1
+  itemLevel: 1
   itemName: Warding Potion
   itemDescription: No random battles for 30 steps.
   canUseInMenu: 1

@@ -14,9 +14,9 @@ public class PartyMember : ScriptableObject
     [SerializeField] private Job job;
     private PartyMemberStats stats;
 
-    private Weapon? equippedWeapon;
-    private Armor? equippedArmor;
-    private Accessory? equippedAccessory;
+    private Weapon equippedWeapon;
+    private Armor equippedArmor;
+    private Accessory equippedAccessory;
 
     public string Name => moniker;
     public GameObject ActorPrefab => actorPrefab;
@@ -24,20 +24,53 @@ public class PartyMember : ScriptableObject
     public Sprite MenuPortrait => menuPortrait;
     public BattlePortrait BattlePortrait => battlePortrait;
     public Job Job => job;
-    public Weapon EquippedWeapon => equippedWeapon ?? Resources.Load<Weapon>(Paths.NoWeapon);
-    public Armor EquippedArmor => equippedArmor ?? Resources.Load<Armor>(Paths.NoArmor);
-    public Accessory EquippedAccessory => equippedAccessory ?? Resources.Load<Accessory>(Paths.NoAccessory);
+    public Weapon EquippedWeapon => equippedWeapon;
+    public Armor EquippedArmor => equippedArmor;
+    public Accessory EquippedAccessory => equippedAccessory;
 
     public void EquipItem(Equipment itemToEquip)
     {
         if (itemToEquip is Weapon weapon)
-            equippedWeapon = weapon;
+            EquipWeapon(weapon);
 
         else if (itemToEquip is Armor armor)
-            equippedArmor = armor;
+            EquipArmor(armor);
 
         else if (itemToEquip is Accessory accessory)
-            equippedAccessory = accessory;
+            EquipAccessory(accessory);
+    }
+
+    private void EquipWeapon(Weapon weapon)
+    {
+        if (equippedWeapon is not null)
+        {
+            Party.Inventory.AddItem(equippedWeapon);
+        }
+
+        Party.Inventory.RemoveItem(weapon);
+        equippedWeapon = weapon;
+    }
+
+    private void EquipArmor(Armor armor)
+    {
+        if (equippedArmor is not null)
+        {
+            Party.Inventory.AddItem(equippedArmor);
+        }
+
+        Party.Inventory.RemoveItem(armor);
+        equippedArmor = armor;
+    }
+
+    private void EquipAccessory(Accessory accessory)
+    {
+        if (equippedAccessory is not null)
+        {
+            Party.Inventory.AddItem(equippedAccessory);
+        }
+
+        Party.Inventory.RemoveItem(accessory);
+        equippedAccessory = accessory;
     }
 
     public void Initialize(PartyMember member, int level)

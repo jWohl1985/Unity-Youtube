@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Core
@@ -39,20 +40,20 @@ namespace Core
 
         private static void GenerateStartingParty()
         {
-            PartyMember Balfam = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.BlackWraith));
-            PartyMember Bul = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Satyr));
-            PartyMember Enna = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Wraith));
-            PartyMember Maxymer = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Minotaur));
-            AddActiveMember(Balfam);
-            AddActiveMember(Bul);
-            AddActiveMember(Enna);
-            AddActiveMember(Maxymer);
+            PartyMember BlackWraith = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.BlackWraith));
+            PartyMember Satyr = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Satyr));
+            PartyMember Wraith = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Wraith));
+            PartyMember Minotaur = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Minotaur));
+            AddActiveMember(BlackWraith);
+            AddActiveMember(Satyr);
+            AddActiveMember(Wraith);
+            AddActiveMember(Minotaur);
 
             inventory.Initialize();
 
-            Balfam.EquipItem(inventory.Equipment[0]);
-            Bul.EquipItem(inventory.Equipment[1]);
-            Enna.EquipItem(inventory.Equipment[2]);
+            BlackWraith.EquipItem((Equipment)inventory.Items.Keys.Where(i => i is Weapon).First());
+            Satyr.EquipItem((Equipment)inventory.Items.Keys.Where(i => i is Armor).First());
+            Wraith.EquipItem((Equipment)inventory.Items.Keys.Where(i => i is Accessory).First());
 
             foreach(PartyMember member in ActiveMembers)
             {

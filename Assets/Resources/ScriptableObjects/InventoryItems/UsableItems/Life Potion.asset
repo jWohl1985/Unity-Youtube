@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6566a0978947a3345ae2956a6fdcf096, type: 3}
   m_Name: Life Potion
   m_EditorClassIdentifier: 
-  itemlevel: 1
+  itemLevel: 1
   itemName: Life Potion
   itemDescription: Heals 5 HP.
   canUseInMenu: 1

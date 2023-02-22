@@ -41,7 +41,7 @@ namespace Core
 
         private void Update()
         {
-            if (Game.State != GameState.World)
+            if (Game.State != GameState.Menu)
                 return;
 
             if (Input.GetKeyDown(KeyCode.UpArrow) && CurrentSelector.SelectedIndex > 0)

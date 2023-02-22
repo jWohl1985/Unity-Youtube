@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8f07a131fd27143934481363067e37, type: 3}
   m_Name: Dagger
   m_EditorClassIdentifier: 
-  weaponName: Dagger
-  requiredLevel: 1
+  itemLevel: 1
+  itemName: Dagger
+  itemDescription: A sharp dagger.
   strBonus: 1

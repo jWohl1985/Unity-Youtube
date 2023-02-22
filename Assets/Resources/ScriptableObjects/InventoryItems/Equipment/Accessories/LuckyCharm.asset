@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319e6d0c70fc7334d86c1766610b90ea, type: 3}
   m_Name: LuckyCharm
   m_EditorClassIdentifier: 
-  accessoryName: Lucky Charm
-  effect: 0
-  requiredLevel: 1
+  itemLevel: 1
+  itemName: Lucky Charm
+  itemDescription: Enemies drop better items.
+  effect: 1

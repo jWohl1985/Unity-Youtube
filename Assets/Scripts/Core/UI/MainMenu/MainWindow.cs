@@ -35,6 +35,7 @@ namespace Core
                     child.gameObject.SetActive(false);
             }
 
+            equipmentInfo.SetPartyMember(member);
             equipmentInfo.gameObject.SetActive(true);
         }
     }

@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\MageStats.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\BattleCalculations.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\CommandMenu.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\DamagePopup.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets\Scripts\Core\Managers\StateManager.cs" />
     <Compile Include="Assets\Scripts\Core\Cutscene\Cutscene.cs" />
     <Compile Include="Assets\Scripts\Core\UI\MainMenu\MenuSelector.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\UsableItems\UsableItem.cs" />
     <Compile Include="Assets\Scripts\Battle\Enemy.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleControl.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\PopupSpawner.cs" />
@@ -130,8 +132,6 @@
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\ThiefStats.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\ScriptableObjects\InventoryItem.cs" />
-    <Compile Include="Assets\Scripts\ScriptableObjects\UsableItems\UsableItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

@@ -13,24 +13,40 @@ namespace Core
         private UsableItem lifePotion = Resources.Load<UsableItem>("ScriptableObjects/InventoryItems/UsableItems/Life Potion");
 
 
-        private List<Equipment> equipment = new List<Equipment>();
-        private List<UsableItem> usableItems = new List<UsableItem>();
+        private Dictionary<InventoryItem, int> items = new Dictionary<InventoryItem, int>();
 
-        public IReadOnlyList<Equipment> Equipment => equipment;
-        public IReadOnlyList<UsableItem> UsableItems => usableItems;
+        public IReadOnlyDictionary<InventoryItem, int> Items => items;
 
         public void Initialize()
         {
-            equipment.Add(dagger);
-            equipment.Add(shield);
-            equipment.Add(luckyCharm);
+            items.Add(dagger, 1);
+            items.Add(shield, 1);
+            items.Add(luckyCharm, 1);
 
-            usableItems.Add(lifePotion);
+            items.Add(lifePotion, 1);
+        }
 
-            foreach (var item in usableItems)
+        public void AddItem(InventoryItem item, int quantity=1)
+        {
+            if (items.ContainsKey(item))
             {
-                Debug.Log(item.ItemName);
+                items[item] += quantity;
             }
+
+            items.Add(item, quantity);
+
+            items[item] = Mathf.Clamp(items[item], 0, 99);
+        }
+
+        public void RemoveItem(InventoryItem item, int quantity = 1)
+        {
+            if (!items.ContainsKey(item))
+            {
+                return;
+            }
+
+            items[item] -= quantity;
+            items[item] = Mathf.Clamp(items[item], 0, 99);
         }
     }
 }

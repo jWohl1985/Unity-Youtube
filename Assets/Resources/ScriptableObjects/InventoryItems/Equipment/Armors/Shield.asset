@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac3efd72a3835c4f93da55dc54ea35a, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  armorName: Shield
-  requiredLevel: 1
+  itemLevel: 1
+  itemName: Shield
+  itemDescription: A sturdy wooden shield.
   armBonus: 1
