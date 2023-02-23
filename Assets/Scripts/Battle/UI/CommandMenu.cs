@@ -63,5 +63,10 @@ namespace Battle
         {
             SelectedCommand = BattleCommand.Run;
         }
+
+        public void Item()
+        {
+            SelectedCommand = BattleCommand.Item;
+        }
     }
 }

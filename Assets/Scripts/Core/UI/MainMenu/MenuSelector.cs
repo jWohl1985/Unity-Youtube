@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,18 @@ namespace Core
         private RectTransform rectTransform;
         private List<RectTransform> selectableOptions = new List<RectTransform>();
 
-        public int SelectedIndex { get; set; } = 0;
+        public event Action SelectionChanged;
+
+        private int _selectedIndex = 0;
+        public int SelectedIndex
+        {
+            get => _selectedIndex;
+            set
+            {
+                _selectedIndex = value;
+                SelectionChanged?.Invoke();
+            }
+        }
 
         public IReadOnlyList<RectTransform> SelectableOptions => selectableOptions;
 
