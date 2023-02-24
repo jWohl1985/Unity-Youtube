@@ -132,6 +132,8 @@
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\ThiefStats.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\ItemInfo.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\ItemList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

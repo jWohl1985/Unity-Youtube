@@ -17,3 +17,4 @@ MonoBehaviour:
   itemDescription: Heals 5 HP.
   canUseInMenu: 1
   canUseInBattle: 1
+  itemIcon: {fileID: 0}
