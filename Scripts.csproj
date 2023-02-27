@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Core\Character\CharacterTurner.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\BattleStats.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\FighterStats.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\ItemList.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\BattleRegion.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\TargetSystem.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\EnemyStats.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\Scripts\Core\Managers\CutsceneManager.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\Game.cs" />
     <Compile Include="Assets\Scripts\Core\Character\CharacterMover.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\ItemInfo.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueLine.cs" />
     <Compile Include="Assets\Scripts\Core\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Core\Maps\Transfer.cs" />
@@ -132,8 +134,7 @@
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\ThiefStats.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Battle\UI\ItemInfo.cs" />
-    <Compile Include="Assets\Scripts\Battle\UI\ItemList.cs" />
+    <Compile Include="Assets\Scripts\Battle\Commands\UseItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

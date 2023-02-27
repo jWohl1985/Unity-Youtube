@@ -6,6 +6,9 @@ namespace Battle
 {
     public class CommandFetcher
     {
+        public static CommandFetcher CurrentFetcher;
+
+
         private BattleControl battleControl;
         private TargetSystem targetSystem;
         private Ally ally;
@@ -19,6 +22,8 @@ namespace Battle
             battleControl = GameObject.FindObjectOfType<BattleControl>();
             targetSystem = battleControl.GetComponentInChildren<TargetSystem>();
             commandMenu = GameObject.FindObjectOfType<CommandMenu>();
+
+            CurrentFetcher = this;
         }
 
         public IEnumerator Co_GetCommand()
@@ -47,7 +52,16 @@ namespace Battle
                 case (BattleCommand.Run):
                     Command = new RunAway(ally);
                     break;
+
+                case (BattleCommand.Item):
+                    // fill this out
+                    break;
             }
+        }
+
+        public void SetCommand(IBattleCommand command)
+        {
+            Command = command;
         }
     }
 }

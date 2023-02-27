@@ -8,6 +8,7 @@ namespace Battle
 {
     public class CommandMenu : MonoBehaviour
     {
+        private ItemList itemList;
         private RectTransform rect;
         private bool isActive;
 
@@ -23,6 +24,7 @@ namespace Battle
         private void Awake()
         {
             rect = GetComponent<RectTransform>();
+            itemList = GameObject.FindObjectOfType<ItemList>();
 
             activeYposition = rect.anchoredPosition.y + 300f;
             inactiveYposition = rect.anchoredPosition.y;
@@ -66,6 +68,8 @@ namespace Battle
 
         public void Item()
         {
+            Debug.Log("Item chosen");
+            itemList.Open();
             SelectedCommand = BattleCommand.Item;
         }
     }

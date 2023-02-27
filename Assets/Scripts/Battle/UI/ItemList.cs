@@ -5,12 +5,19 @@ using Core;
 
 public class ItemList : MonoBehaviour
 {
+    private Animator animator;
+
     [SerializeField] private GameObject itemInfoPrefab;
     [SerializeField] private GameObject listOfItems;
 
-    private void Start()
+    private void Awake()
     {
-        foreach(InventoryItem item in Party.Inventory.Items.Keys)
+        animator = GetComponent<Animator>();
+    }
+
+    public void Open()
+    {
+        foreach (InventoryItem item in Party.Inventory.Items.Keys)
         {
             if (item is UsableItem usableItem)
             {
@@ -18,5 +25,16 @@ public class ItemList : MonoBehaviour
                 itemInfo.SetItem(usableItem);
             }
         }
+        animator.Play("Open");
+    }
+
+    public void Close()
+    {
+        foreach (RectTransform child in listOfItems.GetComponent<RectTransform>())
+        {
+            Destroy(child.gameObject);
+        }
+
+        animator.Play("Close");
     }
 }

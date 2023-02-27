@@ -4,9 +4,12 @@ using TMPro;
 using UnityEngine;
 using Core;
 using UnityEngine.UI;
+using Battle;
 
 public class ItemInfo : MonoBehaviour
 {
+    public IBattleCommand Command { get; private set; }
+
     private UsableItem item;
 
     [SerializeField] private Image itemIcon;
@@ -18,5 +21,14 @@ public class ItemInfo : MonoBehaviour
 
         itemIcon = item.ItemIcon;
         itemQuantityAndName.text = $"({Party.Inventory.Items[item].ToString()}) {item.ItemName}";
+    }
+
+    public void UseItem()
+    {
+        BattleControl battleControl = GameObject.FindObjectOfType<BattleControl>();
+        Ally allyUsingItem = (Ally)battleControl.TurnOrder[battleControl.TurnNumber];
+
+        GameObject.FindObjectOfType<ItemList>().Close();
+        CommandFetcher.CurrentFetcher.SetCommand(new UseItem(allyUsingItem, item));
     }
 }
