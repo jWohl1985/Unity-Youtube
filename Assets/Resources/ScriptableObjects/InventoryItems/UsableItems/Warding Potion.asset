@@ -17,3 +17,4 @@ MonoBehaviour:
   itemDescription: No random battles for 30 steps.
   canUseInMenu: 1
   canUseInBattle: 0
+  itemIcon: {fileID: 21300000, guid: 72bb39fdf71a6b64eb05709c1a61c0dd, type: 3}

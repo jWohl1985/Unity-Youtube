@@ -51,6 +51,11 @@ namespace Core
 
             items[item] -= quantity;
             items[item] = Mathf.Clamp(items[item], 0, 99);
+
+            if (items.ContainsKey(item) && items[item] == 0)
+            {
+                items.Remove(item);
+            }
         }
     }
 }

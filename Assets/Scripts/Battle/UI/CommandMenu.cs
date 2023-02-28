@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ namespace Battle
         [SerializeField] private float moveSpeed = 1f;
         [SerializeField] private GameObject defaultSelection;
 
+        private List<Button> buttons = new List<Button>();
+
         private float currentYPosition => rect.anchoredPosition.y;
 
         public BattleCommand? SelectedCommand { get; private set; } = null;
@@ -25,6 +28,7 @@ namespace Battle
         {
             rect = GetComponent<RectTransform>();
             itemList = GameObject.FindObjectOfType<ItemList>();
+            buttons = GetComponentsInChildren<Button>().ToList();
 
             activeYposition = rect.anchoredPosition.y + 300f;
             inactiveYposition = rect.anchoredPosition.y;
@@ -47,6 +51,10 @@ namespace Battle
         public void Activate()
         {
             isActive = true;
+            foreach (Button button in buttons)
+            {
+                button.interactable = true;
+            }
             EventSystem.current.SetSelectedGameObject(defaultSelection);
             SelectedCommand = null;
         }
@@ -54,6 +62,11 @@ namespace Battle
         public void Deactivate()
         {
             isActive = false;
+
+            foreach (Button button in buttons)
+            {
+                button.interactable = false;
+            }
         }
 
         public void Attack()

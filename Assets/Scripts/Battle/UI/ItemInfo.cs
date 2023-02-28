@@ -19,7 +19,7 @@ public class ItemInfo : MonoBehaviour
     {
         this.item = item;
 
-        itemIcon = item.ItemIcon;
+        itemIcon.sprite = item.ItemIcon;
         itemQuantityAndName.text = $"({Party.Inventory.Items[item].ToString()}) {item.ItemName}";
     }
 

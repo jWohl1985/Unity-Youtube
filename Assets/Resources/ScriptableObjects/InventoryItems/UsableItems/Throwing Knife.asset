@@ -17,3 +17,4 @@ MonoBehaviour:
   itemDescription: Deals 3 STR damage to target.
   canUseInMenu: 0
   canUseInBattle: 1
+  itemIcon: {fileID: 21300000, guid: 72bb39fdf71a6b64eb05709c1a61c0dd, type: 3}

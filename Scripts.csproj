@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Core\Utility\Paths.cs" />
     <Compile Include="Assets\Scripts\Battle\Interfaces\IBattleCommand.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\PartyMember.cs" />
+    <Compile Include="Assets\Scripts\Battle\Commands\UseItem.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyAI\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Armor.cs" />
@@ -134,7 +135,6 @@
     <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Battle\Stats\ThiefStats.cs" />
     <Compile Include="Assets\Scripts\Core\UI\Dialogue\DialogueWindow.cs" />
-    <Compile Include="Assets\Scripts\Battle\Commands\UseItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Scripts.asmdef" />

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Core;
+using UnityEngine.UI;
+using System.Linq;
+using UnityEngine.EventSystems;
 
 public class ItemList : MonoBehaviour
 {
@@ -9,6 +12,8 @@ public class ItemList : MonoBehaviour
 
     [SerializeField] private GameObject itemInfoPrefab;
     [SerializeField] private GameObject listOfItems;
+
+    private List<Button> buttons = new List<Button>();
 
     private void Awake()
     {
@@ -25,11 +30,17 @@ public class ItemList : MonoBehaviour
                 itemInfo.SetItem(usableItem);
             }
         }
+
+        buttons = GetComponentsInChildren<Button>().ToList();
+        EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
+
         animator.Play("Open");
     }
 
     public void Close()
     {
+        buttons.Clear();
+
         foreach (RectTransform child in listOfItems.GetComponent<RectTransform>())
         {
             Destroy(child.gameObject);

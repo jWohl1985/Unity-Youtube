@@ -7,7 +7,7 @@ public class UsableItem : InventoryItem
 {
     [SerializeField] private bool canUseInMenu;
     [SerializeField] private bool canUseInBattle;
-    [SerializeField] private Image itemIcon;
+    [SerializeField] private Sprite itemIcon;
 
     public bool CanUseInMenu
     {
@@ -21,5 +21,5 @@ public class UsableItem : InventoryItem
         set => canUseInBattle = value;
     }
 
-    public Image ItemIcon => itemIcon;
+    public Sprite ItemIcon => itemIcon;
 }
